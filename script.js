@@ -50,18 +50,18 @@ mod.controller('contactController', function($scope) {
 
 $(window).resize(function() {
     if($(window).width() < 768) {
-        $('#button').show();
-        $('#menu').hide();
+        $('.button').show();
+        $('.menu').hide();
     }else{
-        $('#button').hide();
-        $('#menu').show();
+        $('.button').hide();
+        $('.menu').show();
     }
 }).load(function(){
     $(window).trigger('resize');
 });
 
 $(document).ready(function(){
-    $('#button').click(function() {
-        $('#menu').toggle();
+    $('.button').click(function() {
+        $('.menu').toggleClass('toggled');
     });
 });
