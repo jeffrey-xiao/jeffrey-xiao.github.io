@@ -53,7 +53,12 @@ mod.controller('contactController', function($scope) {
 });
 
 $(window).resize(function() {
-    $('.menu').css('max-height', $(window).height() - $('.menu').offset().top); // Set menu max height 
+    $('.menu').css('max-height', 'auto !important'); //show it very temporarily
+    var height = $(window).height() - $('.menu').offset().top; //find the height of the window 
+    if($('.menu').height() < height){ //if the menu is smaller than window height, than use menu height
+        height = $('.menu').height();
+    }
+    $('.menu').css('max-height', height); // Set menu max height 
     if($(window).width() < 768) {
         $('.button').show();
     }else{
