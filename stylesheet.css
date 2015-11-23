@@ -99,15 +99,13 @@ footer a:hover{
 }
 
 .menu {
-    -webkit-transition: height .3s linear, padding-top .3s linear, padding-bottom .3s linear, border-width .3s linear;
+  transition: height .3s linear;
+  max-height:1000px; /* will be reset by JS */ 
 }
 
 .toggled {
     overflow: hidden;
-    padding-top: 0;
-    padding-bottom: 0;
-    height: 0;
-    border-width: 0;
+    max-height:0px !important; /* max height of 0 because that can be animated. Important because overrides javascript value */
 }
 
 @keyframes fadeIn {
