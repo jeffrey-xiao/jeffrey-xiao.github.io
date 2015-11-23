@@ -8,9 +8,17 @@ mod.config(function($routeProvider){
         templateUrl: 'pages/home.html',
         controller: 'mainController'
     })
-    .when('/about', {
-        templateUrl: 'pages/about.html',
-        controller: 'aboutController'
+    .when('/resume', {
+        templateUrl: 'pages/resume.html',
+        controller: 'resumeController'
+    })
+    .when('/projects', {
+        templateUrl: 'pages/projects.html',
+        controller: 'projectsController'
+    })
+    .when('/blog', {
+        templateUrl: 'pages/blog.html',
+        controller: 'blogController'
     })
     .when('/contact', {
         templateUrl: 'pages/contact.html',
@@ -23,8 +31,16 @@ mod.controller('mainController', function($scope) {
     $scope.message = 'This is the main page';
 });
 
-mod.controller('aboutController', function($scope) {
-    $scope.message = 'This is the about page';
+mod.controller('resumeController', function($scope) {
+    $scope.message = 'This is the resume page';
+});
+
+mod.controller('projectsController', function($scope) {
+    $scope.message = 'This is the projects page';
+});
+
+mod.controller('blogController', function($scope) {
+    $scope.message = 'This is the blog page';
 });
 
 mod.controller('contactController', function($scope) {
