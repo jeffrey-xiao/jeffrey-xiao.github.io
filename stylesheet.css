@@ -96,3 +96,33 @@ footer a:hover{
     opacity:0.7;
     color:red;
 }
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0.0;
+    }
+    50% {
+        opacity: 0.0;
+    }
+    100% {
+        opacity: 1.0;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1.0;
+    }
+    to {
+        opacity: 0.0;
+    }
+}
+
+.ng-enter {
+    animation: fadeIn 0.5s both ease-in;
+    z-index:9000;
+}
+.ng-leave {
+    animation: fadeOut 0.25s both ease-in;
+    z-index:8000;
+}

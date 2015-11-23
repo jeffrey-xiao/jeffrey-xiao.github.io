@@ -1,5 +1,5 @@
 // create a module
-var mod = angular.module('mod', ['ngRoute']);
+var mod = angular.module('mod', ['ngRoute', 'ngAnimate']);
 
 // configure our routes
 mod.config(function($routeProvider){
