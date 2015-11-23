@@ -13,7 +13,7 @@ body {
 nav {
     font-weight: 900;
     min-height: 100px;
-    background-image: url('https://images.unsplash.com/photo-1424460421773-58b49adfc68a?ixlib=rb-0.3.5&q=80&fm=jpg&w=1080&fit=max&s=aff55c4628075ba69fc86f59fcb4e173');
+    background-image: url("resources/sky.jpg");
     background-size: cover;
     color: ghostwhite;
 }
@@ -32,6 +32,9 @@ nav a, nav a:link, nav a:visited, nav a:link:active, nav a:visited:active {
     transition: all 300ms;
     opacity:1.0;
     color:ghostwhite;
+}
+
+nav #button {
 }
 
 nav a:hover{

@@ -48,10 +48,20 @@ mod.controller('contactController', function($scope) {
     $scope.message = 'This is the contact us page';
 });
 
-$(window).on('resize', function() {
-    if($(window).width() < 600) {
-        $('#toggleLink').show();
+$(window).resize(function() {
+    if($(window).width() < 768) {
+        $('#button').show();
+        $('#menu').hide();
     }else{
-        $('#toggleLink').hide();
+        $('#button').hide();
+        $('#menu').show();
     }
+}).load(function(){
+    $(window).trigger('resize');
+});
+
+$(document).ready(function(){
+    $('#button').click(function() {
+        $('#menu').toggle();
+    });
 });
