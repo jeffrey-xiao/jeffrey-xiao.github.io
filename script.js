@@ -8,10 +8,11 @@ mod.config(function($routeProvider){
         templateUrl: 'pages/home.html',
         controller: 'mainController'
     })
+    /*
     .when('/resume', {
         templateUrl: 'pages/resume.html',
         controller: 'resumeController'
-    })
+    }) */
     .when('/projects', {
         templateUrl: 'pages/projects.html',
         controller: 'projectsController'
