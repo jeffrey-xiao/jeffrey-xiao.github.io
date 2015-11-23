@@ -56,10 +56,8 @@ $(window).resize(function() {
     $('.menu').css('max-height', $(window).height() - $('.menu').offset().top); // Set menu max height 
     if($(window).width() < 768) {
         $('.button').show();
-        $('.menu').hide();
     }else{
         $('.button').hide();
-        $('.menu').show();
     }
 }).load(function(){
     $(window).trigger('resize');
