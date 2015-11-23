@@ -6,7 +6,8 @@ mod.config(function($routeProvider){
     $routeProvider
     .when('/', {
         templateUrl: 'pages/home.html',
-        controller: 'mainController'
+        controller: 'mainController',
+        title: 'Jeffrey Xiao - About'
     })
     /*
     .when('/resume', {
@@ -15,15 +16,18 @@ mod.config(function($routeProvider){
     }) */
     .when('/projects', {
         templateUrl: 'pages/projects.html',
-        controller: 'projectsController'
+        controller: 'projectsController',
+        title: 'Jeffrey Xiao - Projects'
     })
     .when('/blog', {
         templateUrl: 'pages/blog.html',
-        controller: 'blogController'
+        controller: 'blogController',
+        title: 'Jeffrey Xiao - Blog'
     })
     .when('/contact', {
         templateUrl: 'pages/contact.html',
-        controller: 'contactController'
+        controller: 'contactController',
+        title: 'Jeffrey Xiao - Contact'
     });
 });
 

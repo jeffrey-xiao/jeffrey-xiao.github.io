@@ -103,11 +103,11 @@ footer a:hover{
 }
 
 .toggled {
-  overflow: hidden;
-  padding-top: 0;
-  padding-bottom: 0;
-  height: 0;
-  border-width: 0;
+    overflow: hidden;
+    padding-top: 0;
+    padding-bottom: 0;
+    height: 0;
+    border-width: 0;
 }
 
 @keyframes fadeIn {
