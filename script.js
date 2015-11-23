@@ -47,3 +47,11 @@ mod.controller('blogController', function($scope) {
 mod.controller('contactController', function($scope) {
     $scope.message = 'This is the contact us page';
 });
+
+$(window).on('resize', function() {
+    if($(window).width() < 600) {
+        $('#toggleLink').show();
+    }else{
+        $('#toggleLink').hide();
+    }
+});
