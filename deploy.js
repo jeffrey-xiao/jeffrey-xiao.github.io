@@ -8,5 +8,5 @@ fs.writeFileSync(path.join(__dirname, 'public', 'CNAME'), 'jeffreyxiao.me');
 
 ghpages.publish('public', {
   branch: 'master',
-  repo: 'https://github.com/jeffrey-xiao/jeffrey-xiao.github.io',
+  repo: 'https://gitlab.com/jeffrey-xiao/jeffrey-xiao.github.io',
 });
