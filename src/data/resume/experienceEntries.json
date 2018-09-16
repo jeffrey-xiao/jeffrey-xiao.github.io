@@ -1,0 +1,35 @@
+[
+  {
+    "entity": "datacoral Inc",
+    "subEntity": "Software Engineering Intern",
+    "location": "San Francisco, California",
+    "time": "Jan 2018 - Apr 2018",
+    "description": [
+      "Scoped out, architected, and implemented highly scalable materialized views in Redshift using Kinesis Data Streams, DynamoDB, and Lambda.",
+      "Used timelabel tags to represent the state of underlying data, update materialized views when dependencies get updated, and handle schedule and view definition changes.",
+      "Built critical APIs and migration scripts to launch a web application for monitoring materialized views and data pipeline performance."
+    ]
+  },
+  {
+    "entity": "Yelp",
+    "subEntity": "Software Engineering Intern",
+    "location": "San Francisco, California",
+    "time": "May 2017 - Sept 2017",
+    "description": [
+      "Explored and evaluated solutions for better client-side JS error reporting.",
+      "Implemented and rolled out infrastructure to process over 25 million errors every month to over 20 services.",
+      "Modernized build pipeline and built tooling to migrate services from Google Closure Library to ES6 and Webpack, and from npm to yarn.",
+      "Helped develop infrastructure and tooling to migrate services to React, including server-side rendering of React components."
+    ]
+  },
+  {
+    "entity": "Ivy Global",
+    "subEntity": "Software Engineering Intern",
+    "location": "Toronto, Ontario",
+    "time": "Nov 2015 - Sept 2016",
+    "description": [
+      "Led the development of a bubblesheet scanner and grader using convolutional neural networks, and custom image processing algorithms to process blurred, tilted, and imprecise images.",
+      "Developed an ASP web application that displays SAT scores and statistics for mock exams in real-time."
+    ]
+  }
+]

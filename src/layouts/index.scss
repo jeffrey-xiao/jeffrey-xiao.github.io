@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:300|Josefin+Slab|Inconsolata|Raleway:400');
+
+html, body, #___gatsby {
+  height: 100%;
+  margin: 0;
+}
+
+#___gatsby {
+  text-align: center;
+  div {
+    text-align: left;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Josefin Sans", sans-serif;
+}
+
+p, span.emphasis {
+  font-size: 16px;
+  line-height: 22px;
+  font-family: "Raleway", sans-serif;
+}

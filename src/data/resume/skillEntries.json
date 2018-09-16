@@ -1,0 +1,27 @@
+[
+  {
+    "title": "Proficient",
+    "elements": [
+      "Java",
+      "C",
+      "C++",
+      "C#",
+      "Rust",
+      "Python",
+      "JavaScript",
+      "ES6",
+      "React",
+      "Node",
+      "Git",
+      "Linux"
+    ]
+  },
+  {
+    "title": "Familiar",
+    "elements": [
+      "Go",
+      "Bash",
+      "Scala"
+    ]
+  }
+]
