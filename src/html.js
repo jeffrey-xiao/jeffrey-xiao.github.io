@@ -1,5 +1,6 @@
 /* eslint-disable */_
 import React from 'react';
+import favicon from '../static/favicon.ico'
 
 let inlinedStyles;
 if (process.env.NODE_ENV === 'production') {
@@ -29,6 +30,7 @@ const HTML = (props) => {
           name="viewport"
           content="width=device-width, initial-scale=1.0"
         />
+        <link rel="shortcut icon" type="image/png" href={favicon} />
         {props.headComponents}
         {css}
       </head>
