@@ -48,6 +48,7 @@
     "lint": "./node_modules/.bin/eslint src",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "MIT"
+  "author": "Jeffrey Xiao <jeffrey.xiao1998@gmail.com>",
+  "license": "(MIT OR Apache-2.0)"
+
 }
