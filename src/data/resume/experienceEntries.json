@@ -1,5 +1,14 @@
 [
   {
+    "entity": "Google",
+    "subEntity": "Software Engineering Intern",
+    "location": "San Francisco, California",
+    "time": "Sept 2018 - Dec 2018",
+    "description": [
+      "Building large-scale, robust data analysis pipelines and serving machine learning models to improve online ads prediction accuracy."
+    ]
+  },
+  {
     "entity": "datacoral Inc",
     "subEntity": "Software Engineering Intern",
     "location": "San Francisco, California",

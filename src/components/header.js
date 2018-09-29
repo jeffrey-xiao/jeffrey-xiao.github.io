@@ -122,8 +122,8 @@ const Header = (props) => {
         <HeaderTitle onHomepage={onHomepage}>jeffreyxiao</HeaderTitle>
         <HeaderBio onHomepage={onHomepage}>
           Hi! I&#39;m a student at the University of Waterloo studying software engineering.
-          I have an interest in modern and reactive web development as well as developing
-          infrastructure to solve big problems.
+          I have an interest in large scale distributed algorithms and infrastructure for data
+          analytics. I also enjoy working with low level systems.
         </HeaderBio>
         <Navbar>
           <NavbarLink activePage={props.activePage} currentPage="home" />
