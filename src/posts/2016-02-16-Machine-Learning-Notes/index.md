@@ -9,9 +9,11 @@ tags:
 ---
 
 ## Introduction
+
 My ongoing notes for machine learning.
 
 ## Definitions
+
 $$
 \begin{aligned}
   \theta      &= \text{weights/parameters}            \\
@@ -26,6 +28,7 @@ $$
 $$
 
 ## Linear Regression
+
 $$
 \begin{aligned}
   h_\theta(x)     &= \theta^Tx                                                                         \\\\
@@ -38,6 +41,7 @@ $$
 $$
 
 ## Logistic Regression
+
 $$
 \begin{aligned}
   h_\theta(x)     &= g(\theta^Tx) \text{ where } g(z) = \frac{1}{1 + e^{-z}}                                          \\\\
@@ -49,7 +53,11 @@ $$
 $$
 
 ## Neural Networks
+
 ## Support Vector Machines
+
 ## Kernels
+
 ## K-means Clustering
+
 ## Recommender Systems

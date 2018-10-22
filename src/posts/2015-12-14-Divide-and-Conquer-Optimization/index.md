@@ -9,8 +9,9 @@ tags:
 ---
 
 ## Introduction
-This optimization for dynamic programming solutions uses the concept of divide
-and conquer. It is only applicable for the following recurrence:
+
+This optimization for dynamic programming solutions uses the concept of divide and conquer. It is
+only applicable for the following recurrence:
 
 $$
 \text{dp}[i][j] = \min_{k < j}\{dp[i-1][k] + \text{C}[k][j]\}
@@ -27,11 +28,11 @@ $$
 This optimization reduces the time complexity from $O(KN^2)$ to $O(KN log \ N)$
 
 ## Example Problem: Codeforces Round 190: Div. 1E
-There are $N$ people at an amusement park who are in a queue for a ride. Each
-pair of people has a measured level of unfamiliarity. The people will be
-divided into $K$ non-empty contiguous groups. Each division has a total
-unfamiliarity value which is the sum of the levels of unfamiliarity between any
-pair of people for each group.
+
+There are $N$ people at an amusement park who are in a queue for a ride. Each pair of people has a
+measured level of unfamiliarity. The people will be divided into $K$ non-empty contiguous groups.
+Each division has a total unfamiliarity value which is the sum of the levels of unfamiliarity
+between any pair of people for each group.
 
 Determine the minimal possible total unfamiliarity value.
 
@@ -50,6 +51,7 @@ Determine the minimal possible total unfamiliarity value.
 ```
 
 ## Sample Output
+
 ```
 7
 ```
@@ -58,6 +60,7 @@ Determine the minimal possible total unfamiliarity value.
 One optimal division is $\{1, 2, 3\} | \{4, 5, 6\} | \{7, 8\}$ which sum to $7$
 
 ## Analysis
+
 First let us notice the $O(KN^2)$ solution:
 
 ```java
@@ -73,17 +76,16 @@ for (int i = 1; i <= k; i++)
       dp[j][i] = Math.min(dp[j][i], dp[k-1][i-1] + cost(k, j));
 ```
 
-For each iteration of $j$, we are looping from $1$ to $j$, but if we use the
-observation that $\text{minK}[j][i] \leq \text{minK}[j+1][i]$, we can reduce
-that left and right bounds for each iteration.
+For each iteration of $j$, we are looping from $1$ to $j$, but if we use the observation that
+$\text{minK}[j][i] \leq \text{minK}[j+1][i]$, we can reduce that left and right bounds for each
+iteration.
 
-Let us define function $\text{compute}(g, i, j, l, r)$ that computes
-$\text{dp}[i...j][g]$ knowing that $l \leq k \leq r$
+Let us define function $\text{compute}(g, i, j, l, r)$ that computes $\text{dp}[i...j][g]$ knowing
+that $l \leq k \leq r$
 
-We first call the function with the following parameters:
-$\text{compute}(g, 1, n, 1, n)$. This step will take $O(N)$ time. For each
-call, if we compute the value of $\text{dp}[g][{i+j\over 2}]$, we can
-essentially divide the function into two:
+We first call the function with the following parameters: $\text{compute}(g, 1, n, 1, n)$. This step
+will take $O(N)$ time. For each call, if we compute the value of $\text{dp}[g][{i+j\over 2}]$, we
+can essentially divide the function into two:
 
 $$
 \text{compute}\left(g, i, {i+j\over 2} - 1, l, k\right)
@@ -93,12 +95,12 @@ $$
 \text{compute}\left(g, {i+j\over 2} + 1, j, k, r\right)
 $$
 
-At each depth of recursion, there are only $2N$ computations to be done. The
-total depth of recursion will be $log\ N$. Thus, for each value of $g$, the
-running time is $O(Nlog\ N)$. We then call the function for all values of $g$,
-so the final running time is $O(KNlog\ N)$
+At each depth of recursion, there are only $2N$ computations to be done. The total depth of
+recursion will be $log\ N$. Thus, for each value of $g$, the running time is $O(Nlog\ N)$. We then
+call the function for all values of $g$, so the final running time is $O(KNlog\ N)$
 
 ## Code
+
 ```java
 import java.util.*;
 import java.io.*;

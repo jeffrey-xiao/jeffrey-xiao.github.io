@@ -9,8 +9,9 @@ tags:
 ---
 
 ## Introduction
-**Knuth's Optimization** in dynamic programming specifically applies for
-optimal tree problems. It is only applicable for the following recurrence:
+
+**Knuth's Optimization** in dynamic programming specifically applies for optimal tree problems. It
+is only applicable for the following recurrence:
 
 $$
 \text{dp}[i][j] = \min_{i < k < j}\{\text{dp}[i][k] + \text{dp}[k][j] + \text{C}[i][j]\}
@@ -27,8 +28,9 @@ $$
 This optimization reduces the time complexity from $O(N^3)$ to $O(N^2)$
 
 ## Analysis
-Let us examine $S$, the number of iterations that occur when we loop from
-$\text{min}[i][j-1]$ to $\text{min}[i+1][j]$ instead of from $i$ to $j$.
+
+Let us examine $S$, the number of iterations that occur when we loop from $\text{min}[i][j-1]$ to
+$\text{min}[i+1][j]$ instead of from $i$ to $j$.
 
 Let $l$ represent the length of the current segment.
 
@@ -42,23 +44,22 @@ $$
 $\therefore$ the amortized time complexity is $O(1)$.
 
 ## Example Problem: ZOJ Breaking Strings
-A certain string-processing language allows the programmer to break a string
-into two pieces. Since this involves copying the old string, it costs $N$ units
-of time to break a string of $N$ characters into two pieces. Suppose a
-programmer wants to break a string into many pieces. The order in which the
-breaks are made can affect the total amount of time used. For example, suppose
-we wish to break a $20$ character string after characters $3$, $8$, and $10$.
-If the breaks are made in left-to-right order, then the first break cost $20$
-units of time, the second break costs $17$ units of time, and the third breaks
-costs $12$ units of time, a total of $49$ units of time. If the breaks are made
-in right-to-left order, then the first break costs $20$ units of time, the
-second break costs $10$ units of time, and the third break costs $8$ units of
-time, a total of $38$ units of time.
 
-Given the length of the string $N$, and $M$ places to break the string at,
-what is the minimum amount of time to break the string?
+A certain string-processing language allows the programmer to break a string into two pieces. Since
+this involves copying the old string, it costs $N$ units of time to break a string of $N$ characters
+into two pieces. Suppose a programmer wants to break a string into many pieces. The order in which
+the breaks are made can affect the total amount of time used. For example, suppose we wish to break
+a $20$ character string after characters $3$, $8$, and $10$. If the breaks are made in left-to-right
+order, then the first break cost $20$ units of time, the second break costs $17$ units of time, and
+the third breaks costs $12$ units of time, a total of $49$ units of time. If the breaks are made in
+right-to-left order, then the first break costs $20$ units of time, the second break costs $10$
+units of time, and the third break costs $8$ units of time, a total of $38$ units of time.
+
+Given the length of the string $N$, and $M$ places to break the string at, what is the minimum
+amount of time to break the string?
 
 ## Code
+
 ```c
 #include <bits/stdc++.h>
 

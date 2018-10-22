@@ -41,6 +41,17 @@ const PostBody = styled.div`
         background-color: ${colors.accent1(0.1)};
       }
     }
+
+    .gatsby-resp-image-figure {
+      margin: 0;
+    }
+
+    .gatsby-resp-image-figcaption {
+      text-align: center;
+      font-family: "Raleway", sans-serif;
+      color: ${colors.base2()};
+      font-style: italic;
+    }
   }
 
   margin-bottom: 35px;
