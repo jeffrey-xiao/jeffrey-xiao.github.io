@@ -25,7 +25,7 @@ const NavbarLinkStyled = styled(({ active, children, ...props }) => (
   color: ${props => (props.active ? colors.base1() : colors.base4())};
   border-bottom: 1px solid ${props => (props.active ? colors.base1() : colors.base4())};
 
-  @media only screen and (max-width: 26em) {
+  @media only screen and (max-width: 32em) {
     letter-spacing: 2px;
     font-size: 14px;
     padding: 25px 5px;

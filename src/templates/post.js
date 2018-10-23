@@ -54,8 +54,9 @@ const PostBody = styled.div`
     }
   }
 
-  margin-bottom: 35px;
-  overflow: hidden;
+  margin: 0 auto 35px auto;
+  position: relative;
+  max-width: 650px;
 `;
 
 const PostTitle = styled.h1`
@@ -98,6 +99,14 @@ const SideContentsDiv = styled.div`
   padding: 25px 0 10px 10px;
   margin: 35px 0 0 25px;
   border-left: 3px solid ${colors.accent1()};
+  position: absolute;
+  left: 100%;
+  top: 0%;
+  width: 150px;
+
+  @media only screen and (max-width: 64em) {
+    display: none;
+  };
 `;
 
 const SideContentsLink = styled(({ depth, children, ...props }) => (
@@ -177,23 +186,17 @@ class PostTemplate extends React.Component {
           <Helmet>
             <title>{post.frontmatter.title} | Jeffrey Xiao</title>
           </Helmet>
-          <Grid width={[1 / 1, 3 / 5]} >
-            <PostTitle>{post.frontmatter.title}</PostTitle>
-            <PostSubtitle>{formattedDate}</PostSubtitle>
-            {tags}
-            <div id="post-content" dangerouslySetInnerHTML={{ __html: post.html }} />
-          </Grid>
-          <Grid width={[0, 2 / 5]}>
-            <SideContents headings={post.headings} path={post.frontmatter.path} />
-          </Grid>
-          <Grid width={1 / 1}>
-            <ReactDisqusThread
-              shortname="jeffreyxiao"
-              identifier={post.frontmatter.title.toLowerCase().replace(/ /g, '-')}
-              title="post.frontmatter.title"
-              url={`https://jeffreyxiao.me/blog${post.frontmatter.path}`}
-            />
-          </Grid>
+          <PostTitle>{post.frontmatter.title}</PostTitle>
+          <PostSubtitle>{formattedDate}</PostSubtitle>
+          {tags}
+          <div id="post-content" dangerouslySetInnerHTML={{ __html: post.html }} />
+          <SideContents headings={post.headings} path={post.frontmatter.path} />
+          <ReactDisqusThread
+            shortname="jeffreyxiao"
+            identifier={post.frontmatter.title.toLowerCase().replace(/ /g, '-')}
+            title="post.frontmatter.title"
+            url={`https://jeffreyxiao.me/blog${post.frontmatter.path}`}
+          />
           {
             prevPost &&
             (
