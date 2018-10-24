@@ -10,6 +10,7 @@ module.exports = {
     'gatsby-plugin-offline',
     'gatsby-plugin-sass',
     'gatsby-plugin-sitemap',
+    'gatsby-plugin-styled-components',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -47,6 +48,12 @@ module.exports = {
             },
           },
         ],
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-google-analytics',
+      options: {
+        trackingId: 'UA-70604313-2',
       },
     },
   ],
