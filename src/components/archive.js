@@ -1,13 +1,14 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import FontAwesome from 'react-fontawesome';
-import StyledLink from './styledLink';
-import SectionHeader from './sectionHeader';
+import PropTypes from 'prop-types';
+import React from 'react';
 import Section from './section';
+import SectionHeader from './sectionHeader';
+import StyledLink from './styledLink';
+import styled from 'styled-components';
+
+import '../assets/font-awesome/css/font-awesome.min.css';
 
 import colors from '../assets/colors';
-import '../assets/font-awesome/css/font-awesome.min.css';
 
 const months = [
   'January',

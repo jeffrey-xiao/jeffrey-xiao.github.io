@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
+import PropTypes from 'prop-types';
+import React from 'react';
 import styled from 'styled-components';
 
 import colors from '../assets/colors';
@@ -81,19 +81,19 @@ class NavbarLink extends React.Component {
 const HeaderParent = styled.div`
   transition: all 0.4s;
   position: relative;
-  transform: translateY(${props => (props.onHomepage ? '50vh' : 0)});
+  transform: translateY(${props => (props.isHomepage ? '50vh' : 0)});
   margin: 0 -20px;
 `;
 
 const HeaderWrapper = styled.div`
   transition: all 0.4s;
   text-align: center !important;
-  transform: translateY(${props => (props.onHomepage ? '-50%' : 0)});
+  transform: translateY(${props => (props.isHomepage ? '-50%' : 0)});
 `;
 
 const HeaderBio = styled.div`
-  height: ${props => (props.onHomepage ? 'auto' : 0)};
-  margin: ${props => (props.onHomepage ? '25px 0' : 0)};
+  height: ${props => (props.isHomepage ? 'auto' : 0)};
+  margin: ${props => (props.isHomepage ? '25px 0' : 0)};
   overflow: hidden;
   max-width: 400px;
   display: inline-block;
@@ -106,7 +106,7 @@ const HeaderBio = styled.div`
 
 const HeaderTitle = styled.div`
   text-align: center !important;
-  padding-top: ${props => (props.onHomepage ? '0' : '25px')};
+  padding-top: ${props => (props.isHomepage ? '0' : '25px')};
   font-size: 60px;
   color: ${colors.base1()};
   margin: 0px;
@@ -115,12 +115,12 @@ const HeaderTitle = styled.div`
 `;
 
 const Header = (props) => {
-  const onHomepage = props.activePage === '/';
+  const isHomepage = props.activePage === '/';
   return (
-    <HeaderParent onHomepage={onHomepage}>
-      <HeaderWrapper onHomepage={onHomepage}>
-        <HeaderTitle onHomepage={onHomepage}>jeffreyxiao</HeaderTitle>
-        <HeaderBio onHomepage={onHomepage}>
+    <HeaderParent isHomepage={isHomepage}>
+      <HeaderWrapper isHomepage={isHomepage}>
+        <HeaderTitle isHomepage={isHomepage}>jeffreyxiao</HeaderTitle>
+        <HeaderBio isHomepage={isHomepage}>
           Hi! I&#39;m a student at the University of Waterloo studying software engineering.
           I have an interest in large scale distributed algorithms and infrastructure for data
           analytics. I also enjoy working with low level systems.

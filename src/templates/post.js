@@ -1,17 +1,17 @@
-import React from 'react';
-import { Helmet } from 'react-helmet';
-import ReactDOM from 'react-dom';
 import Link from 'gatsby-link';
+import React from 'react';
+import ReactDOM from 'react-dom';
 import dateFormat from 'dateformat';
 import styled from 'styled-components';
+import { Helmet } from 'react-helmet';
 
 import 'prismjs/themes/prism-solarizedlight.css';
 import 'katex/dist/katex.min.css';
 
+import Clear from '../components/clear';
 import StyledLink from '../components/styledLink';
 import TagLink from '../components/tagLink';
 import colors from '../assets/colors';
-import Clear from '../components/clear';
 
 
 const PostBody = styled.div`
@@ -51,6 +51,9 @@ const PostBody = styled.div`
       color: ${colors.base2()};
       font-style: italic;
     }
+    
+    border-bottom: 3px solid ${colors.base1()};
+    margin-bottom: 20px;
   }
 
   margin: 0 auto 60px auto;
@@ -98,7 +101,7 @@ const NextPostLink = styled(PostLink)`
 const SideContentsDiv = styled.div`
   padding: 25px 0 10px 10px;
   margin: 35px 0 0 25px;
-  border-left: 3px solid ${colors.accent1()};
+  border-left: 3px solid ${colors.base1()};
   position: absolute;
   left: 100%;
   top: 0%;

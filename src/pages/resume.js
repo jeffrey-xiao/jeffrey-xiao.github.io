@@ -1,8 +1,8 @@
-import React from 'react';
-import { Helmet } from 'react-helmet';
-import styled from 'styled-components';
 import FontAwesome from 'react-fontawesome';
+import React from 'react';
 import ReactDOM from 'react-dom';
+import styled from 'styled-components';
+import { Helmet } from 'react-helmet';
 import { graphql } from 'gatsby';
 
 import Clear from '../components/clear';

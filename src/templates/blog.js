@@ -1,14 +1,15 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
-import styled from 'styled-components';
 import ReactDOM from 'react-dom';
+import styled from 'styled-components';
+import { Helmet } from 'react-helmet';
 
+import Archive from '../components/archive';
+import Clear from '../components/clear';
+import Pagination from '../components/pagination';
 import PostList from '../components/postList';
 import RecentList from '../components/recentList';
-import Archive from '../components/archive';
 import TagList from '../components/tagList';
-import Pagination from '../components/pagination';
-import Clear from '../components/clear';
+import colors from '../assets/colors';
 
 
 const getTagName = (pathPrefix) => {
@@ -53,7 +54,7 @@ const TagListTitle = styled.h1`
   text-transform: uppercase;
   text-align: center;
   font-weight: normal;
-  color: #1b2228;
+  color: ${colors.base1()};
   margin-top: 8px;
 `;
 

@@ -1,10 +1,11 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
+import { Helmet } from 'react-helmet';
 
-import Header from '../components/header';
-import Footer from '../components/footer';
 import './index.scss';
+
+import Footer from '../components/footer';
+import Header from '../components/header';
 
 const LayoutWrapper = styled.div`
   display: inline-block;

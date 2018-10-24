@@ -2,15 +2,15 @@ module.exports = {
   siteMetadata: {
     title: 'Jeffrey Xiao',
     author: 'Jeffrey Xiao',
-    siteUrl: 'http://jeffrey-xiao.github.io/',
+    siteUrl: 'https://jeffreyxiao.me/',
   },
 
   plugins: [
     'gatsby-plugin-layout',
-    'gatsby-plugin-sass',
-    'gatsby-plugin-sitemap',
     'gatsby-plugin-nprogress',
     'gatsby-plugin-offline',
+    'gatsby-plugin-sass',
+    'gatsby-plugin-sitemap',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -30,9 +30,9 @@ module.exports = {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
-          'gatsby-remark-katex',
-          'gatsby-remark-copy-linked-files',
           'gatsby-remark-autolink-headers',
+          'gatsby-remark-copy-linked-files',
+          'gatsby-remark-katex',
           {
             resolve: 'gatsby-remark-prismjs',
             options: {

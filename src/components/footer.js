@@ -1,18 +1,19 @@
+import FontAwesome from 'react-fontawesome';
 import React from 'react';
 import styled from 'styled-components';
-import FontAwesome from 'react-fontawesome';
+
+import '../assets/font-awesome/css/font-awesome.min.css';
 
 import colors from '../assets/colors';
-import '../assets/font-awesome/css/font-awesome.min.css';
 
 
 const FooterDiv = styled.div`
   padding-bottom: 30px;
   width: 100%;
   text-align: center !important;
-  position: ${props => (props.onHomepage ? 'fixed' : 'relative')};
-  transform: ${props => (props.onHomepage ? 'translateX(-50%)' : 'none')};
-  left: ${props => (props.onHomepage ? '50%' : '0')};
+  position: ${props => (props.isHomepage ? 'fixed' : 'relative')};
+  transform: ${props => (props.isHomepage ? 'translateX(-50%)' : 'none')};
+  left: ${props => (props.isHomepage ? '50%' : '0')};
   bottom: 0;
 `;
 
@@ -35,7 +36,7 @@ const FooterLink = props => (
 );
 
 const Footer = props => (
-  <FooterDiv onHomepage={props.activePage === '/'}>
+  <FooterDiv isHomepage={props.activePage === '/'}>
     <FooterLink url="https://github.com/jeffrey-xiao" iconName="github-alt" />
     <FooterLink url="https://www.linkedin.com/in/jeffreyxiao" iconName="linkedin" />
     <FooterLink url="https://www.facebook.com/jeffrey.xiao1998" iconName="facebook" />

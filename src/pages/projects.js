@@ -1,7 +1,7 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
+import { Helmet } from 'react-helmet';
 import { graphql } from 'gatsby';
 
 import ProjectCard from '../components/projectCard';
@@ -51,9 +51,8 @@ class ProjectsPage extends React.Component {
 
     this.props.data.allProjectsJson.edges.forEach((project) => {
       projectCards.push(
-        <ProjectCardWrapper>
+        <ProjectCardWrapper key={project.node.title}>
           <ProjectCard
-            key={project.node.title}
             title={project.node.title}
             description={project.node.description}
             src={project.node.src}

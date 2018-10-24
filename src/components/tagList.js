@@ -1,10 +1,10 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 
-import UnbrokenStyledLink from './unbrokenStyledLink';
 import Section from './section';
 import SectionHeader from './sectionHeader';
+import UnbrokenStyledLink from './unbrokenStyledLink';
 
 
 const TagBody = styled.div`

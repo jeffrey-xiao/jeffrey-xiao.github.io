@@ -1,12 +1,12 @@
-import React from 'react';
 import Link from 'gatsby-link';
 import PropTypes from 'prop-types';
+import React from 'react';
 import dateFormat from 'dateformat';
 import styled from 'styled-components';
 
-import UnbrokenStyledLink from './unbrokenStyledLink';
-import TagLink from './tagLink';
 import Section from './section';
+import TagLink from './tagLink';
+import UnbrokenStyledLink from './unbrokenStyledLink';
 import colors from '../assets/colors';
 
 
