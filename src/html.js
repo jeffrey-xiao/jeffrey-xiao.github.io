@@ -9,6 +9,10 @@ const HTML = props => (
         name="viewport"
         content="width=device-width, initial-scale=1.0"
       />
+      <meta
+        name="google-site-verification"
+        content="ir-ErX9eSOs0Gl_4GsF5BUqMDF0Wl5jpAlCY_u4bdx0"
+      />
       <link rel="shortcut icon" type="image/png" href={favicon} />
       {props.headComponents}
     </head>
