@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import FontAwesome from 'react-fontawesome';
-import { Grid } from 'grid-styled';
 import StyledLink from './styledLink';
 import SectionHeader from './sectionHeader';
 import Section from './section';
@@ -149,15 +148,13 @@ class NestedLink extends React.Component {
 const Archive = props => (
   <Section style={{ textAlign: 'center' }}>
     <SectionHeader>Archive</SectionHeader>
-    <Grid width={1}>
-      <NestedLink
-        active
-        activePost={props.activePost}
-        posts={props.posts}
-        filterType="year"
-        filterValue=""
-      />
-    </Grid>
+    <NestedLink
+      active
+      activePost={props.activePost}
+      posts={props.posts}
+      filterType="year"
+      filterValue=""
+    />
   </Section>
 );
 

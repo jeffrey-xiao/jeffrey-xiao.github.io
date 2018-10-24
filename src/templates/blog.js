@@ -1,7 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { Grid } from 'grid-styled';
-import styled, { ThemeProvider } from 'styled-components';
+import styled from 'styled-components';
 import ReactDOM from 'react-dom';
 
 import PostList from '../components/postList';
@@ -9,12 +8,46 @@ import RecentList from '../components/recentList';
 import Archive from '../components/archive';
 import TagList from '../components/tagList';
 import Pagination from '../components/pagination';
+import Clear from '../components/clear';
 
 
 const getTagName = (pathPrefix) => {
   const tokens = pathPrefix.split('/');
   return tokens[tokens.length - 1].replace(/-/g, ' ');
 };
+
+const BlogBody = styled.div`
+  margin-bottom: 60px;
+`;
+
+const BlogLeftColumn = styled.div`
+  display: inline-block;
+  width: 60%;
+  float: left;
+  padding: 20px 20px 0 0;
+  box-sizing: border-box;
+  margin-bottom: -25px;
+
+  @media only screen and (max-width: 52em) {
+    width: 100%;
+    padding: 20px 0 0 0;
+    margin-bottom: 0;
+  }
+`;
+
+const BlogRightColumn = styled.div`
+  display: inline-block;
+  width: 40%;
+  float: right;
+  padding: 20px 0 0 20px;
+  box-sizing: border-box;
+  margin-bottom: -25px;
+
+  @media only screen and (max-width: 52em) {
+    width: 100%;
+    padding: 0 0 0 0;
+  }
+`;
 
 const TagListTitle = styled.h1`
   text-transform: uppercase;
@@ -35,45 +68,38 @@ class BlogPage extends React.Component {
   }
 
   render() {
-    const context = this.props.pathContext;
+    const context = this.props.pageContext;
 
     return (
-      <ThemeProvider theme={{ breakpoints: [48] }}>
-        <div>
-          <Helmet>
-            <title>Blog - Jeffrey Xiao</title>
-          </Helmet>
-          <Grid width={1} px={[0, 20]} mt={10} mb={-10}>
-            {context.pathPrefix.match(/^\/blog\/tags\//) &&
-              <TagListTitle>
-                Posts tagged with &lsquo;{getTagName(context.pathPrefix)}&rsquo;
-              </TagListTitle>
-            }
-            <Pagination
-              page={context.page}
-              pathPrefix={context.pathPrefix}
-              numOfPages={context.numOfPages}
-            />
-          </Grid>
-          <Grid width={[1 / 1, 3 / 5]} pt={20} pb={[0, 20]} px={[0, 20]}>
-            <PostList posts={context.posts} />
-          </Grid>
-          <Grid width={[1 / 1, 2 / 5]} pb={20} pt={[0, 20]} px={[0, 20]}>
-            <TagList posts={context.allPosts} />
-            {context.pathPrefix.match(/^\/blog\/tags\//) &&
-              <RecentList posts={context.allPosts.slice(0, Math.min(context.numOfPosts, 5))} />
-            }
-            <Archive posts={context.allPosts} />
-          </Grid>
-          <Grid width={1} px={[0, 20]} mt={-50} mb={50}>
-            <Pagination
-              page={context.page}
-              pathPrefix={context.pathPrefix}
-              numOfPages={context.numOfPages}
-            />
-          </Grid>
-        </div>
-      </ThemeProvider>
+      <BlogBody>
+        <Helmet>
+          <title>Blog - Jeffrey Xiao</title>
+        </Helmet>
+        {context.pathPrefix.match(/^\/blog\/tags\//) &&
+          <TagListTitle>
+            Posts tagged with &lsquo;{getTagName(context.pathPrefix)}&rsquo;
+          </TagListTitle>
+        }
+        <Pagination
+          page={context.page}
+          pathPrefix={context.pathPrefix}
+          numOfPages={context.numOfPages}
+        />
+        <BlogLeftColumn><PostList posts={context.posts} /></BlogLeftColumn>
+        <BlogRightColumn>
+          <TagList posts={context.allPosts} />
+          {context.pathPrefix.match(/^\/blog\/tags\//) &&
+            <RecentList posts={context.allPosts.slice(0, Math.min(context.numOfPosts, 5))} />
+          }
+          <Archive posts={context.allPosts} />
+        </BlogRightColumn>
+        <Clear />
+        <Pagination
+          page={context.page}
+          pathPrefix={context.pathPrefix}
+          numOfPages={context.numOfPages}
+        />
+      </BlogBody>
     );
   }
 }

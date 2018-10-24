@@ -11,7 +11,7 @@ const TagBody = styled.div`
   width: 60%;
   display: inline-block;
 
-  @media only screen and (max-width: 60em) {
+  @media only screen and (max-width: 64em) {
     width: 80%;
   }
 `;

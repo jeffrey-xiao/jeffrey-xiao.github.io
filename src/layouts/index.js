@@ -1,28 +1,20 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { Box } from 'grid-styled';
 import styled from 'styled-components';
 
 import Header from '../components/header';
 import Footer from '../components/footer';
 import './index.scss';
 
-const LayoutWrapper = styled(({ activePage, children, ...rest }) => (
-  <Box {...rest}>{children}</Box>
-))`
-  max-width: 1000px;
+const LayoutWrapper = styled.div`
   display: inline-block;
-  height: 99%;
-  overflow: ${props => (props.activePage === '/' ? 'hidden' : 'visible')};
+  box-sizing: border-box;
+  width: 90%;
+  max-width: 1000px;
 `;
 
 const Layout = props => (
-  <LayoutWrapper
-    width={[1, 95 / 100, 90 / 100]}
-    m="0 auto"
-    px={[20, 20, 0]}
-    activePage={props.location.pathname}
-  >
+  <LayoutWrapper>
     <Helmet>
       <title>Jeffrey Xiao</title>
       <meta
@@ -34,7 +26,7 @@ const Layout = props => (
       />
     </Helmet>
     <Header activePage={props.location.pathname} />
-    {props.children()}
+    {props.children}
     <Footer activePage={props.location.pathname} />
   </LayoutWrapper>
 );

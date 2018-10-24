@@ -1,9 +1,9 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import styled, { ThemeProvider } from 'styled-components';
-import { Grid } from 'grid-styled';
+import styled from 'styled-components';
 import FontAwesome from 'react-fontawesome';
 import ReactDOM from 'react-dom';
+import { graphql } from 'gatsby';
 
 import Clear from '../components/clear';
 import colors from '../assets/colors';
@@ -24,6 +24,32 @@ const ResumeBody = styled.div`
     color: ${colors.base1()};
   }
   margin-bottom: 25px;
+`;
+
+const ResumeLeftColumn = styled.div`
+  display: inline-block;
+  box-sizing: border-box;
+  width: 60%;
+  float: left;
+  padding: 0 30px 30px 0;
+
+  @media only screen and (max-width: 56em) {
+    width: 100%;
+    padding: 0;
+  }
+`;
+
+const ResumeRightColumn = styled.div`
+  display: inline-block;
+  box-sizing: border-box;
+  width: 40%;
+  float: right;
+  padding: 0 0 30px 30px;
+
+  @media only screen and (max-width: 56em) {
+    width: 100%;
+    padding: 0 0 30px 0;
+  }
 `;
 
 const BaseSpan = styled.span`
@@ -60,7 +86,7 @@ const RightSubheaderSpan = styled(BaseSpan)`
   color: ${colors.base3()};
 `;
 
-const LeftSubsubheaderSpan = RightHeaderSpan.extend`
+const LeftSubsubheaderSpan = styled(RightHeaderSpan)`
   float: left;
 `;
 
@@ -294,37 +320,36 @@ class ResumePage extends React.Component {
     });
 
     return (
-      <ThemeProvider theme={{ breakpoints: [56] }}>
-        <ResumeBody>
-          <Helmet>
-            <title>Resume - Jeffrey Xiao</title>
-          </Helmet>
-          <Grid width={[1 / 1, 3 / 5]} px={[0, 30]} pb={[0, 30]} mb={[-16, 0]}>
-            <SectionHeader>Experience</SectionHeader>
-            {experienceSections}
-            <SectionHeader>Projects</SectionHeader>
-            {projectSections}
-          </Grid>
-          <Grid width={[1 / 1, 2 / 5]} px={[0, 30]} pb={30}>
-            <SectionHeader>Links</SectionHeader>
-            <LinksSection />
-            <SectionHeader>Skills</SectionHeader>
-            {skillSections}
-            <SectionHeader>Awards</SectionHeader>
-            <AwardsSection awards={this.props.data.allAwardEntriesJson.edges} />
-            <SectionHeader>Certifications</SectionHeader>
-            <Description>
-              {certifications}
-            </Description>
-            <SectionHeader>Education</SectionHeader>
-            {educationSections}
-            <SectionHeader>Interests</SectionHeader>
-            <Description>
-              {interests}
-            </Description>
-          </Grid>
-        </ResumeBody>
-      </ThemeProvider>
+      <ResumeBody>
+        <Helmet>
+          <title>Resume - Jeffrey Xiao</title>
+        </Helmet>
+        <ResumeLeftColumn>
+          <SectionHeader>Experience</SectionHeader>
+          {experienceSections}
+          <SectionHeader>Projects</SectionHeader>
+          {projectSections}
+        </ResumeLeftColumn>
+        <ResumeRightColumn>
+          <SectionHeader>Links</SectionHeader>
+          <LinksSection />
+          <SectionHeader>Skills</SectionHeader>
+          {skillSections}
+          <SectionHeader>Awards</SectionHeader>
+          <AwardsSection awards={this.props.data.allAwardEntriesJson.edges} />
+          <SectionHeader>Certifications</SectionHeader>
+          <Description>
+            {certifications}
+          </Description>
+          <SectionHeader>Education</SectionHeader>
+          {educationSections}
+          <SectionHeader>Interests</SectionHeader>
+          <Description>
+            {interests}
+          </Description>
+        </ResumeRightColumn>
+        <Clear />
+      </ResumeBody>
     );
   }
 }

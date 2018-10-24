@@ -5,8 +5,8 @@ const select = require('unist-util-select')
 const fs = require('fs-extra')
 const PAGE_SIZE = 5;
 
-exports.createPages = ({ boundActionCreators, graphql }) => {
-  const { createPage } = boundActionCreators;
+exports.createPages = ({ actions, graphql }) => {
+  const { createPage } = actions;
 
   return graphql(
   `

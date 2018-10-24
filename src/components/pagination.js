@@ -28,11 +28,11 @@ const PaginationLink = styled(({ active, children, ...props }) => (
   }
 `;
 
-const NewerPostsLink = PaginationLink.extend`
+const NewerPostsLink = styled(PaginationLink)`
   float: left;
 `;
 
-const OlderPostsLink = PaginationLink.extend`
+const OlderPostsLink = styled(PaginationLink)`
   float: right;
 `;
 

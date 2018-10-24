@@ -6,8 +6,8 @@ module.exports = {
   },
 
   plugins: [
+    'gatsby-plugin-layout',
     'gatsby-plugin-sass',
-    'gatsby-transformer-json',
     'gatsby-plugin-sitemap',
     'gatsby-plugin-nprogress',
     'gatsby-plugin-offline',
@@ -25,6 +25,7 @@ module.exports = {
         name: 'projects',
       },
     },
+    'gatsby-transformer-json',
     {
       resolve: 'gatsby-transformer-remark',
       options: {

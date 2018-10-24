@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid } from 'grid-styled';
+import { Flex } from '@rebass/grid';
 import styled, { ThemeProvider } from 'styled-components';
 import Measure from 'react-measure';
 
@@ -164,7 +164,7 @@ class ProjectCard extends React.Component {
       <ThemeProvider
         theme={{ breakpoints: this.props.breakpoints }}
       >
-        <Grid width={[1 / 1, 1 / 2, 1 / 3]} px={[0, 5, 10]} pt={20} pb={10}>
+        <Flex width={[1 / 1, 1 / 2, 1 / 3]} px={[0, 5, 10]} pt={20} pb={10}>
           <ProjectWrapper height={this.props.height}>
             <ImgWrapper
               src={this.props.src}
@@ -179,7 +179,7 @@ class ProjectCard extends React.Component {
               updateHeights={this.updateHeights}
             />
           </ProjectWrapper>
-        </Grid>
+        </Flex>
       </ThemeProvider>
     );
   }

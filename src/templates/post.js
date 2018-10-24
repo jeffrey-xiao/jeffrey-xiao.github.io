@@ -1,11 +1,10 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import ReactDOM from 'react-dom';
-import ReactDisqusThread from 'react-disqus-thread';
 import Link from 'gatsby-link';
-import { Grid } from 'grid-styled';
 import dateFormat from 'dateformat';
-import styled, { ThemeProvider } from 'styled-components';
+import styled from 'styled-components';
+
 import 'prismjs/themes/prism-solarizedlight.css';
 import 'katex/dist/katex.min.css';
 
@@ -54,7 +53,7 @@ const PostBody = styled.div`
     }
   }
 
-  margin: 0 auto 35px auto;
+  margin: 0 auto 60px auto;
   position: relative;
   max-width: 650px;
 `;
@@ -74,12 +73,13 @@ const PostSubtitle = styled.h4`
   text-transform: uppercase;
 `;
 
-const PostLink = styled(Grid)`
+const PostLink = styled.div`
+  width: 40%;
   text-transform: uppercase;
   font-family: "Josefin Sans", sans-serif;
 `;
 
-const PrevPostLink = PostLink.extend`
+const PrevPostLink = styled(PostLink)`
   float: left;
   text-align: left !important;
   div {
@@ -87,7 +87,7 @@ const PrevPostLink = PostLink.extend`
   }
 `;
 
-const NextPostLink = PostLink.extend`
+const NextPostLink = styled(PostLink)`
   float: right;
   text-align: right !important;
   div {
@@ -161,9 +161,9 @@ class PostTemplate extends React.Component {
   }
 
   render() {
-    const post = this.props.pathContext.post.node;
-    const prevPost = this.props.pathContext.prevPost;
-    const nextPost = this.props.pathContext.nextPost;
+    const post = this.props.pageContext.post.node;
+    const prevPost = this.props.pageContext.prevPost;
+    const nextPost = this.props.pageContext.nextPost;
 
     const tags = [];
 
@@ -181,43 +181,35 @@ class PostTemplate extends React.Component {
     });
 
     return (
-      <ThemeProvider theme={{ breakpoints: [48] }}>
-        <PostBody>
-          <Helmet>
-            <title>{post.frontmatter.title} | Jeffrey Xiao</title>
-          </Helmet>
-          <PostTitle>{post.frontmatter.title}</PostTitle>
-          <PostSubtitle>{formattedDate}</PostSubtitle>
-          {tags}
-          <div id="post-content" dangerouslySetInnerHTML={{ __html: post.html }} />
-          <SideContents headings={post.headings} path={post.frontmatter.path} />
-          <ReactDisqusThread
-            shortname="jeffreyxiao"
-            identifier={post.frontmatter.title.toLowerCase().replace(/ /g, '-')}
-            title="post.frontmatter.title"
-            url={`https://jeffreyxiao.me/blog${post.frontmatter.path}`}
-          />
-          {
-            prevPost &&
-            (
-              <PrevPostLink width={4 / 10} style={{ float: 'left' }}>
-                <StyledLink to={prevPost.node.frontmatter.path}>Previous Post</StyledLink>
-                <div style={{ marginTop: '5px' }}>{prevPost.node.frontmatter.title}</div>
-              </PrevPostLink>
-            )
-          }
-          {
-            nextPost &&
-            (
-              <NextPostLink width={4 / 10} style={{ float: 'right' }}>
-                <StyledLink to={nextPost.node.frontmatter.path}>Next Post</StyledLink>
-                <div style={{ marginTop: '5px' }}>{nextPost.node.frontmatter.title}</div>
-              </NextPostLink>
-            )
-          }
-          <Clear />
-        </PostBody>
-      </ThemeProvider>
+      <PostBody>
+        <Helmet>
+          <title>{post.frontmatter.title} | Jeffrey Xiao</title>
+        </Helmet>
+        <PostTitle>{post.frontmatter.title}</PostTitle>
+        <PostSubtitle>{formattedDate}</PostSubtitle>
+        {tags}
+        <div id="post-content" dangerouslySetInnerHTML={{ __html: post.html }} />
+        <SideContents headings={post.headings} path={post.frontmatter.path} />
+        {
+          prevPost &&
+          (
+            <PrevPostLink>
+              <StyledLink to={prevPost.node.frontmatter.path}>Previous Post</StyledLink>
+              <div style={{ marginTop: '5px' }}>{prevPost.node.frontmatter.title}</div>
+            </PrevPostLink>
+          )
+        }
+        {
+          nextPost &&
+          (
+            <NextPostLink>
+              <StyledLink to={nextPost.node.frontmatter.path}>Next Post</StyledLink>
+              <div style={{ marginTop: '5px' }}>{nextPost.node.frontmatter.title}</div>
+            </NextPostLink>
+          )
+        }
+        <Clear />
+      </PostBody>
     );
   }
 }

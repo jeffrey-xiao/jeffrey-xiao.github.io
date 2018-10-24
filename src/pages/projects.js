@@ -2,6 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
+import { graphql } from 'gatsby';
 
 import ProjectCard from '../components/projectCard';
 import colors from '../assets/colors';
