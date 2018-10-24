@@ -8,36 +8,35 @@ import ProjectCard from '../components/projectCard';
 import colors from '../assets/colors';
 
 
-const BREAKPOINTS = [32, 52];
-
 const ProjectsBody = styled.div`
   span.emphasis {
     color: ${colors.accent1()};
   }
-
   margin-bottom: 40px;
 `;
 
-class ProjectsPage extends React.Component {
-  constructor(props) {
-    super(props);
+const ProjectCardWrapper = styled.div`
+  box-sizing: border-box;
+  padding: 20px;
+  width: 33.33%;
+  display: flex;
 
-    this.heights = [];
-    this.sent = [];
-    for (let i = 0; i < this.props.data.allProjectsJson.edges.length; i++) {
-      this.heights.push(0);
-      this.sent.push(1);
-    }
-
-    this.state = {
-      numCols: 1,
-      heights: this.heights.slice(),
-    };
-
-    this.updateNumCols = this.updateNumCols.bind(this);
-    this.updateHeight = this.updateHeight.bind(this);
+  @media only screen and (max-width: 60em) {
+    width: 50%;
   }
 
+  @media only screen and (max-width: 40em) {
+    width: 100%;
+  }
+`;
+
+const ProjectCards = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -20px;
+`;
+
+class ProjectsPage extends React.Component {
   componentDidMount() {
     const elem = ReactDOM.findDOMNode(this);
     elem.style.opacity = 0;
@@ -45,71 +44,22 @@ class ProjectsPage extends React.Component {
       elem.style.transition = 'opacity 1000ms ease-out';
       elem.style.opacity = 1;
     });
-
-    this.updateNumCols();
-    window.addEventListener('resize', this.updateNumCols);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('resize', this.updateNumCols);
-  }
-
-  updateNumCols() {
-    let numCols = 1;
-    for (let i = 0; i < BREAKPOINTS.length; i++) {
-      if (window.innerWidth >= BREAKPOINTS[i] * 16) {
-        numCols++;
-      }
-    }
-
-    for (let i = 0; i < this.sent.length; i++) {
-      this.sent[i] -= 2;
-    }
-
-    this.setState({
-      numCols,
-    });
-  }
-
-  updateHeight(index, height) {
-    this.heights[index] = height;
-    this.sent[index] += 1;
-
-    let shouldSend = true;
-    for (let i = 0; i < this.sent.length; i++) {
-      shouldSend = shouldSend && (this.sent[i] === 2);
-    }
-
-    if (shouldSend) {
-      this.setState({ heights: this.heights });
-    }
   }
 
   render() {
     const projectCards = [];
 
-    const maxHeights = [];
-    for (let i = 0; i < this.state.heights.length; i++) {
-      maxHeights.push(0);
-
-      const row = Math.floor(i / this.state.numCols);
-      maxHeights[row] = Math.max(maxHeights[row], this.state.heights[i]);
-    }
-
-    this.props.data.allProjectsJson.edges.forEach((project, index) => {
-      const row = Math.floor(index / this.state.numCols);
+    this.props.data.allProjectsJson.edges.forEach((project) => {
       projectCards.push(
-        <ProjectCard
-          key={project.node.title}
-          index={index}
-          breakpoints={BREAKPOINTS}
-          title={project.node.title}
-          description={project.node.description}
-          src={project.node.src}
-          height={maxHeights[row]}
-          url={project.node.url}
-          updateHeight={this.updateHeight}
-        />,
+        <ProjectCardWrapper>
+          <ProjectCard
+            key={project.node.title}
+            title={project.node.title}
+            description={project.node.description}
+            src={project.node.src}
+            url={project.node.url}
+          />
+        </ProjectCardWrapper>,
       );
     });
 
@@ -118,7 +68,9 @@ class ProjectsPage extends React.Component {
         <Helmet>
           <title>Projects - Jeffrey Xiao</title>
         </Helmet>
-        {projectCards}
+        <ProjectCards>
+          {projectCards}
+        </ProjectCards>
       </ProjectsBody>
     );
   }

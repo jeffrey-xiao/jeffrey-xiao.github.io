@@ -4,7 +4,6 @@
   "description": "My personal website and blog.",
   "main": ".gatsby-context.js",
   "dependencies": {
-    "@rebass/grid": "^6.0.0-4",
     "dateformat": "^3.0.3",
     "gatsby": "^2.0.29",
     "gatsby-link": "^2.0.4",

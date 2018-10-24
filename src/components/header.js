@@ -115,7 +115,6 @@ const HeaderTitle = styled.div`
 `;
 
 const Header = (props) => {
-  console.log(props.activePage);
   const onHomepage = props.activePage === '/';
   return (
     <HeaderParent onHomepage={onHomepage}>
