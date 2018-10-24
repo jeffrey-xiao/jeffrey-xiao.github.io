@@ -70,6 +70,7 @@ class BlogPage extends React.Component {
 
   render() {
     const context = this.props.pageContext;
+    const numOfPosts = context.allPosts.length;
 
     return (
       <BlogBody>
@@ -90,7 +91,7 @@ class BlogPage extends React.Component {
         <BlogRightColumn>
           <TagList posts={context.allPosts} />
           {context.pathPrefix.match(/^\/blog\/tags\//) &&
-            <RecentList posts={context.allPosts.slice(0, Math.min(context.numOfPosts, 5))} />
+            <RecentList posts={context.allPosts.slice(0, Math.min(numOfPosts, 5))} />
           }
           <Archive posts={context.allPosts} />
         </BlogRightColumn>

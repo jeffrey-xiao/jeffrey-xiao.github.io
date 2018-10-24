@@ -356,7 +356,7 @@ class ResumePage extends React.Component {
 
 export default ResumePage;
 export const pageQuery = graphql`
-  query ResumePageQuery {
+  {
     allExperienceEntriesJson {
       edges {
         node {

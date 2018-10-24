@@ -1,8 +1,8 @@
-import Link from 'gatsby-link';
 import PropTypes from 'prop-types';
 import React from 'react';
 import dateFormat from 'dateformat';
 import styled from 'styled-components';
+import { Link } from 'gatsby';
 
 import Section from './section';
 import TagLink from './tagLink';

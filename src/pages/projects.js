@@ -77,7 +77,7 @@ class ProjectsPage extends React.Component {
 
 export default ProjectsPage;
 export const pageQuery = graphql`
-  query ProjectsPageQuery {
+  {
     allProjectsJson {
       edges {
         node {

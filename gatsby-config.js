@@ -7,7 +7,6 @@ module.exports = {
 
   plugins: [
     'gatsby-plugin-layout',
-    'gatsby-plugin-nprogress',
     'gatsby-plugin-offline',
     'gatsby-plugin-sass',
     'gatsby-plugin-sitemap',

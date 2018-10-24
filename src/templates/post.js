@@ -1,9 +1,10 @@
-import Link from 'gatsby-link';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import ReactDisqusComments from 'react-disqus-comments';
 import dateFormat from 'dateformat';
 import styled from 'styled-components';
 import { Helmet } from 'react-helmet';
+import { Link } from 'gatsby';
 
 import 'prismjs/themes/prism-solarizedlight.css';
 import 'katex/dist/katex.min.css';
@@ -51,9 +52,6 @@ const PostBody = styled.div`
       color: ${colors.base2()};
       font-style: italic;
     }
-    
-    border-bottom: 3px solid ${colors.base1()};
-    margin-bottom: 20px;
   }
 
   margin: 0 auto 60px auto;
@@ -193,6 +191,12 @@ class PostTemplate extends React.Component {
         {tags}
         <div id="post-content" dangerouslySetInnerHTML={{ __html: post.html }} />
         <SideContents headings={post.headings} path={post.frontmatter.path} />
+        <ReactDisqusComments
+          shortname="jeffreyxiao"
+          identifier={post.frontmatter.title.toLowerCase().replace(/ /g, '-')}
+          title="post.frontmatter.title"
+          url={`https://jeffreyxiao.me/blog${post.frontmatter.path}`}
+        />
         {
           prevPost &&
           (
