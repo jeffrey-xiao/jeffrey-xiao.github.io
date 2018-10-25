@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'gatsby';
 
 import Clear from './clear';
@@ -73,15 +74,15 @@ const Pagination = props => (
       to={`${props.pathPrefix}/${props.page - 1}`}
       active={props.page !== 1}
     >
-      <LargeLinkLabel>←Newer Posts</LargeLinkLabel>
-      <SmallLinkLabel>←Newer</SmallLinkLabel>
+      <LargeLinkLabel><FontAwesomeIcon icon="angle-left" /> Newer Posts</LargeLinkLabel>
+      <SmallLinkLabel><FontAwesomeIcon icon="angle-left" /> Newer</SmallLinkLabel>
     </NewerPostsLink>
     <OlderPostsLink
       to={`${props.pathPrefix}/${props.page + 1}`}
       active={props.page !== props.numOfPages}
     >
-      <LargeLinkLabel>Older Posts→</LargeLinkLabel>
-      <SmallLinkLabel>Older→</SmallLinkLabel>
+      <LargeLinkLabel>Older Posts <FontAwesomeIcon icon="angle-right" /></LargeLinkLabel>
+      <SmallLinkLabel>Older <FontAwesomeIcon icon="angle-right" /></SmallLinkLabel>
     </OlderPostsLink>
     <PaginationLabel>{props.page}/{props.numOfPages}</PaginationLabel>
     <Clear />

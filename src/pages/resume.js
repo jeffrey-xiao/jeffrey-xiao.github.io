@@ -1,6 +1,6 @@
-import FontAwesome from 'react-fontawesome';
 import React from 'react';
 import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Helmet } from 'react-helmet';
 import { graphql } from 'gatsby';
 
@@ -192,27 +192,27 @@ const LinksSection = () => (
   <div>
     <div>
       <ResumeLink href="mailto:jeffrey.xiao@uwaterloo.ca">
-        <FontAwesome name="envelope" /> jeffrey.xiao@waterloo.ca
+        <FontAwesomeIcon icon="envelope" /> jeffrey.xiao@waterloo.ca
       </ResumeLink>
     </div>
     <div>
       <ResumeLink href="https://www.github.com/jeffrey-xiao">
-        <FontAwesome name="github" /> github.com/jeffrey-xiao
+        <FontAwesomeIcon icon={['fab', 'github']} /> github.com/jeffrey-xiao
       </ResumeLink>
     </div>
     <div>
       <ResumeLink href="https://www.linkedin.com/in/jeffreyxiao">
-        <FontAwesome name="linkedin" /> linkedin.com/in/jeffrey-xiao
+        <FontAwesomeIcon icon={['fab', 'linkedin']} /> linkedin.com/in/jeffrey-xiao
       </ResumeLink>
     </div>
     <div>
       <ResumeLink href="https://devpost.com/jeffreyxiao">
-        <FontAwesome name="external-link" /> devpost.com/jeffreyxiao
+        <FontAwesomeIcon icon="link" /> devpost.com/jeffreyxiao
       </ResumeLink>
     </div>
     <div>
       <ResumeLink href="https://cdn.rawgit.com/jeffrey-xiao/resume/1d81b70d/resume.pdf">
-        <FontAwesome name="file-pdf-o" /> PDF Version of Resume
+        <FontAwesomeIcon icon="file-pdf" /> PDF Version of Resume
       </ResumeLink>
     </div>
   </div>

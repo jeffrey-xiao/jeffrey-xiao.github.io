@@ -1,9 +1,7 @@
-import FontAwesome from 'react-fontawesome';
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
-
-import '../assets/font-awesome/css/font-awesome.min.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import Section from './section';
 import SectionHeader from './sectionHeader';
@@ -35,9 +33,11 @@ const ArchiveLink = styled(StyledLink)`
   z-index: 0;
 `;
 
-const NestedIcon = styled(FontAwesome)`
+const NestedIcon = styled(FontAwesomeIcon)`
   font-size: 0.5em;
-  vertical-align: middle;
+  position: absolute;
+  top: 9px;
+  left: -5px;
   color: ${colors.base1()};
 `;
 
@@ -89,7 +89,7 @@ class NestedLink extends React.Component {
           onClick={this.toggleActive}
           filterValue={this.props.filterValue}
         >
-          <NestedIcon name={this.state.active ? 'minus' : 'plus'} />
+          <NestedIcon icon={this.state.active ? 'minus' : 'plus'} />
           <NestedLabel>{this.props.filterValue} ({this.props.posts.length})</NestedLabel>
         </NestedLabelWrapper>,
       );

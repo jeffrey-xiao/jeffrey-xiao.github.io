@@ -1,11 +1,35 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Helmet } from 'react-helmet';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faFacebook, faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import {
+  faAngleLeft,
+  faAngleRight,
+  faEnvelope,
+  faLink,
+  faFilePdf,
+  faMinus,
+  faPlus,
+} from '@fortawesome/free-solid-svg-icons';
 
 import './index.scss';
 
 import Footer from '../components/footer';
 import Header from '../components/header';
+
+library.add(
+  faFacebook,
+  faGithub,
+  faLinkedin,
+  faEnvelope,
+  faLink,
+  faFilePdf,
+  faMinus,
+  faPlus,
+  faAngleLeft,
+  faAngleRight,
+);
 
 const LayoutWrapper = styled.div`
   display: inline-block;
