@@ -12,7 +12,6 @@
     "gatsby": "^2.0.31",
     "gatsby-plugin-google-analytics": "^2.0.6",
     "gatsby-plugin-layout": "^1.0.4",
-    "gatsby-plugin-offline": "^2.0.9",
     "gatsby-plugin-sass": "^2.0.1",
     "gatsby-plugin-sharp": "^2.0.8",
     "gatsby-plugin-sitemap": "^2.0.1",
@@ -48,7 +47,8 @@
     "build": "./node_modules/.bin/gatsby build",
     "deploy": "./deploy.js",
     "develop": "./node_modules/.bin/gatsby develop",
-    "lint": "./node_modules/.bin/eslint src"
+    "lint": "./node_modules/.bin/eslint src",
+    "serve": "./node_modules/.bin/gatsby serve"
   },
   "author": "Jeffrey Xiao <jeffrey.xiao1998@gmail.com>",
   "license": "(MIT OR Apache-2.0)"

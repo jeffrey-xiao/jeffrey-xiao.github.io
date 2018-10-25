@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Helmet } from 'react-helmet';
-import { library } from '@fortawesome/fontawesome-svg-core';
+import { config, library } from '@fortawesome/fontawesome-svg-core';
 import { faFacebook, faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import {
   faAngleLeft,
@@ -12,9 +12,9 @@ import {
   faMinus,
   faPlus,
 } from '@fortawesome/free-solid-svg-icons';
+import '@fortawesome/fontawesome-svg-core/styles.css';
 
 import './index.scss';
-
 import Footer from '../components/footer';
 import Header from '../components/header';
 
@@ -30,6 +30,7 @@ library.add(
   faAngleLeft,
   faAngleRight,
 );
+config.autoAddCss = false;
 
 const LayoutWrapper = styled.div`
   display: inline-block;

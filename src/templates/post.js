@@ -4,7 +4,6 @@ import dateFormat from 'dateformat';
 import styled from 'styled-components';
 import { Helmet } from 'react-helmet';
 import { Link } from 'gatsby';
-
 import 'prismjs/themes/prism-solarizedlight.css';
 import 'katex/dist/katex.min.css';
 
