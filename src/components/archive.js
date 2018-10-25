@@ -1,13 +1,13 @@
 import FontAwesome from 'react-fontawesome';
 import PropTypes from 'prop-types';
 import React from 'react';
-import Section from './section';
-import SectionHeader from './sectionHeader';
-import StyledLink from './styledLink';
 import styled from 'styled-components';
 
 import '../assets/font-awesome/css/font-awesome.min.css';
 
+import Section from './section';
+import SectionHeader from './sectionHeader';
+import StyledLink from './styledLink';
 import colors from '../assets/colors';
 
 const months = [
@@ -76,7 +76,7 @@ class NestedLink extends React.Component {
   }
 
   toggleActive() {
-    this.setState({ active: !this.state.active });
+    this.setState(prevState => ({ active: !prevState.active }));
   }
 
   render() {
@@ -109,7 +109,7 @@ class NestedLink extends React.Component {
         buckets.get(filterTarget).push(post);
       });
 
-      for (const [key, value] of buckets.entries()) {
+      Array.from(buckets.entries()).forEach(([key, value]) => {
         elements.push(
           <NestedLink
             key={key}
@@ -119,7 +119,7 @@ class NestedLink extends React.Component {
             filterValue={this.props.filterType === 'year' ? String(key) : months[key]}
           />,
         );
-      }
+      });
     } else {
       this.props.posts.forEach((post) => {
         elements.push(
@@ -146,6 +146,20 @@ class NestedLink extends React.Component {
   }
 }
 
+NestedLink.propTypes = {
+  active: PropTypes.bool,
+  filterType: PropTypes.string,
+  filterValue: PropTypes.string,
+  posts: PropTypes.arrayOf(PropTypes.object),
+};
+
+NestedLink.defaultProps = {
+  active: false,
+  filterType: '',
+  filterValue: '',
+  posts: [],
+};
+
 const Archive = props => (
   <Section style={{ textAlign: 'center' }}>
     <SectionHeader>Archive</SectionHeader>
@@ -159,28 +173,14 @@ const Archive = props => (
   </Section>
 );
 
-NestedLink.propTypes = {
-  posts: PropTypes.array,
-  filterType: PropTypes.string,
-  filterValue: PropTypes.string,
-  active: PropTypes.bool,
-};
-
-NestedLink.defaultProps = {
-  posts: [],
-  filterType: '',
-  filterValue: '',
-  active: false,
-};
-
 Archive.propTypes = {
-  posts: PropTypes.array,
   activePost: PropTypes.string,
+  posts: PropTypes.arrayOf(PropTypes.object),
 };
 
 Archive.defaultProps = {
-  posts: [],
   activePost: '',
+  posts: [],
 };
 
 export default Archive;

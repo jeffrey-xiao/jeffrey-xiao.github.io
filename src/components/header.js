@@ -50,9 +50,7 @@ class NavbarLink extends React.Component {
   }
 
   toggleHover() {
-    this.setState({
-      hover: !this.state.hover,
-    });
+    this.setState(prevState => ({ hover: !prevState.hover }));
   }
 
 
@@ -77,6 +75,16 @@ class NavbarLink extends React.Component {
     );
   }
 }
+
+NavbarLink.propTypes = {
+  activePage: PropTypes.string,
+  currentPage: PropTypes.string,
+};
+
+NavbarLink.defaultProps = {
+  activePage: '',
+  currentPage: '',
+};
 
 const HeaderParent = styled.div`
   transition: all 0.4s;
@@ -134,16 +142,6 @@ const Header = (props) => {
       </HeaderWrapper>
     </HeaderParent>
   );
-};
-
-NavbarLink.propTypes = {
-  currentPage: PropTypes.string,
-  activePage: PropTypes.string,
-};
-
-NavbarLink.defaultProps = {
-  currentPage: '',
-  activePage: '',
 };
 
 Header.propTypes = {

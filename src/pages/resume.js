@@ -1,6 +1,5 @@
 import FontAwesome from 'react-fontawesome';
 import React from 'react';
-import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 import { Helmet } from 'react-helmet';
 import { graphql } from 'gatsby';
@@ -275,11 +274,10 @@ const SectionSubheader = styled.h2`
 
 class ResumePage extends React.Component {
   componentDidMount() {
-    const elem = ReactDOM.findDOMNode(this);
-    elem.style.opacity = 0;
+    this.node.style.opacity = 0;
     window.requestAnimationFrame(() => {
-      elem.style.transition = 'opacity 1000ms ease-out';
-      elem.style.opacity = 1;
+      this.node.style.transition = 'opacity 1000ms ease-out';
+      this.node.style.opacity = 1;
     });
   }
 
@@ -320,7 +318,7 @@ class ResumePage extends React.Component {
     });
 
     return (
-      <ResumeBody>
+      <ResumeBody ref={(node) => { this.node = node; }}>
         <Helmet>
           <title>Resume - Jeffrey Xiao</title>
         </Helmet>

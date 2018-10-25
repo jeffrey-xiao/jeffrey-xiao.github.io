@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import ReactDisqusComments from 'react-disqus-comments';
 import dateFormat from 'dateformat';
 import styled from 'styled-components';
@@ -153,19 +152,15 @@ const SideContents = (props) => {
 
 class PostTemplate extends React.Component {
   componentDidMount() {
-    const elem = ReactDOM.findDOMNode(this);
-    elem.style.opacity = 0;
+    this.node.style.opacity = 0;
     window.requestAnimationFrame(() => {
-      elem.style.transition = 'opacity 1000ms ease-out';
-      elem.style.opacity = 1;
+      this.node.style.transition = 'opacity 1000ms ease-out';
+      this.node.style.opacity = 1;
     });
   }
 
   render() {
-    const post = this.props.pageContext.post.node;
-    const prevPost = this.props.pageContext.prevPost;
-    const nextPost = this.props.pageContext.nextPost;
-
+    const { pageContext: { post: { node: post }, prevPost, nextPost } } = this.props;
     const tags = [];
 
     const formattedDate = dateFormat(
@@ -182,7 +177,7 @@ class PostTemplate extends React.Component {
     });
 
     return (
-      <PostBody>
+      <PostBody ref={(node) => { this.node = node; }}>
         <Helmet>
           <title>{post.frontmatter.title} | Jeffrey Xiao</title>
         </Helmet>
@@ -198,22 +193,22 @@ class PostTemplate extends React.Component {
           url={`https://jeffreyxiao.me/blog${post.frontmatter.path}`}
         />
         {
-          prevPost &&
-          (
-            <PrevPostLink>
-              <StyledLink to={prevPost.node.frontmatter.path}>Previous Post</StyledLink>
-              <div style={{ marginTop: '5px' }}>{prevPost.node.frontmatter.title}</div>
-            </PrevPostLink>
-          )
+          prevPost
+            && (
+              <PrevPostLink>
+                <StyledLink to={prevPost.node.frontmatter.path}>Previous Post</StyledLink>
+                <div style={{ marginTop: '5px' }}>{prevPost.node.frontmatter.title}</div>
+              </PrevPostLink>
+            )
         }
         {
-          nextPost &&
-          (
-            <NextPostLink>
-              <StyledLink to={nextPost.node.frontmatter.path}>Next Post</StyledLink>
-              <div style={{ marginTop: '5px' }}>{nextPost.node.frontmatter.title}</div>
-            </NextPostLink>
-          )
+          nextPost
+            && (
+              <NextPostLink>
+                <StyledLink to={nextPost.node.frontmatter.path}>Next Post</StyledLink>
+                <div style={{ marginTop: '5px' }}>{nextPost.node.frontmatter.title}</div>
+              </NextPostLink>
+            )
         }
         <Clear />
       </PostBody>

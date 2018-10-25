@@ -48,7 +48,7 @@ class PostCard extends React.Component {
       doc.innerHTML = this.props.html;
       const paragraphs = doc.getElementsByTagName('p');
 
-      for (let i = 0; description.length === 0 && i < paragraphs.length; i++) {
+      for (let i = 0; description.length === 0 && i < paragraphs.length; i += 1) {
         const intro = paragraphs[i].textContent.trim();
         const words = intro.split(' ');
         description = words.slice(0, Math.min(words.length, 50)).join(' ');
@@ -86,12 +86,28 @@ class PostCard extends React.Component {
   }
 }
 
+PostCard.propTypes = {
+  date_created: PropTypes.string,
+  html: PropTypes.string,
+  link: PropTypes.string,
+  tags: PropTypes.arrayOf(PropTypes.string),
+  title: PropTypes.string,
+};
+
+PostCard.defaultProps = {
+  date_created: '',
+  html: '',
+  link: '',
+  tags: [],
+  title: '',
+};
+
 const PostList = (props) => {
   const posts = [];
   const tag = props.tagFilter;
 
   props.posts.forEach((post) => {
-    const tags = post.node.frontmatter.tags;
+    const { node: { frontmatter: { tags } } } = post;
 
     if (props.tagFilter === '' || tags.indexOf(tag) !== -1) {
       posts.push(
@@ -113,24 +129,8 @@ const PostList = (props) => {
   );
 };
 
-PostCard.propTypes = {
-  link: PropTypes.string,
-  title: PropTypes.string,
-  tags: PropTypes.array,
-  date_created: PropTypes.string,
-  html: PropTypes.string,
-};
-
-PostCard.defaultProps = {
-  link: '',
-  title: '',
-  tags: [],
-  date_created: '',
-  html: '',
-};
-
 PostList.propTypes = {
-  posts: PropTypes.array,
+  posts: PropTypes.arrayOf(PropTypes.object),
   tagFilter: PropTypes.string,
 };
 

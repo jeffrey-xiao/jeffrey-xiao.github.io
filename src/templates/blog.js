@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 import { Helmet } from 'react-helmet';
 
@@ -60,11 +59,10 @@ const TagListTitle = styled.h1`
 
 class BlogPage extends React.Component {
   componentDidMount() {
-    const elem = ReactDOM.findDOMNode(this);
-    elem.style.opacity = 0;
+    this.node.style.opacity = 0;
     window.requestAnimationFrame(() => {
-      elem.style.transition = 'opacity 1000ms ease-out';
-      elem.style.opacity = 1;
+      this.node.style.transition = 'opacity 1000ms ease-out';
+      this.node.style.opacity = 1;
     });
   }
 
@@ -73,14 +71,16 @@ class BlogPage extends React.Component {
     const numOfPosts = context.allPosts.length;
 
     return (
-      <BlogBody>
+      <BlogBody ref={(node) => { this.node = node; }}>
         <Helmet>
           <title>Blog - Jeffrey Xiao</title>
         </Helmet>
-        {context.pathPrefix.match(/^\/blog\/tags\//) &&
-          <TagListTitle>
-            Posts tagged with &lsquo;{getTagName(context.pathPrefix)}&rsquo;
-          </TagListTitle>
+        {context.pathPrefix.match(/^\/blog\/tags\//)
+          && (
+            <TagListTitle>
+              Posts tagged with &lsquo;{getTagName(context.pathPrefix)}&rsquo;
+            </TagListTitle>
+          )
         }
         <Pagination
           page={context.page}
@@ -90,8 +90,8 @@ class BlogPage extends React.Component {
         <BlogLeftColumn><PostList posts={context.posts} /></BlogLeftColumn>
         <BlogRightColumn>
           <TagList posts={context.allPosts} />
-          {context.pathPrefix.match(/^\/blog\/tags\//) &&
-            <RecentList posts={context.allPosts.slice(0, Math.min(numOfPosts, 5))} />
+          {context.pathPrefix.match(/^\/blog\/tags\//)
+            && <RecentList posts={context.allPosts.slice(0, Math.min(numOfPosts, 5))} />
           }
           <Archive posts={context.allPosts} />
         </BlogRightColumn>
