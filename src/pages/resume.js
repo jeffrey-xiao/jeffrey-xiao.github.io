@@ -211,7 +211,7 @@ const LinksSection = () => (
       </ResumeLink>
     </div>
     <div>
-      <ResumeLink href="https://cdn.rawgit.com/jeffrey-xiao/resume/1d81b70d/resume.pdf">
+      <ResumeLink href="https://cdn.jsdelivr.net/gh/jeffrey-xiao/resume@3a5315f4a14485a9e0efe180191a05973255c558/resume.pdf">
         <FontAwesomeIcon icon="file-pdf" /> PDF Version of Resume
       </ResumeLink>
     </div>
