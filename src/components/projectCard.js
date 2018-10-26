@@ -21,6 +21,8 @@ const ProjectImage = styled.img`
   transform: translateX(-50%);
   transition: transform 0.5s;
   height: 100%;
+  max-width: 100%;
+  object-fit: contain;
 `;
 
 const ProjectImageLink = styled.a`
