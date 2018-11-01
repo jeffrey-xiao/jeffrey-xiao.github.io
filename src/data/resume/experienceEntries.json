@@ -2,7 +2,7 @@
   {
     "entity": "Google",
     "subEntity": "Software Engineering Intern",
-    "location": "San Francisco, California",
+    "location": "Mountain View, California",
     "time": "Sept 2018 - Dec 2018",
     "description": [
       "Building large-scale, robust data analysis pipelines and serving machine learning models to improve online ads prediction accuracy."
@@ -23,7 +23,7 @@
     "entity": "Yelp",
     "subEntity": "Software Engineering Intern",
     "location": "San Francisco, California",
-    "time": "May 2017 - Sept 2017",
+    "time": "May 2017 - Aug 2017",
     "description": [
       "Explored and evaluated solutions for better client-side JS error reporting.",
       "Implemented and rolled out infrastructure to process over 25 million errors every month to over 20 services.",
