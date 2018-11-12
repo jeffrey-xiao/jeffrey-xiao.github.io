@@ -5,7 +5,7 @@ import { Helmet } from 'react-helmet';
 import { graphql } from 'gatsby';
 
 import Clear from '../components/clear';
-import colors from '../assets/colors';
+import colors from '../utils/colors';
 
 
 const ResumeBody = styled.div`

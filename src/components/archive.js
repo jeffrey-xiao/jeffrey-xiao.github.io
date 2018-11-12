@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Section from './section';
 import SectionHeader from './sectionHeader';
 import StyledLink from './styledLink';
-import colors from '../assets/colors';
+import colors from '../utils/colors';
 
 const months = [
   'January',

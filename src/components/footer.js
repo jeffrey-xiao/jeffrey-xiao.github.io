@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import colors from '../assets/colors';
+import colors from '../utils/colors';
 
 
 const FooterDiv = styled.div`

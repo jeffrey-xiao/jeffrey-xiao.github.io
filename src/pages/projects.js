@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet';
 import { graphql } from 'gatsby';
 
 import ProjectCard from '../components/projectCard';
-import colors from '../assets/colors';
+import colors from '../utils/colors';
 
 
 const ProjectsBody = styled.div`

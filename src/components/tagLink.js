@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
-import colors from '../assets/colors';
+import colors from '../utils/colors';
 
 
 export default styled.span`
   a {
     font-size: 12px;
-    letter-spacing: 2px;
+    letter-spacing: 1.5px;
     text-decoration: none;
     color: ${colors.accent1()};
     font-family: "Raleway", sans-serif;
@@ -22,7 +22,7 @@ export default styled.span`
 
   display: inline-flex;
   align-items: center;
-  padding: 3px 6px;
+  padding: 3px 7px;
   border: 1px solid ${colors.accent3()};
   border-radius: 50px;
   background-color: ${colors.accent3()};

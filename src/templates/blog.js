@@ -8,7 +8,7 @@ import Pagination from '../components/pagination';
 import PostList from '../components/postList';
 import RecentList from '../components/recentList';
 import TagList from '../components/tagList';
-import colors from '../assets/colors';
+import colors from '../utils/colors';
 
 
 const getTagName = (pathPrefix) => {

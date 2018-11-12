@@ -7,7 +7,7 @@ import { Link } from 'gatsby';
 import Section from './section';
 import TagLink from './tagLink';
 import UnbrokenStyledLink from './unbrokenStyledLink';
-import colors from '../assets/colors';
+import colors from '../utils/colors';
 
 
 const PostTitle = styled.h2`

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import colors from '../assets/colors';
+import colors from '../utils/colors';
 
 
 export default styled.h2`

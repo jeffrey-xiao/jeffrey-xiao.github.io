@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'gatsby';
 
-import colors from '../assets/colors';
+import colors from '../utils/colors';
 
 
 const Navbar = styled.div`

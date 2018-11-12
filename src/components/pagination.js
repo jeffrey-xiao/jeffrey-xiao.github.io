@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'gatsby';
 
 import Clear from './clear';
-import colors from '../assets/colors';
+import colors from '../utils/colors';
 
 
 const PaginationLink = styled(({ active, children, ...props }) => (

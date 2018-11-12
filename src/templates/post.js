@@ -10,7 +10,7 @@ import 'katex/dist/katex.min.css';
 import Clear from '../components/clear';
 import StyledLink from '../components/styledLink';
 import TagLink from '../components/tagLink';
-import colors from '../assets/colors';
+import colors from '../utils/colors';
 
 
 const PostBody = styled.div`
