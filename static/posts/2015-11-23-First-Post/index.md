@@ -28,7 +28,7 @@ Sum of Integers: $\sum\limits_{i=1}^{n}i = {(n)(n+1) \over 2}$
 
 ## C++ Code
 
-```c
+```cpp
 #include <bits/stdc++.h>
 
 using namespace std;

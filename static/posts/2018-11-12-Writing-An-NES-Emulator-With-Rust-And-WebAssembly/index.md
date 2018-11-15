@@ -13,9 +13,9 @@ tags:
 ## Introduction
 
 Over the past month, I tried my hand at emulating the Nintendo Entertainment System and I wanted to
-share my very biased and personal experience creating `neso-rs`. My ultimate goal was to compile
-the project to WebAssembly so that the emulator can be run on the web, so I will also share my
-thoughts on the WebAssembly ecosystem. You can find the web frontend to `neso-rs`
+share my biased and personal experience creating `neso-rs`. My goal was to compile the project to
+WebAssembly so that the emulator can be run on the web, so I will also share my thoughts on the
+WebAssembly ecosystem. You can find the web frontend to `neso-rs`
 [here](https://jeffreyxiao.me/neso-web).
 
 ## Recipe for Success
@@ -163,4 +163,4 @@ certain buttons are pressed and released. By feeding this record of button press
 into the emulator, you can deterministically replay games and see if the output at each frame has
 changed or not.
 
-### 3. Develop Debug Views
+### 3. Implement Debugging Infrastructure

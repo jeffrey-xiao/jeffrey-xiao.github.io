@@ -60,7 +60,7 @@ amount of time to break the string?
 
 ## Code
 
-```c
+```cpp
 #include <bits/stdc++.h>
 
 #define mp make_pair

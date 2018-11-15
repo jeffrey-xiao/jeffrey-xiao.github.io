@@ -29,7 +29,7 @@ The trick reduces the time complexity from $O(N^2)$ to $O(N)$
 ## Example Problem: IOI 2002 Batch Scheduling
 
 There is a sequence of $N$ jobs to be processed on one machine. The jobs are numbered from $1$ to
-$N$, so that the sequence is $1, 2,..., N$. The sequence of jobs must be partitioned into one or
+$N$, so that the sequence is $1, 2, ..., N$. The sequence of jobs must be partitioned into one or
 more batches, where each batch consists of consecutive jobs in the sequence. The processing starts
 at time $0$. The batches are handled one by one starting from the first batch as follows. If a batch
 $b$ contains jobs with smaller numbers than batch $c$, then batch $b$ is handled before batch $c$.
@@ -100,7 +100,7 @@ queue.
 
 ## Code
 
-```c
+```cpp
 #include <bits/stdc++.h>
 
 using namespace std;

@@ -17,7 +17,7 @@ tags:
 This weekend, I attended Hack Western with a few of my SHAD friends (Kevin, Lilian, and Katherine).
 It was a really great experience and we even came home with a sponsor prize! Going into Hack
 Western, I am pretty sure that my team had zero idea of how to proceed from our initial idea. A week
-before HW, Kevin had a really great idea of a live-updated trend-based news-aggregator web
+before Hack Western, Kevin had a really great idea of a live-updated trend-based news-aggregator web
 application. Essentially what it did was scrape a bunch of articles related to a specific trend and
 find the top keywords from all the articles. Then it would determine the best paragraphs from the
 best sources based on length, conciseness, views, and factual information. The paragraphs would be
@@ -59,7 +59,7 @@ the content. Of course, this process might yield irrelevant results so we only u
 frequent keywords. After implementing [Kuhn's
 algorithm](https://github.com/jeffrey-xiao/Competitive-Programming/blob/master/src/codebook/graph/network/MaxBipartiteMatchingKuhn.java)
 (it was a surprise that I still knew how it worked!), we tested our program and it yielded pretty
-nice results!
+nice results.
 
 ![Jim Kyte Entry](images/jim-kyte-entry.jpg "Jim Kyte Entry")
 
@@ -96,7 +96,7 @@ We used the entities, [Wolfram Alpha API](http://products.wolframalpha.com/devel
 Places API](https://developers.google.com/places/) to obtain some location information about the
 paragraphs. We used the next few hours to create pretty data visualizations with the political
 sentiments, and positivity measure. We spent the next eight hours in the hackathon working on the
-user interface, encorporating all the information, and finalizing our algorithm to select the best
+user interface, incorporating all the information, and finalizing our algorithm to select the best
 paragraphs.
 
 Staying up for nearly 24 hours, I fell asleep soon after. To my surprise when I woke up, my team had

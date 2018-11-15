@@ -20,7 +20,7 @@ years of updating content with a homegrown Angular 1 site, I decided to pick up 
 ## Gatsby
 
 Instead of building my entire site from scratch using React, I wanted to use a pre-existing static
-site templater because the majority of my website would consist of a resume, numerous blog entries,
+site templator because the majority of my website would consist of a résumé, numerous blog entries,
 and various side-projects. One particular static site templator caught my eye — Gatsby. Gatsby
 essentially combines all the latest web technologies (React, Webpack, SCSS, etc.) to help you
 efficiently scaffold and build out your site. One of the most appealing parts of Gatsby was the
@@ -34,7 +34,7 @@ and messy. Though, I kept most of the content layout.
 
 ## GraphQL
 
-The GraphQL layer was very useful when building out the redesign. In the Angular 1 version of my
+The GraphQL layer was extremely handy when building out the redesign. In the Angular 1 version of my
 site, most of the data for my projects and blog was maintained as a [global Angular
 module](https://github.com/jeffrey-xiao/personal-website-old/blob/master/app/global.js) so various
 Angular controllers had access to them. Ultimately, this meant that maintaining it was rather
@@ -43,7 +43,7 @@ it using GraphQL when the page needed it.
 
 ## Plugins
 
-Another huge improvement gained from using Gatsby was the availiability of various plugins. On the
+Another huge improvement gained from using Gatsby was the availability of various plugins. On the
 off chance that a plugin that you needed didn't exist, it was incredible easy to create your own and
 submit a [PR](https://github.com/gatsbyjs/gatsby/pull/1731). On the other hand, for the Angular 1
 version, I either didn't find the plugin I needed or the plugin simply didn't do want I wanted it to
@@ -67,5 +67,5 @@ would generate the necessary data to pass to the blog view.
 ## Final Thoughts
 
 Switching to Gatsby instead of maintaining the Angular 1 version of my site was definitely the sane
-choice to make. Gatsby makes static site generation painless and creates a very performant single
-page application.
+choice to make. Gatsby makes static site generation painless and creates a performant single page
+application.

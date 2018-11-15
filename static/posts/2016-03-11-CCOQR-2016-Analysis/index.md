@@ -48,7 +48,7 @@ Time complexity: $O(N\ log\ N)$
 
 ## P2: Through A Maze Darkly
 
-Let us denote a position as the next corrider you will enter, walking on the right side of the wall.
+Let us denote a position as the next corridor you will enter, walking on the right side of the wall.
 Continuously walking along the right side of a wall will yield in a cycle and cause you to return to
 your starting position. However, it is possible that you may enter your starting room more than
 once.

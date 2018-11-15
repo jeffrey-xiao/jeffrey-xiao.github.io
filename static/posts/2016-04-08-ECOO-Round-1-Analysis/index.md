@@ -32,7 +32,7 @@ Time complexity: $O(N)$
 
 First notice that the number of integers on the spinner is very large ($1 <= N <= 5000$), but the
 actual range of values each integer can take on is very small ($1 <= S_i <= 100$). Additionally, the
-number of occurences of each value does not matter. Thus we can have three loops that iterate
+number of occurrences of each value does not matter. Thus we can have three loops that iterate
 through all possible values and check the following four cases to see if a value is possible:
 
 $$

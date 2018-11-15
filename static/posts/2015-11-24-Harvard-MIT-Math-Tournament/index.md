@@ -14,7 +14,7 @@ tags:
 
 On November 14th, my school sent two teams to the Harvard MIT Math Tournament. The competition
 comprised of two individual (General and Theme) rounds and two team rounds (Team and Guts). The
-problems were rather difficult, but had very elegant solutions. Here are two problems that I found
+problems were rather difficult, but had elegant solutions. Here are two problems that I found
 interesting.
 
 ## Theme Round: Question 8

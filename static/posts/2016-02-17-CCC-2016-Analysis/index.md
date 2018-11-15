@@ -32,7 +32,7 @@ minimum total speed, always pair the fastest from Dmojistan with the fastest fro
 second fastest from Dmojistan with the second fastest from Pegland, and so on. If you want the
 maximum total speed, always pair the slowest from Dmojistan with the fastest from Pegland, the
 second slowest from Dmojistan with the second fastest from Pegland, and so on. It can be
-mathetmatically proven that this will always yield the maximum/minimum total speed.
+mathematically proven that this will always yield the maximum/minimum total speed.
 
 Time complexity: $O(N\ log\ N)$
 
@@ -45,7 +45,7 @@ to visit every vertex in the induced subtree to visit all the Pho restaurants. N
 an easier problem where we have to return to our starting position. The total distance travelled
 will be the number of edges in the subtree multiplied by two. Finally because we don't have to
 return to our original position, we want to subtract the longest distance in the tree. Thus our
-final answer will be the number of edges in the subtree multipled by two subtracted by the longest
+final answer will be the number of edges in the subtree multiplied by two subtracted by the longest
 path distance in the subtree.
 
 Time complexity: $O(N)$
@@ -101,12 +101,12 @@ Let us make a couple of observations first:
 1. This set of rules of 1D cellular automaton is called [Rule 90](https://en.wikipedia.org/wiki/Rule_90).
 
   It has a property of addictivity meaning that if two initial states are combined by computing the
-  exlusive or of each of their states, then their subsequence configurations will be combined in the
+  exclusive or of each of their states, then their subsequence configurations will be combined in the
   same way. For example, the second generation of `01010` can be computed by the XOR of the second
   generation of `01000` and `00010`
 
 2. A simulation of `000...0001000...000` yields the [Sierpinski's Triangle](https://en.wikipedia.org/wiki/Sierpinski_triangle)
-3. The $2^i\text{th}$ row of the Sierpinshi triangle has exactly two ones.
+3. The $2^i\text{th}$ row of the Sierpinski triangle has exactly two ones.
 
 Using these three observations, we can compute the $2^i\text{th}$ row of any generation in $O(N)$
 time. By decomposing $T$ into a set of powers of two, we can obtain a time complexity of

@@ -20,7 +20,7 @@ UofTHacks 2016 turned out completely different than I expected. Going into it, I
 only one teammate (Chris) after my two other teammates cancelled. I thought we were going to build a
 very standard and traditional web application, which I was not against because I still need more
 practice using the MEAN stack. However, when my teammate and I arrived at the venue, we found a
-Waterloo student (Max) that used to go to my highschool. After discussing it and attracting other
+Waterloo student (Max) that used to go to my high school. After discussing it and attracting other
 Waterloo student (Richard), we decided to create a music visualizer with OpenGL with a twist.
 Instead of just bars and waveforms, we were going to animate a character/model dancing to the beat
 of the music. Sounds ridiculous, right?
@@ -29,7 +29,7 @@ of the music. Sounds ridiculous, right?
 
 First off, we decided against using OpenGL and switched to WebGL because the team lacked major
 experience with C++. Being the one experience with OpenGL, Max went off to learn how to implement
-WebGL, while the rest of us thought about the implementation details in javascript. We decided on
+WebGL, while the rest of us thought about the implementation details in JavaScript. We decided on
 creating a very elementary model of a human being: some joint and limb objects connected together
 where only the joint objects can be rotated. The best way of implementing such a structure would be
 to use a tree. The hip joint would be the root of the tree and it would be connected to the
@@ -58,7 +58,7 @@ then be slowly forced back to the rest position, similar to how gravity works. S
 night, Max and I were trying to figure out some Grade 11 Physics equations. Needless to say, we were
 very confused. We tried linear, sin, tan, and even square root relations but none of them worked
 well. Pseudo-integration didn't work very well because we were calculating the decrease in velocity
-in discrete time units, so when a body part would swing back, it wouldm't settle but go faster and
+in discrete time units, so when a body part would swing back, it wouldn't settle but go faster and
 faster. Fortunately, applying a dampening effect (reducing the velocity by 5%) every frame seemed to
 do the trick.
 
@@ -75,7 +75,7 @@ API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API). I quickly 
 waveform visualization of the SoundCloud music using [chart.js](http://www.chartjs.org/) and the
 snapshot amplitudes of frequencies from the FFT in order to debug the movements of our model. The
 model was initialized with random movements, so it was very jerky at first. Nevertheless, it will
-"reacted" to the bass of the music. Instead of random movements, we decided to encorporate some
+"reacted" to the bass of the music. Instead of random movements, we decided to incorporate some
 common movements for each joint and string them together in order to create seamless dance moves.
 The size of each movement also scaled with the amplitude of the music. Here is the code for two
 shoulder movements:
