@@ -45,13 +45,13 @@ if perhaps I was doing incorrect writes to any PPU register, in particular the `
 `PPUADDR` registers. Nothing seemed suspicious enough to warrant further investigation. I noticed
 that when I moved Mario, this line would shift as well, which led me to believe that my scrolling
 logic was wrong. When I logged the coarse X scroll values at the start of each scanline, I noticed
-that the first thirty scanlines had a different value than the later scanlines. Note that scanline
-30 was precisely the last line of the status bar. I was making a write to `PPUSCROLL` in the middle
-of scanline 30, which caused the rest of the scanline to shift leftwards. Interesting... If I were
-to make that write in the middle of scanline 31, the status bar and the background would render
+that the first 30 scanlines had a different value than the later scanlines. Note that scanline 30
+was precisely the last line of the status bar. I was making a write to `PPUSCROLL` in the middle of
+scanline 30, which caused the rest of the scanline to shift leftwards. Interesting... If I were to
+make that write in the middle of scanline 31, the status bar and the background would render
 correctly. At this point, I was convinced that I had a timing issue and by comparing the
 Nintendulor's logs, there was approximately 400 PPU clocks between when I wrote to `PPUSCROLL` and
-when Nintendular did.
+when Nintendulator did.
 
 After a bit more debugging, I finally found the root cause of the issue. To fully understand what
 was happening, it is important to grasp _how_ Super Mario Bros was able to scroll the background,
@@ -63,29 +63,30 @@ rendered was through the [sprite-0 hit](https://wiki.nesdev.com/w/index.php?titl
 bottom of the coin was actually a sprite, and then when the last status bar scanline was rendered,
 it would cause a sprite-0 hit, signalling to the CPU that it was time to render the background. Now
 the reason why the last scanline of the status bar was shifted was because I was drawing the sprites
-one pixel too high! Duh? Obviously, right? By drawing the status bar one pixel too high, the
+one pixel too high! Duh? Obviously, right? By drawing the coin sprite one pixel too high, the
 sprite-0 hit was being triggered one scanline earlier, which caused the scroll value to change one
 scanline too early!
 
 These were the steps I had to take to resolve just _one_ bug from the countless that I encountered.
 Making an emulator definitely requires an exorbitant amount of patience to slowly pick apart the
-system and debug these kind of issues.
+system and debug these kind of issues. But, I believe that going through this ordeal is how you
+best learn about a low level system like the NES.
 
 ### 2. Write Automated Tests
 
-It's clear that debugging small bugs take a large portion of your development time and your
-enjoyment in learning system. What can we do to mitigate that? Write automated tests! The kind folks
-at the [NESDEV forums](https://forums.nesdev.com/) have written various test ROMs for all parts of
-the NES. A comprehensive list can be found
+It's clear that debugging small bugs take a large portion of your development time and probably
+leads to a lot of hair pulling and frustration. What can we do to mitigate this? Write automated
+tests! The kind folks at the [NESDEV forums](https://forums.nesdev.com/) have written various test
+ROMs for all parts of the NES. A comprehensive list can be found
 [here](https://wiki.nesdev.com/w/index.php/Emulator_tests).
 
 As soon as I had a reasonably functioning CPU, I started working on integrating these test ROMs to
-prevent regressions and to squash CPU bugs early. The majority of my tests fall under one of two
-categories: text tests, and graphical tests.
+prevent regressions from happening and to squash bugs early in the development process. The majority
+of my tests fall under one of two categories: text tests, and graphical tests.
 
-The majority of blargg's test ROMs output the status of the test to `$6000` and the output of the
-test to `$6004`, so it suffices to see if you passed the test if `Passed` exists as a substring at
-`$6004` when the test finishes.
+Most of blargg's test ROMs output the status of the test to `$6000` and the output of the test to
+`$6004`, so it suffices to see if you passed the test if `Passed` exists as a substring at `$6004`
+when the test finishes.
 
 ```rust
 // Run until test status is running by polling $6000.
@@ -124,7 +125,7 @@ Then, I could integrate the number of frames and the hash into a macro that chec
 same hash.
 
 ```rust
-// Compare hash of nametables after specified frames for graphical output tests.
+// Compare hash of screen after a specified frames for graphical output tests.
 macro_rules! graphical_tests {
     ($($test_name:ident: ($path:expr, $frames:expr, $hash:expr)$(,)*)*) => {
         $(
@@ -164,3 +165,23 @@ into the emulator, you can deterministically replay games and see if the output 
 changed or not.
 
 ### 3. Implement Debugging Infrastructure
+
+Another way to help track down nasty bugs is to develop debugging infrastructure for your emulator.
+For the CPU, a disassembler that prints the program counter, the opcode, the addressing mode, the
+current cycle the CPU is on, the CPU registers, the addressing mode, and the relevant operand can
+assist in verifying if your CPU implementation is correct. In fact, one of the best early tests for
+your CPU is to do a line-by-line comparison with the execution log of Nintendulator. A caveat for
+the disassembler is that if you are printing out the relevant operand of the opcode, you must be
+careful not to affect the state of any component. Reads to some memory locations can actually change
+the state of a component. For example, reading `PPUSTATUS` will clear the flag that indicates if a
+v blank has started. Every memory read function should have a complementary memory peek function to
+avoid any mutations in state.
+
+For the PPU, implementing debug views for the palette, nametables, and pattern tables was extremely
+useful for me. I was able to fix issues related to mirroring and scrolling by examining the contents
+of the nametables, and figure out if I was doing CHR ROM banking correctly by checking if the
+expected sprite and background data showed up in the pattern tables.
+
+![Super Mario Bros Debug Views](images/super-mario-bros-debug-views.png "Super Mario Bros
+Debug Views")
+
