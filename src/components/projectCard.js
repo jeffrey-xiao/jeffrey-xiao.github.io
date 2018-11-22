@@ -44,6 +44,7 @@ const ProjectTitle = styled.h1`
   font-family: "Josefin Sans", sans-serif;
   font-size: 20px;
   margin: 5px;
+  color: ${colors.base1()};
 `;
 
 const ProjectDescription = styled.p`
@@ -52,6 +53,7 @@ const ProjectDescription = styled.p`
   .emphasis {
     transition: 0.5s all;
   }
+  color: ${colors.base2()};
 `;
 
 const ProjectCard = props => (

@@ -15,7 +15,7 @@ import colors from '../utils/colors';
 
 const PostBody = styled.div`
   div#post-content {
-    font-family: "Raleway", sans-serif;
+    font-family: "Open Sans", sans-serif;
     pre, code {
       font-family: 'Inconsolata', monospace;
       line-height: 20px;
@@ -46,7 +46,7 @@ const PostBody = styled.div`
 
     .gatsby-resp-image-figcaption {
       text-align: center;
-      font-family: "Raleway", sans-serif;
+      font-family: "Open Sans", sans-serif;
       color: ${colors.base2()};
       font-style: italic;
     }

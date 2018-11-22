@@ -13,10 +13,41 @@ tags:
 ## Introduction
 
 Over the past month, I tried my hand at emulating the Nintendo Entertainment System and I wanted to
-share my biased and personal experience creating `neso-rs`. My goal was to compile the project to
-WebAssembly so that the emulator can be run on the web, so I will also share my thoughts on the
-WebAssembly ecosystem. You can find the web frontend to `neso-rs`
-[here](https://jeffreyxiao.me/neso-web).
+share my personal experience creating `neso-rs` and some pieces of advice to those wanting to make
+their own. My final goal was to compile the project to WebAssembly so that the emulator can be run
+on the web, so I will also share my thoughts on the WebAssembly ecosystem. You can find the web
+frontend to `neso-rs` [here](https://jeffreyxiao.me/neso-web).
+
+## CPU
+
+Implementing the CPU is definitely the first task to complete when building an NES emulator from
+scratch. The CPU is a MOS 6502 CPU with the BCD mode stripped off. For me, the CPU was the easiest,
+but least interesting component of the NES. The MOS 6502 is well documented and a transistor
+level emulator even exists, so it was fairly easy to implement the addressing modes, and
+instructions. There are some quirks to the CPU (page crossing behavior, `JMP` bug), but these are
+also all well documented. I did not make a subcycle accurate CPU, but there are a variety of ways to
+do so: generating a finite state machine, using co-routines, or using a queue of tasks that each
+take one cycle.
+
+## Cartridge and NROM
+
+To actually get started on testing, it is necessary to implement Mapper 0 (NROM) and logic for
+parsing cartridges. Overall, mapper 0 and handling iNES cartridges were straight forward, and I
+did not have much trouble in this step. After I had the same logs as Nintendulator for `nestest`, I
+moved on to the next component.
+
+## PPU
+
+The PPU is a big step in difficulty from the CPU for a beginner in emulator development like me. It
+took several days to understand how the different components of the PPU worked together. I found
+this series of articles to be _extremely_ useful to get started on the PPU. TODO: Add link to
+articles. Here are the general steps I took to get a decently working PPU:
+
+1. Implement memory mapping and PPU registers.
+2. Render pattern tables at the end of each frame.
+3. Render nametables at the end of each frame.
+4. Implement the background rendering pipeline.
+5. Implement the sprite evaluation and fetching pipeline.
 
 ## Recipe for Success
 
@@ -74,7 +105,7 @@ best learn about a low level system like the NES.
 
 ### 2. Write Automated Tests
 
-It's clear that debugging small bugs take a large portion of your development time and probably
+It's clear that debugging small bugs takes a large portion of your development time and probably
 leads to a lot of hair pulling and frustration. What can we do to mitigate this? Write automated
 tests! The kind folks at the [NESDEV forums](https://forums.nesdev.com/) have written various test
 ROMs for all parts of the NES. A comprehensive list can be found
@@ -185,3 +216,8 @@ expected sprite and background data showed up in the pattern tables.
 ![Super Mario Bros Debug Views](images/super-mario-bros-debug-views.png "Super Mario Bros
 Debug Views")
 
+TODO: better image.
+
+Implementing these debug views also require a solid understand of how the pattern tables,
+nametables, attribute tables, and palettes work together, which makes it great warm up for actually
+implementing the PPU rendering pipeline.

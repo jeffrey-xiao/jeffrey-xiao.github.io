@@ -8,7 +8,8 @@ import StyledLink from './styledLink';
 
 const RecentLinksList = styled.ul`
   margin: 0 auto;
-  font-family: "Raleway", sans-serif; list-style-type: none;
+  font-family: "Open Sans", sans-serif;
+  list-style-type: none;
   text-align: left;
 
   li:before {

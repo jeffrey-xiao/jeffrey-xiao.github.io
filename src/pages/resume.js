@@ -20,7 +20,7 @@ const ResumeBody = styled.div`
     }
   }
   p {
-    color: ${colors.base1()};
+    color: ${colors.base2()};
   }
   margin-bottom: 25px;
 `;
@@ -52,7 +52,7 @@ const ResumeRightColumn = styled.div`
 `;
 
 const BaseSpan = styled.span`
-  font-family: "Raleway", sans-serif;
+  font-family: "Open Sans", sans-serif;
   display: inline-block;
   margin-bottom: 4px;
   @media only screen and (max-width: 32em) {
@@ -91,7 +91,9 @@ const LeftSubsubheaderSpan = styled(RightHeaderSpan)`
 
 const Description = styled.ul`
   margin: 4px 0 0 -14px;
-  font-family: "Raleway", sans-serif; list-style-type: none;
+  font-family: "Open Sans", sans-serif;
+  list-style-type: none;
+  color: ${colors.base2()};
 
   li:before {
     content: '–';
@@ -185,7 +187,7 @@ const getEducationSectionComponent = (entry, key) => (
 const ResumeLink = styled.a`
   text-decoration: none;
   font-style: italic;
-  font-family: "Raleway", sans-serif;
+  font-family: "Open Sans", sans-serif;
 `;
 
 const LinksSection = () => (
@@ -224,7 +226,7 @@ const AwardDate = styled.p`
   width: 40px;
   vertical-align: top;
   padding-right: 20px;
-  font-family: "Raleway", sans-serif;
+  font-family: "Open Sans", sans-serif;
   margin: 4px 0;
   color: ${colors.base1()};
 `;
@@ -232,7 +234,8 @@ const AwardDate = styled.p`
 const AwardTitle = styled.p`
   display: inline-block;
   width: calc(100% - 60px);
-  font-family: "Raleway", sans-serif;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 100;
   margin: 4px 0;
   color: ${colors.base1()};
 `;

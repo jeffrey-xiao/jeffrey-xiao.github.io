@@ -31,7 +31,7 @@ const PostTagLinks = styled.div`
 
 const PostDescription = styled.div`
   color: ${colors.base2()};
-  font-family: "Raleway", sans-serif;
+  font-family: "Open Sans", sans-serif;
   margin-bottom: 5px;
 `;
 
