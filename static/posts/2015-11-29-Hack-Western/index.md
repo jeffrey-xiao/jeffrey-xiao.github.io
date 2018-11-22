@@ -87,7 +87,7 @@ import time
 from BeautifulSoup import BeautifulSoup
 from googleplaces import GooglePlaces, types, lang
 ```
-_The list of imports we had at the beginning of our Python script._
+_<center>The list of imports we had at the beginning of our Python script.</center>_
 
 ## Data Visualization and Images
 

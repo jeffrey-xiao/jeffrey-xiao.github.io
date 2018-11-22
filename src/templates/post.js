@@ -21,7 +21,7 @@ const PostBody = styled.div`
       line-height: 20px;
     }
 
-    p, li {
+    p, li, center {
       line-height: 25px;
       color: ${colors.base2()};
     }
@@ -97,7 +97,7 @@ const NextPostLink = styled(PostLink)`
 const SideContentsDiv = styled.div`
   padding: 25px 0 10px 10px;
   margin: 35px 0 0 25px;
-  border-left: 3px solid ${colors.base1()};
+  border-left: 3px solid ${colors.accent1()};
   position: absolute;
   left: 100%;
   top: 0%;

@@ -13,26 +13,27 @@ tags:
 ## Introduction
 
 Over the past month, I tried my hand at emulating the Nintendo Entertainment System and I wanted to
-share my personal experience creating `neso-rs` and some pieces of advice to those wanting to make
-their own. My final goal was to compile the project to WebAssembly so that the emulator can be run
-on the web, so I will also share my thoughts on the WebAssembly ecosystem. You can find the web
-frontend to `neso-rs` [here](https://jeffreyxiao.me/neso-web).
+share my personal experience creating `neso-rs` and some advice to those wanting to make their own.
+My final goal was to compile the project to WebAssembly so that the emulator can be run on the web,
+so I will also share my thoughts on the WebAssembly ecosystem. You can find the web frontend to
+`neso-rs` [here](https://jeffreyxiao.me/neso-web).
 
 ## CPU
 
 Implementing the CPU is definitely the first task to complete when building an NES emulator from
 scratch. The CPU is a MOS 6502 CPU with the BCD mode stripped off. For me, the CPU was the easiest,
-but least interesting component of the NES. The MOS 6502 is well documented and a transistor
+but least interesting component of the NES. The MOS 6502 is well documented and even a transistor
 level emulator even exists, so it was fairly easy to implement the addressing modes, and
-instructions. There are some quirks to the CPU (page crossing behavior, `JMP` bug), but these are
-also all well documented. I did not make a subcycle accurate CPU, but there are a variety of ways to
-do so: generating a finite state machine, using co-routines, or using a queue of tasks that each
-take one cycle.
+instructions. I mainly used [Obelisk's 6502 Reference](http://www.obelisk.me.uk/6502/reference.html)
+for most of my implementation. There are some quirks to the CPU (timing when indexing crosses a page
+boundary, `JMP` bug), but these are also all well documented. I did not make a subcycle accurate
+CPU, but there are a variety of ways to do so: generating a finite state machine, using co-routines,
+or using a queue of tasks that each take one cycle.
 
 ## Cartridge and NROM
 
 To actually get started on testing, it is necessary to implement Mapper 0 (NROM) and logic for
-parsing cartridges. Overall, mapper 0 and handling iNES cartridges were straight forward, and I
+parsing cartridges. Overall, mapper 0 and handling iNES cartridges were straightforward, and I
 did not have much trouble in this step. After I had the same logs as Nintendulator for `nestest`, I
 moved on to the next component.
 
@@ -40,14 +41,76 @@ moved on to the next component.
 
 The PPU is a big step in difficulty from the CPU for a beginner in emulator development like me. It
 took several days to understand how the different components of the PPU worked together. I found
-this series of articles to be _extremely_ useful to get started on the PPU. TODO: Add link to
-articles. Here are the general steps I took to get a decently working PPU:
+this series of [articles](http://www.dustmop.io/blog/2015/04/28/nes-graphics-part-1/) to be
+_extremely_ useful to get started on the PPU. Here are the general steps I took to get a decently
+working PPU:
 
 1. Implement memory mapping and PPU registers.
 2. Render pattern tables at the end of each frame.
 3. Render nametables at the end of each frame.
 4. Implement the background rendering pipeline.
 5. Implement the sprite evaluation and fetching pipeline.
+
+## Mappers
+
+After the PPU, I decided to put off learning about the APU to instead implement more mappers. With
+the exception of MMC2 and MMC5, the most complicated logic for popular mappers is PRG ROM or CHR ROM
+banking, and generating interrupts, which are not too bad to implement. I have not gotten around to
+implementing MMC2 because I didn't have a great way of snooping PPU reads, and MMC5 because of its
+complexity.
+
+## APU
+
+I initially thought the APU would be more difficult to reason with than the PPU because I had no
+experience with audio programming. After all, outputting a signal that you can hear _seemed_
+significantly harder than putting pixels on a screen. Sure NESDEV had great documentation on the
+different sound channels (Pulse, Triangle, Noise, and DMC), but I didn't know where to get started.
+I had to gather a couple of observations before I fully understood how to produce sounds:
+
+1. Seeing the [oscilloscope view](https://www.youtube.com/watch?v=OfrEoEQpPrI) of the chiptune music
+   was useful to see what sounds each channel produced.
+2. The APU outputs at a frequency of ~1.78 mHz, but most PC sound cards operate at 44.1 kHz or 48
+   kHz, so downsampling is required. In other words, if you wanted to downsample to 44.1 kHz, you
+   would record the output of the APU every 1.78 mHz / 44.1 kHz = ~40 cycles. Therefore, every frame
+   you would have a buffer of 44.1 kHz / 60 Hz = 735 samples since the NES ran at 60 frames per
+   second.
+3. After the analog audio signals of the channel outputs were combined, it went through a first
+   order high-pass filter at 90 Hz, another first order high-pass filter at 440 Hz, and finally a
+   first order low-pass filter at 14 kHz. A high-pass filter attenuates all frequencies lower than
+   the specified frequency, while a low-pass filter does the opposite. These first order filters can
+   be realized using a simple RC circuit and their algorithmic implementations can be found on their
+   respective [Wikipedia](https://en.wikipedia.org/wiki/High-pass_filter)
+   [pages](https://en.wikipedia.org/wiki/Low-pass_filter).
+
+After combining these observations, the rest of the process was not complicated. Using the
+information on NESDEV, I was able to implement the different channels and was able to play sounds
+using `AudioQueue` in `sdl2`, or `BufferSourceNode` in `WebAudio`.
+
+## Compiling to WebAssembly
+
+With no exaggeration, compiling the project to WebAssembly was the easiest step because of how great
+the documentation and toolchain are. The [Rust Webassembly book](https://rustwasm.github.io/book/)
+was easy to follow and gave great advice for optimizing and profiling your code.
+[`wasm-pack`](https://github.com/rustwasm/wasm-pack) was also a really convenient tool for building,
+packaging and publishing your WebAssembly package. I also wanted to support an SDL2 frontend, so
+making `neso-rs` a general purpose crate was ideal. Luckily, with conditional compilation, you can
+have different dependencies and features depending on the target architecture.
+
+```rust
+[target.'cfg(not(target_arch = "wasm32"))'.dependencies]
+bincode = "1.0"
+log = "0.4"
+serde = "1.0"
+serde_derive = "1.0"
+
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+console_error_panic_hook = { version = "0.1.1", optional = true }
+wasm-bindgen = "0.2"
+```
+_<center>Snippet in `Cargo.toml` to demonstrate conditional dependencies.</center>_
+
+In particular, to keep the WebAssembly bundle size down, it might be worth it to exclude expensive
+"nice-to-have" features like save states.
 
 ## Recipe for Success
 
@@ -147,47 +210,29 @@ while byte != '\0' as u8 {
 
 assert!(String::from_utf8_lossy(&output).contains("Passed"));
 ```
+_<center>Code for text tests.</center>_
 
 As soon as you have a functional PPU, you can also start writing graphical tests. As the name
 implies, graphical tests output the result of the test to the screen, making it a bit more
 complicated than text tests. The way I approached these tests was to figure out the number of frames
-to run the test before it finished, and then to compute the hash of the test after it had finished.
-Then, I could integrate the number of frames and the hash into a macro that checked if it had the
-same hash.
+to run the test before the output was displayed, and then to compute the hash of the screen after it
+had finished. Then, I could integrate the number of frames and the hash into a simple function that
+ran for the specified number of frames and compared the hashes.
 
 ```rust
-// Compare hash of screen after a specified frames for graphical output tests.
-macro_rules! graphical_tests {
-    ($($test_name:ident: ($path:expr, $frames:expr, $hash:expr)$(,)*)*) => {
-        $(
-            #[test]
-            fn $test_name() {
-                use std::collections::hash_map::DefaultHasher;
-                use std::fs;
-                use std::hash::Hasher;
-                use Nes;
-
-                let buffer = fs::read($path)
-                  .expect("Expected test rom to exist.");
-                let mut nes = Nes::new();
-                nes.load_rom(&buffer);
-
-                for _ in 0..$frames {
-                    nes.step_frame();
-                }
-
-                let mut hasher = DefaultHasher::new();
-
-                for val in nes.ppu.buffer.iter() {
-                    hasher.write_u8(*val);
-                }
-
-                assert_eq!(hasher.finish(), $hash);
-            }
-        )*
-    }
+for _ in 0..$frames {
+    nes.step_frame();
 }
+
+let mut hasher = DefaultHasher::new();
+
+for val in nes.ppu.buffer.iter() {
+    hasher.write_u8(*val);
+}
+
+assert_eq!(hasher.finish(), $hash);
 ```
+_<center>Code for graphical tests.</center>_
 
 More sophisticated automated tests can be written with actual games. If you poll for controller
 input at the beginning of each frame, it is feasible to play through an actual game and record when
@@ -218,6 +263,8 @@ Debug Views")
 
 TODO: better image.
 
-Implementing these debug views also require a solid understand of how the pattern tables,
+Implementing these debug views also requires a solid understand of how the pattern tables,
 nametables, attribute tables, and palettes work together, which makes it great warm up for actually
 implementing the PPU rendering pipeline.
+
+## Final Thoughts

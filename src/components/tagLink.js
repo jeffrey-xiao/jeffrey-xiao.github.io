@@ -9,7 +9,7 @@ export default styled.span`
     letter-spacing: 1.5px;
     text-decoration: none;
     color: ${colors.accent1()};
-    font-family: "Raleway", sans-serif;
+    font-family: "Josefin Sans", sans-serif;
   }
 
   &:hover {
@@ -22,7 +22,7 @@ export default styled.span`
 
   display: inline-flex;
   align-items: center;
-  padding: 3px 7px;
+  padding: 3px 8px 0px 8px;
   border: 1px solid ${colors.accent3()};
   border-radius: 50px;
   background-color: ${colors.accent3()};
