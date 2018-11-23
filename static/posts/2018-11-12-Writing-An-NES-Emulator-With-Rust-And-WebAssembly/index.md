@@ -15,8 +15,11 @@ tags:
 Over the past month, I tried my hand at emulating the Nintendo Entertainment System and I wanted to
 share my personal experience creating `neso-rs` and some advice to those wanting to make their own.
 My final goal was to compile the project to WebAssembly so that the emulator can be run on the web,
-so I will also share my thoughts on the WebAssembly ecosystem. You can find the web frontend to
-`neso-rs` [here](https://jeffreyxiao.me/neso-web).
+so I will also share my thoughts on the WebAssembly ecosystem. Links to the source code:
+
+ - [Web frontend](https://github.com/jeffrey-xiao/neso-web)
+ - [SDL2 frontend](https://github.com/jeffrey-xiao/neso-gui)
+ - [Core NES crate](https://github.com/jeffrey-xiao/neso-rs)
 
 ## CPU
 
@@ -71,16 +74,18 @@ I had to gather a couple of observations before I fully understood how to produc
    was useful to see what sounds each channel produced.
 2. The APU outputs at a frequency of ~1.78 mHz, but most PC sound cards operate at 44.1 kHz or 48
    kHz, so downsampling is required. In other words, if you wanted to downsample to 44.1 kHz, you
-   would record the output of the APU every 1.78 mHz / 44.1 kHz = ~40 cycles. Therefore, every frame
-   you would have a buffer of 44.1 kHz / 60 Hz = 735 samples since the NES ran at 60 frames per
-   second.
+   would record the output of the APU every 1.78 mHz / 44.1 kHz = ~40 cycles. Additionally, every
+   frame you would have a buffer of 44.1 kHz / 60 Hz = 735 samples since the NES ran at 60 frames
+   per second.
 3. After the analog audio signals of the channel outputs were combined, it went through a first
    order high-pass filter at 90 Hz, another first order high-pass filter at 440 Hz, and finally a
    first order low-pass filter at 14 kHz. A high-pass filter attenuates all frequencies lower than
-   the specified frequency, while a low-pass filter does the opposite. These first order filters can
-   be realized using a simple RC circuit and their algorithmic implementations can be found on their
-   respective [Wikipedia](https://en.wikipedia.org/wiki/High-pass_filter)
-   [pages](https://en.wikipedia.org/wiki/Low-pass_filter).
+   the specified frequency, while a low-pass filter attenuates frequencies higher than the specified
+   frequency. These first order filters can be realized using a simple RC circuit and their
+   algorithmic implementations can be found on their respective
+   [Wikipedia](https://en.wikipedia.org/wiki/High-pass_filter)
+   [pages](https://en.wikipedia.org/wiki/Low-pass_filter). I assume these filters are needed to
+   reduce [aliasing](https://en.wikipedia.org/wiki/Aliasing).
 
 After combining these observations, the rest of the process was not complicated. Using the
 information on NESDEV, I was able to implement the different channels and was able to play sounds
@@ -91,7 +96,7 @@ using `AudioQueue` in `sdl2`, or `BufferSourceNode` in `WebAudio`.
 With no exaggeration, compiling the project to WebAssembly was the easiest step because of how great
 the documentation and toolchain are. The [Rust Webassembly book](https://rustwasm.github.io/book/)
 was easy to follow and gave great advice for optimizing and profiling your code.
-[`wasm-pack`](https://github.com/rustwasm/wasm-pack) was also a really convenient tool for building,
+[wasm-pack](https://github.com/rustwasm/wasm-pack) was also a really convenient tool for building,
 packaging and publishing your WebAssembly package. I also wanted to support an SDL2 frontend, so
 making `neso-rs` a general purpose crate was ideal. Luckily, with conditional compilation, you can
 have different dependencies and features depending on the target architecture.
@@ -107,7 +112,7 @@ serde_derive = "1.0"
 console_error_panic_hook = { version = "0.1.1", optional = true }
 wasm-bindgen = "0.2"
 ```
-_<center>Snippet in `Cargo.toml` to demonstrate conditional dependencies.</center>_
+_<center>Snippet in `Cargo.toml` for conditional dependencies.</center>_
 
 In particular, to keep the WebAssembly bundle size down, it might be worth it to exclude expensive
 "nice-to-have" features like save states.
@@ -264,7 +269,12 @@ Debug Views")
 TODO: better image.
 
 Implementing these debug views also requires a solid understand of how the pattern tables,
-nametables, attribute tables, and palettes work together, which makes it great warm up for actually
-implementing the PPU rendering pipeline.
+nametables, object attribute memory (OAM), attribute tables, and palettes work together, which makes
+it great warm up for actually implementing the PPU rendering pipeline.
 
 ## Final Thoughts
+
+Writing my own NES emulator from scratch was a very rewarding process that did have some
+frustrating moments. I think it is a great system to learn and dig into because of all widely
+available documentation. It is also really amazing to see how developers were able to overcome
+limitations in hardware and still produce pretty amazing games.

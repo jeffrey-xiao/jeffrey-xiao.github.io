@@ -21,8 +21,13 @@ const PostBody = styled.div`
       line-height: 20px;
     }
 
-    p, li, center {
+    p, li {
       line-height: 25px;
+      color: ${colors.base2()};
+    }
+
+    center {
+      margin-top: -15px;
       color: ${colors.base2()};
     }
 
