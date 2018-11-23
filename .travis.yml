@@ -12,5 +12,5 @@ script:
 after_success:
   - |
     git clone https://github.com/davisp/ghp-import.git &&
-    ./ghp-import/ghp_import.py -n -p -f -m "Personal site upload" -b master -r https://"$GH_TOKEN"@github.com/jeffrey-xiao.github.io.git public &&
+    ./ghp-import/ghp_import.py -n -p -f -m "Personal site upload" -b master -r https://"$GH_TOKEN"@github.com/jeffrey-xiao/jeffrey-xiao.github.io.git public &&
     echo "Uploaded personal site"
