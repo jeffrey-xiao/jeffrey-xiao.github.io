@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import dateFormat from 'dateformat';
 import styled from 'styled-components';
 import { Link } from 'gatsby';
 
@@ -69,10 +68,8 @@ class PostCard extends React.Component {
       );
     });
 
-    const formattedDate = dateFormat(
-      new Date(this.props.date_created),
-      'ddd, mmm dd yyyy',
-    );
+    const dateOptions = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
+    const formattedDate = new Date().toLocaleDateString('en-US', dateOptions);
 
     return (
       <Section>

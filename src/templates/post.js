@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDisqusComments from 'react-disqus-comments';
-import dateFormat from 'dateformat';
 import styled from 'styled-components';
 import { Helmet } from 'react-helmet';
 import { Link } from 'gatsby';
@@ -167,10 +166,8 @@ class PostTemplate extends React.Component {
     const { pageContext: { post: { node: post }, prevPost, nextPost } } = this.props;
     const tags = [];
 
-    const formattedDate = dateFormat(
-      new Date(post.frontmatter.date_created),
-      'ddd, mmmm dd yyyy',
-    );
+    const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const formattedDate = new Date().toLocaleDateString('en-US', dateOptions);
 
     post.frontmatter.tags.forEach((tagName) => {
       tags.push(
