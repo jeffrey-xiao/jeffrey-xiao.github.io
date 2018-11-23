@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Josefin+Sans:300|Josefin+Slab:400|Inconsolata:400|Open+Sans:400');
 
-html, body, #___gatsby {
+html,
+body,
+#___gatsby {
   height: 100%;
   margin: 0;
 }
@@ -12,12 +14,18 @@ html, body, #___gatsby {
   }
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Josefin Sans", sans-serif;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Josefin Sans', sans-serif;
 }
 
-p, span.emphasis {
+p,
+span.emphasis {
   font-size: 16px;
   line-height: 22px;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }

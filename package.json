@@ -45,7 +45,7 @@
   "scripts": {
     "build": "npx gatsby build",
     "deploy": "./deploy.js",
-    "fmt": "npx prettier --write \"{src,static}/**/*.{js,md}\"",
+    "fmt": "npx prettier --write \"{src,static}/**/*.{js,json,md,scss}\"",
     "lint": "npx eslint src",
     "serve": "npx gatsby serve",
     "start": "npx gatsby develop"

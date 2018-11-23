@@ -38,19 +38,19 @@
   {
     "title": "In the Loop",
     "src": "/projects/in-the-loop.jpg",
-    "url" : "http://devpost.com/software/in-the-loop-real-time-news-aggregating-web-app",
+    "url": "http://devpost.com/software/in-the-loop-real-time-news-aggregating-web-app",
     "description": "<span class='emphasis'>AngularJS</span> application and <span class='emphasis'>Python</span> backend that <span class='emphasis'>aggregates current news information</span> in live time. Built with <span class='emphasis'>Twitter API</span>, <span class='emphasis'>Bing Search API</span>, <span class='emphasis'>Newspaper</span>, <span class='emphasis'>Firebase</span>, <span class='emphasis'>Indico</span>, <span class='emphasis'>Google Places</span>, and <span class='emphasis'>Wolfram Alpha</span>. It also uses a <span class='emphasis'>custom matching algorithm</span> to select best paragraphs."
   },
   {
     "title": "WhizBridge",
     "src": "/projects/whizbridge.jpg",
-    "url" : "http://devpost.com/software/whizbridge-yrfq5g",
+    "url": "http://devpost.com/software/whizbridge-yrfq5g",
     "description": "<span class='emphasis'>Web</span> and <span class='emphasis'>iOS</span> application that provides a <span class='emphasis'>buyer-oriented marketplace</span> for tech support. The job posting process is accountless, secure, and convenient, and each job is associated with a temporary hash. Built with <span class='emphasis'>Twilio</span> and <span class='emphasis'>BrainTree</span>."
   },
   {
     "title": "Resistora",
     "src": "/projects/resistora.png",
-    "url" : "http://devpost.com/software/resistora",
+    "url": "http://devpost.com/software/resistora",
     "description": "<span class='emphasis'>Android</span> application that determines the <span class='emphasis'>resistance</span> of various resistors using the camera. It uses a <span class='emphasis'>custom image analysis algorithm</span> based on the <span class='emphasis'>saturation</span> and <span class='emphasis'>lightness</span> of each vertical strip when the image is converted to HSL."
   },
   {
@@ -68,25 +68,25 @@
   {
     "title": "Gravity Collision Simulator",
     "src": "/projects/gravity-simulator.png",
-    "url" : "https://github.com/jeffrey-xiao/Gravity-Collision-Simulator",
+    "url": "https://github.com/jeffrey-xiao/Gravity-Collision-Simulator",
     "description": "<span class='emphasis'>java.swing application</span> that emulates <span class='emphasis'>two dimensional collisions</span>. The coefficient of resistitution, frames per second, the accleration of gravity, and the path size are all adjustable. Upon creation, ball overlap is automatically detected and adjusted."
   },
   {
     "title": "Single Player Tetris",
     "src": "/projects/tetris-single.png",
-    "url" : "https://github.com/jeffrey-xiao/Tetris-Single-Player",
+    "url": "https://github.com/jeffrey-xiao/Tetris-Single-Player",
     "description": "<span class='emphasis'>java.awt</span> clone of <span class='emphasis'>single player Tetris</span>. Mechanics are ones you would typically find in a modern Tetris clone."
   },
   {
     "title": "Multiplayer Tetris",
     "src": "/projects/tetris-multi.png",
-    "url" : "https://github.com/jeffrey-xiao/Tetris-Multiplayer",
+    "url": "https://github.com/jeffrey-xiao/Tetris-Multiplayer",
     "description": "<span class='emphasis'>java.awt</span> clone of <span class='emphasis'>local multiplayer Tetris</span> (Online play coming soon). Mechanics are ones you would typically find in a modern Tetris clone. Combos are factored into account when sending garbage lines."
   },
   {
     "title": "Genetic Programming Reversi",
     "src": "/projects/reversi.png",
-    "url" : "https://github.com/jeffrey-xiao/Genetic-Reversi",
+    "url": "https://github.com/jeffrey-xiao/Genetic-Reversi",
     "description": "<span class='emphasis'>Java</span> application that uses <span class='emphasis'>genetic programming</span> to create artificial intelligence to play <span class='emphasis'>Reversi</span>. Each genetic player uses the symmetry of the board to evaluate moves. It plays relatively well against random players and 2-3 look greedy players."
   }
 ]

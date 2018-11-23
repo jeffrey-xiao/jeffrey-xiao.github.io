@@ -18,10 +18,6 @@
   },
   {
     "title": "Familiar",
-    "elements": [
-      "Go",
-      "Bash",
-      "Scala"
-    ]
+    "elements": ["Go", "Bash", "Scala"]
   }
 ]
