@@ -4,8 +4,8 @@ date_created: 2016-02-17 00:00:00
 author: Jeffrey Xiao
 path: /blog/ccc-2016-analysis
 tags:
- - programming
- - competition
+  - programming
+  - competition
 ---
 
 ## Introduction
@@ -53,6 +53,7 @@ Time complexity: $O(N)$
 [Link to Code](https://github.com/jeffrey-xiao/Competitive-Programming/blob/master/src/contest/ccc/CCC_2016_S3.java)
 
 ## S4: Combining Riceballs
+
 $$
 \text{Let dp}[l][r] =
 \begin{cases}
@@ -100,10 +101,10 @@ Let us make a couple of observations first:
 
 1. This set of rules of 1D cellular automaton is called [Rule 90](https://en.wikipedia.org/wiki/Rule_90).
 
-  It has a property of addictivity meaning that if two initial states are combined by computing the
-  exclusive or of each of their states, then their subsequence configurations will be combined in the
-  same way. For example, the second generation of `01010` can be computed by the XOR of the second
-  generation of `01000` and `00010`
+It has a property of addictivity meaning that if two initial states are combined by computing the
+exclusive or of each of their states, then their subsequence configurations will be combined in the
+same way. For example, the second generation of `01010` can be computed by the XOR of the second
+generation of `01000` and `00010`
 
 2. A simulation of `000...0001000...000` yields the [Sierpinski's Triangle](https://en.wikipedia.org/wiki/Sierpinski_triangle)
 3. The $2^i\text{th}$ row of the Sierpinski triangle has exactly two ones.

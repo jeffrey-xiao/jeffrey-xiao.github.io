@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 import colors from '../utils/colors';
 
-
 const ProjectWrapper = styled.div`
   box-sizing: border-box;
   &:hover .emphasis {
@@ -41,7 +40,7 @@ const ProjectImageLink = styled.a`
 const ProjectTitle = styled.h1`
   text-transform: uppercase;
   text-align: center;
-  font-family: "Josefin Sans", sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
   font-size: 20px;
   margin: 5px;
   color: ${colors.base1()};
@@ -56,7 +55,7 @@ const ProjectDescription = styled.p`
   color: ${colors.base2()};
 `;
 
-const ProjectCard = props => (
+const ProjectCard = (props) => (
   <ProjectWrapper>
     <ProjectImageLink href={props.url}>
       <ProjectImage src={__PATH_PREFIX__ + props.src} />

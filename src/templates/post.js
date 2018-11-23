@@ -11,16 +11,17 @@ import StyledLink from '../components/styledLink';
 import TagLink from '../components/tagLink';
 import colors from '../utils/colors';
 
-
 const PostBody = styled.div`
   div#post-content {
-    font-family: "Open Sans", sans-serif;
-    pre, code {
+    font-family: 'Open Sans', sans-serif;
+    pre,
+    code {
       font-family: 'Inconsolata', monospace;
       line-height: 20px;
     }
 
-    p, li {
+    p,
+    li {
       line-height: 25px;
       color: ${colors.base2()};
     }
@@ -30,7 +31,8 @@ const PostBody = styled.div`
       color: ${colors.base2()};
     }
 
-    h2, h3 {
+    h2,
+    h3 {
       color: ${colors.base1()};
       text-transform: uppercase;
       margin: 32px 0 8px 0;
@@ -50,7 +52,7 @@ const PostBody = styled.div`
 
     .gatsby-resp-image-figcaption {
       text-align: center;
-      font-family: "Open Sans", sans-serif;
+      font-family: 'Open Sans', sans-serif;
       color: ${colors.base2()};
       font-style: italic;
     }
@@ -79,7 +81,7 @@ const PostSubtitle = styled.h4`
 const PostLink = styled.div`
   width: 40%;
   text-transform: uppercase;
-  font-family: "Josefin Sans", sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
 `;
 
 const PrevPostLink = styled(PostLink)`
@@ -109,24 +111,26 @@ const SideContentsDiv = styled.div`
 
   @media only screen and (max-width: 64em) {
     display: none;
-  };
+  }
 `;
 
 const SideContentsLink = styled(({ depth, children, ...props }) => (
   <StyledLink {...props}>{children}</StyledLink>
 ))`
-  margin-left: ${props => props.depth * 15}px;
+  margin-left: ${(props) => props.depth * 15}px;
   display: inline-block;
-  font-family: "Josefin Sans", sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
   margin-bottom: 15px;
 `;
 
 const SideContents = (props) => {
   const headings = [];
   const headingLinkMap = new Map();
-  const getHeadingLink = heading => (
-    heading.replace(/[^0-9a-zA-Z_ ]/g, '').replace(/ /g, '-').toLowerCase()
-  );
+  const getHeadingLink = (heading) =>
+    heading
+      .replace(/[^0-9a-zA-Z_ ]/g, '')
+      .replace(/ /g, '-')
+      .toLowerCase();
 
   props.headings.forEach((heading) => {
     let headingLink = getHeadingLink(heading.value);
@@ -146,11 +150,7 @@ const SideContents = (props) => {
     );
   });
 
-  return (
-    <SideContentsDiv>
-      {headings}
-    </SideContentsDiv>
-  );
+  return <SideContentsDiv>{headings}</SideContentsDiv>;
 };
 
 class PostTemplate extends React.Component {
@@ -163,11 +163,25 @@ class PostTemplate extends React.Component {
   }
 
   render() {
-    const { pageContext: { post: { node: post }, prevPost, nextPost } } = this.props;
+    const {
+      pageContext: {
+        post: { node: post },
+        prevPost,
+        nextPost,
+      },
+    } = this.props;
     const tags = [];
 
-    const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    const formattedDate = new Date().toLocaleDateString('en-US', dateOptions);
+    const dateOptions = {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    };
+    const formattedDate = new Date(post.frontmatter.date_created).toLocaleDateString(
+      'en-US',
+      dateOptions,
+    );
 
     post.frontmatter.tags.forEach((tagName) => {
       tags.push(
@@ -178,7 +192,11 @@ class PostTemplate extends React.Component {
     });
 
     return (
-      <PostBody ref={(node) => { this.node = node; }}>
+      <PostBody
+        ref={(node) => {
+          this.node = node;
+        }}
+      >
         <Helmet>
           <title>{post.frontmatter.title} | Jeffrey Xiao</title>
         </Helmet>
@@ -193,24 +211,18 @@ class PostTemplate extends React.Component {
           title="post.frontmatter.title"
           url={`https://jeffreyxiao.me/blog${post.frontmatter.path}`}
         />
-        {
-          prevPost
-            && (
-              <PrevPostLink>
-                <StyledLink to={prevPost.node.frontmatter.path}>Previous Post</StyledLink>
-                <div style={{ marginTop: '5px' }}>{prevPost.node.frontmatter.title}</div>
-              </PrevPostLink>
-            )
-        }
-        {
-          nextPost
-            && (
-              <NextPostLink>
-                <StyledLink to={nextPost.node.frontmatter.path}>Next Post</StyledLink>
-                <div style={{ marginTop: '5px' }}>{nextPost.node.frontmatter.title}</div>
-              </NextPostLink>
-            )
-        }
+        {prevPost && (
+          <PrevPostLink>
+            <StyledLink to={prevPost.node.frontmatter.path}>Previous Post</StyledLink>
+            <div style={{ marginTop: '5px' }}>{prevPost.node.frontmatter.title}</div>
+          </PrevPostLink>
+        )}
+        {nextPost && (
+          <NextPostLink>
+            <StyledLink to={nextPost.node.frontmatter.path}>Next Post</StyledLink>
+            <div style={{ marginTop: '5px' }}>{nextPost.node.frontmatter.title}</div>
+          </NextPostLink>
+        )}
         <Clear />
       </PostBody>
     );

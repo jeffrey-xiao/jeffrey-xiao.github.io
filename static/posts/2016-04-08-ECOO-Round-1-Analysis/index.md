@@ -4,8 +4,8 @@ date_created: 2016-04-08 00:00:00
 author: Jeffrey Xiao
 path: /blog/ecoo-round-1-analysis
 tags:
- - programming
- - competition
+  - programming
+  - competition
 ---
 
 ## Introduction

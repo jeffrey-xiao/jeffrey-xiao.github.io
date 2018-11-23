@@ -6,7 +6,6 @@ import Section from './section';
 import SectionHeader from './sectionHeader';
 import UnbrokenStyledLink from './unbrokenStyledLink';
 
-
 const TagBody = styled.div`
   width: 60%;
   display: inline-block;
@@ -53,9 +52,7 @@ const TagList = (props) => {
   return (
     <TagSection>
       <SectionHeader>Tags</SectionHeader>
-      <TagBody>
-        {tagLinks}
-      </TagBody>
+      <TagBody>{tagLinks}</TagBody>
     </TagSection>
   );
 };

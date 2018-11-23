@@ -4,8 +4,8 @@ date_created: 2016-03-11 00:00:00
 author: Jeffrey Xiao
 path: /blog/ccoqr-2016-analysis
 tags:
- - programming
- - competition
+  - programming
+  - competition
 ---
 
 ## Introduction

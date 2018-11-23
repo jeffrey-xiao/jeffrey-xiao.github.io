@@ -3,7 +3,6 @@ import { Link } from 'gatsby';
 
 import colors from '../utils/colors';
 
-
 export default styled(Link)`
   text-decoration: none;
   border-bottom: solid 2px ${colors.shade1()};
@@ -16,6 +15,6 @@ export default styled(Link)`
   transition: all 0.5s;
   display: inline-block;
   white-space: nowrap;
-  font-family: "Josefin Sans", sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
   font-size: 17px;
 `;

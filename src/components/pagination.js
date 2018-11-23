@@ -6,17 +6,16 @@ import { Link } from 'gatsby';
 import Clear from './clear';
 import colors from '../utils/colors';
 
-
 const PaginationLink = styled(({ active, children, ...props }) => (
   <Link {...props}>{children}</Link>
 ))`
   display: inline-block;
   font-size: 20px;
-  pointer-events: ${props => (props.active ? 'auto' : 'none')};
-  cursor: ${props => (props.active ? 'pointer' : 'default')};
-  color: ${props => (props.active ? colors.accent1() : colors.base4())};
+  pointer-events: ${(props) => (props.active ? 'auto' : 'none')};
+  cursor: ${(props) => (props.active ? 'pointer' : 'default')};
+  color: ${(props) => (props.active ? colors.accent1() : colors.base4())};
   text-decoration: none;
-  font-family: "Josefin Sans", sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
   text-transform: uppercase;
   transition: all 0.5s;
 
@@ -55,7 +54,7 @@ const PaginationLabel = styled.div`
   display: inline-block;
   margin: 0 auto;
   font-size: 27px;
-  font-family: "Josefin Sans", sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
   color: ${colors.accent1()};
 
   @media only screen and (max-width: 32em) {
@@ -68,23 +67,30 @@ const PaginationDiv = styled.div`
   text-align: center !important;
 `;
 
-const Pagination = props => (
+const Pagination = (props) => (
   <PaginationDiv>
-    <NewerPostsLink
-      to={`${props.pathPrefix}/${props.page - 1}`}
-      active={props.page !== 1}
-    >
-      <LargeLinkLabel><FontAwesomeIcon icon="angle-left" /> Newer Posts</LargeLinkLabel>
-      <SmallLinkLabel><FontAwesomeIcon icon="angle-left" /> Newer</SmallLinkLabel>
+    <NewerPostsLink to={`${props.pathPrefix}/${props.page - 1}`} active={props.page !== 1}>
+      <LargeLinkLabel>
+        <FontAwesomeIcon icon="angle-left" /> Newer Posts
+      </LargeLinkLabel>
+      <SmallLinkLabel>
+        <FontAwesomeIcon icon="angle-left" /> Newer
+      </SmallLinkLabel>
     </NewerPostsLink>
     <OlderPostsLink
       to={`${props.pathPrefix}/${props.page + 1}`}
       active={props.page !== props.numOfPages}
     >
-      <LargeLinkLabel>Older Posts <FontAwesomeIcon icon="angle-right" /></LargeLinkLabel>
-      <SmallLinkLabel>Older <FontAwesomeIcon icon="angle-right" /></SmallLinkLabel>
+      <LargeLinkLabel>
+        Older Posts <FontAwesomeIcon icon="angle-right" />
+      </LargeLinkLabel>
+      <SmallLinkLabel>
+        Older <FontAwesomeIcon icon="angle-right" />
+      </SmallLinkLabel>
     </OlderPostsLink>
-    <PaginationLabel>{props.page}/{props.numOfPages}</PaginationLabel>
+    <PaginationLabel>
+      {props.page}/{props.numOfPages}
+    </PaginationLabel>
     <Clear />
   </PaginationDiv>
 );

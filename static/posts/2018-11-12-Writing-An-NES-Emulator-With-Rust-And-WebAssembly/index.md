@@ -4,10 +4,10 @@ date_created: 2018-11-12 00:00:00
 author: Jeffrey Xiao
 path: /blog/writing-an-nes-emulator-with-rust-and-webassembly
 tags:
- - emulation
- - programming
- - rust
- - webassembly
+  - emulation
+  - programming
+  - rust
+  - webassembly
 ---
 
 ## Introduction
@@ -17,9 +17,9 @@ share my personal experience creating `neso-rs` and some advice to those wanting
 My final goal was to compile the project to WebAssembly so that the emulator can be run on the web,
 so I will also share my thoughts on the WebAssembly ecosystem. Links to the source code:
 
- - [Web frontend](https://github.com/jeffrey-xiao/neso-web)
- - [SDL2 frontend](https://github.com/jeffrey-xiao/neso-gui)
- - [Core NES crate](https://github.com/jeffrey-xiao/neso-rs)
+- [Web frontend](https://github.com/jeffrey-xiao/neso-web)
+- [SDL2 frontend](https://github.com/jeffrey-xiao/neso-gui)
+- [Core NES crate](https://github.com/jeffrey-xiao/neso-rs)
 
 ## CPU
 
@@ -112,6 +112,7 @@ serde_derive = "1.0"
 console_error_panic_hook = { version = "0.1.1", optional = true }
 wasm-bindgen = "0.2"
 ```
+
 _<center>Snippet in `Cargo.toml` for conditional dependencies.</center>_
 
 In particular, to keep the WebAssembly bundle size down, it might be worth it to exclude expensive
@@ -127,16 +128,16 @@ previous side projects, I felt that I made steady progress every time I worked o
 PPU, there were countless times when I felt that I've hit a wall and could not progress. You could
 have a mostly working implementation with a couple small bugs that make the game unrecognizable.
 
-![Donkey Kong Rendering Attempt](images/donkey-kong-rendering-attempt.png "My first attempt at
-rendering the title screen of Donkey Kong in grayscale.")
+![Donkey Kong Rendering Attempt](images/donkey-kong-rendering-attempt.png 'My first attempt at
+rendering the title screen of Donkey Kong in grayscale.')
 
 Many of these bugs are subtle and could require hours of debugging and digging into. The majority of
 my time spent on the PPU was tracing the rendering pipeline to squash bugs. In particular, I spent
 an embarrassing amount of time fixing an issue with my PPU when I started to test with Super Mario
 Bros.
 
-![Super Mario Bros Rendering Bug](images/super-mario-bros-rendering-bug.png "Super Mario Bros
-Rendering Bug")
+![Super Mario Bros Rendering Bug](images/super-mario-bros-rendering-bug.png 'Super Mario Bros
+Rendering Bug')
 
 As you can see, the very last line of the status bar is shifted to the left. I first compared the
 CPU logs between my emulator and [Nintendulator](https://www.qmtpro.com/~nes/nintendulator/) to see
@@ -215,6 +216,7 @@ while byte != '\0' as u8 {
 
 assert!(String::from_utf8_lossy(&output).contains("Passed"));
 ```
+
 _<center>Code for text tests.</center>_
 
 As soon as you have a functional PPU, you can also start writing graphical tests. As the name
@@ -237,6 +239,7 @@ for val in nes.ppu.buffer.iter() {
 
 assert_eq!(hasher.finish(), $hash);
 ```
+
 _<center>Code for graphical tests.</center>_
 
 More sophisticated automated tests can be written with actual games. If you poll for controller
@@ -263,8 +266,8 @@ useful for me. I was able to fix issues related to mirroring and scrolling by ex
 of the nametables, and figure out if I was doing CHR ROM banking correctly by checking if the
 expected sprite and background data showed up in the pattern tables.
 
-![Super Mario Bros Debug Views](images/super-mario-bros-debug-views.png "Super Mario Bros
-Debug Views")
+![Super Mario Bros Debug Views](images/super-mario-bros-debug-views.png 'Super Mario Bros
+Debug Views')
 
 TODO: better image.
 

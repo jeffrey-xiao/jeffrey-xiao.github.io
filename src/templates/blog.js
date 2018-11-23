@@ -10,7 +10,6 @@ import RecentList from '../components/recentList';
 import TagList from '../components/tagList';
 import colors from '../utils/colors';
 
-
 const getTagName = (pathPrefix) => {
   const tokens = pathPrefix.split('/');
   return tokens[tokens.length - 1].replace(/-/g, ' ');
@@ -71,28 +70,32 @@ class BlogPage extends React.Component {
     const numOfPosts = context.allPosts.length;
 
     return (
-      <BlogBody ref={(node) => { this.node = node; }}>
+      <BlogBody
+        ref={(node) => {
+          this.node = node;
+        }}
+      >
         <Helmet>
           <title>Blog - Jeffrey Xiao</title>
         </Helmet>
-        {context.pathPrefix.match(/^\/blog\/tags\//)
-          && (
-            <TagListTitle>
-              Posts tagged with &lsquo;{getTagName(context.pathPrefix)}&rsquo;
-            </TagListTitle>
-          )
-        }
+        {context.pathPrefix.match(/^\/blog\/tags\//) && (
+          <TagListTitle>
+            Posts tagged with &lsquo;{getTagName(context.pathPrefix)}&rsquo;
+          </TagListTitle>
+        )}
         <Pagination
           page={context.page}
           pathPrefix={context.pathPrefix}
           numOfPages={context.numOfPages}
         />
-        <BlogLeftColumn><PostList posts={context.posts} /></BlogLeftColumn>
+        <BlogLeftColumn>
+          <PostList posts={context.posts} />
+        </BlogLeftColumn>
         <BlogRightColumn>
           <TagList posts={context.allPosts} />
-          {context.pathPrefix.match(/^\/blog\/tags\//)
-            && <RecentList posts={context.allPosts.slice(0, Math.min(numOfPosts, 5))} />
-          }
+          {context.pathPrefix.match(/^\/blog\/tags\//) && (
+            <RecentList posts={context.allPosts.slice(0, Math.min(numOfPosts, 5))} />
+          )}
           <Archive posts={context.allPosts} />
         </BlogRightColumn>
         <Clear />

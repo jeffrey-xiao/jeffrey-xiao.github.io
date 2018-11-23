@@ -4,13 +4,13 @@ date_created: 2015-11-29 00:00:00
 author: Jeffrey Xiao
 path: /blog/hack-western
 tags:
- - competition
- - hackathon
- - programming
- - machine learning
+  - competition
+  - hackathon
+  - programming
+  - machine learning
 ---
 
-![Hack Western Team](images/hack-western.jpg "Hack Western Team")
+![Hack Western Team](images/hack-western.jpg 'Hack Western Team')
 
 ## Introduction
 
@@ -61,7 +61,7 @@ algorithm](https://github.com/jeffrey-xiao/Competitive-Programming/blob/master/s
 (it was a surprise that I still knew how it worked!), we tested our program and it yielded pretty
 nice results.
 
-![Jim Kyte Entry](images/jim-kyte-entry.jpg "Jim Kyte Entry")
+![Jim Kyte Entry](images/jim-kyte-entry.jpg 'Jim Kyte Entry')
 
 **Whew!** A big portion of our backend was completed at this point. We checked the time and to our
 surprise, only 11 hours had passed -- we still had over two-thirds of the hackathon left. The
@@ -87,6 +87,7 @@ import time
 from BeautifulSoup import BeautifulSoup
 from googleplaces import GooglePlaces, types, lang
 ```
+
 _<center>The list of imports we had at the beginning of our Python script.</center>_
 
 ## Data Visualization and Images
@@ -109,7 +110,7 @@ relevant.
 ## Conclusion
 
 The rest of the hackathon was rather unproductive since we had pretty much finished. Kevin used
-[Ionic](http://ionicframework.com/) to port *In the Loop* to Android and iOS. I thought that we had
+[Ionic](http://ionicframework.com/) to port _In the Loop_ to Android and iOS. I thought that we had
 a pretty good shot at a couple of the prizes (Best Data Visualization, Best Life Hack, Best Open
 Source, and Best Social Impact), but after seeing the other projects I was unsure. I really wanted
 the Best Social Impact prize since they were giving out Bluetooth headphones. In the end, we got the

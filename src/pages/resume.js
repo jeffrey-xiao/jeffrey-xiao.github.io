@@ -7,7 +7,6 @@ import { graphql } from 'gatsby';
 import Clear from '../components/clear';
 import colors from '../utils/colors';
 
-
 const ResumeBody = styled.div`
   span.emphasis {
     color: ${colors.accent1()};
@@ -52,7 +51,7 @@ const ResumeRightColumn = styled.div`
 `;
 
 const BaseSpan = styled.span`
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   display: inline-block;
   margin-bottom: 4px;
   @media only screen and (max-width: 32em) {
@@ -91,7 +90,7 @@ const LeftSubsubheaderSpan = styled(RightHeaderSpan)`
 
 const Description = styled.ul`
   margin: 4px 0 0 -14px;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   list-style-type: none;
   color: ${colors.base2()};
 
@@ -102,9 +101,8 @@ const Description = styled.ul`
   }
 `;
 
-const getPoints = points => points.map(point => (
-  <li key={point} dangerouslySetInnerHTML={{ __html: point }} />
-));
+const getPoints = (points) =>
+  points.map((point) => <li key={point} dangerouslySetInnerHTML={{ __html: point }} />);
 
 const ResumeSection = (props) => {
   const descriptionPoints = getPoints(props.description);
@@ -121,9 +119,7 @@ const ResumeSection = (props) => {
         <RightSubheaderSpan>{props.rightSubheader}</RightSubheaderSpan>
         <Clear />
       </div>
-      <Description>
-        {descriptionPoints}
-      </Description>
+      <Description>{descriptionPoints}</Description>
     </div>
   );
 };
@@ -145,9 +141,7 @@ const EducationSection = (props) => {
         <LeftSubsubheaderSpan dangerouslySetInnerHTML={{ __html: props.locationTime }} />
         <Clear />
       </div>
-      <Description>
-        {descriptionPoints}
-      </Description>
+      <Description>{descriptionPoints}</Description>
     </div>
   );
 };
@@ -187,7 +181,7 @@ const getEducationSectionComponent = (entry, key) => (
 const ResumeLink = styled.a`
   text-decoration: none;
   font-style: italic;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
 `;
 
 const LinksSection = () => (
@@ -220,13 +214,12 @@ const LinksSection = () => (
   </div>
 );
 
-
 const AwardDate = styled.p`
   display: inline-block;
   width: 40px;
   vertical-align: top;
   padding-right: 20px;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   margin: 4px 0;
   color: ${colors.base1()};
 `;
@@ -234,7 +227,7 @@ const AwardDate = styled.p`
 const AwardTitle = styled.p`
   display: inline-block;
   width: calc(100% - 60px);
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-weight: 100;
   margin: 4px 0;
   color: ${colors.base1()};
@@ -252,11 +245,7 @@ const AwardsSection = (props) => {
     );
   });
 
-  return (
-    <div>
-      {awards}
-    </div>
-  );
+  return <div>{awards}</div>;
 };
 
 const SectionHeader = styled.h1`
@@ -290,10 +279,12 @@ class ResumePage extends React.Component {
     const skillSections = [];
     const educationSections = [];
     const certifications = getPoints(
-      this.props.data.allCertificationEntriesJson.edges.map(entry => entry.node.certificationName),
+      this.props.data.allCertificationEntriesJson.edges.map(
+        (entry) => entry.node.certificationName,
+      ),
     );
     const interests = getPoints(
-      this.props.data.allInterestEntriesJson.edges.map(entry => entry.node.interestName),
+      this.props.data.allInterestEntriesJson.edges.map((entry) => entry.node.interestName),
     );
 
     this.props.data.allEducationEntriesJson.edges.forEach((entry) => {
@@ -321,7 +312,11 @@ class ResumePage extends React.Component {
     });
 
     return (
-      <ResumeBody ref={(node) => { this.node = node; }}>
+      <ResumeBody
+        ref={(node) => {
+          this.node = node;
+        }}
+      >
         <Helmet>
           <title>Resume - Jeffrey Xiao</title>
         </Helmet>
@@ -339,15 +334,11 @@ class ResumePage extends React.Component {
           <SectionHeader>Awards</SectionHeader>
           <AwardsSection awards={this.props.data.allAwardEntriesJson.edges} />
           <SectionHeader>Certifications</SectionHeader>
-          <Description>
-            {certifications}
-          </Description>
+          <Description>{certifications}</Description>
           <SectionHeader>Education</SectionHeader>
           {educationSections}
           <SectionHeader>Interests</SectionHeader>
-          <Description>
-            {interests}
-          </Description>
+          <Description>{interests}</Description>
         </ResumeRightColumn>
         <Clear />
       </ResumeBody>

@@ -4,8 +4,8 @@ date_created: 2015-12-14 00:00:00
 author: Jeffrey Xiao
 path: /blog/divide-and-conquer-optimization
 tags:
- - dynamic programming
- - programming
+  - dynamic programming
+  - programming
 ---
 
 ## Introduction
@@ -57,6 +57,7 @@ Determine the minimal possible total unfamiliarity value.
 ```
 
 ## Sample Explanation
+
 One optimal division is $\{1, 2, 3\} | \{4, 5, 6\} | \{7, 8\}$ which sum to $7$
 
 ## Analysis

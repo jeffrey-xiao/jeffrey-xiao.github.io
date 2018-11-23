@@ -4,11 +4,11 @@ date_created: 2015-11-24 00:00:00
 author: Jeffrey Xiao
 path: /blog/harvard-mit-math-tournament
 tags:
- - competition
- - math
+  - competition
+  - math
 ---
 
-![Team Photo in Front of MIT](images/HMMT.png "Team Photo in Front of MIT")
+![Team Photo in Front of MIT](images/HMMT.png 'Team Photo in Front of MIT')
 
 ## Introduction
 
@@ -96,7 +96,7 @@ graph is good?
 ### Solution
 
 If it is possible to draw a path starting at vertex $V$ and ending at vertex $V$ traversing each
-edge exactly once, the graph is known as an *Eulerian graph*. In order for that condition to hold
+edge exactly once, the graph is known as an _Eulerian graph_. In order for that condition to hold
 true, every vertex must have an even degree (I.E. there must be an even number of edges connected to
 the vertex). For a graph with six vertexes, we can notice that there are a couple of graphs which
 have an Eulerian cycle, but are not good. These graphs have the two distinct cycles of size three.

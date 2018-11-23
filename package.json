@@ -40,14 +40,15 @@
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-react": "^7.11.1",
-    "gh-pages": "^2.0.1"
+    "prettier": "1.15.2"
   },
   "scripts": {
-    "build": "./node_modules/.bin/gatsby build",
+    "build": "npx gatsby build",
     "deploy": "./deploy.js",
-    "lint": "./node_modules/.bin/eslint src",
-    "serve": "./node_modules/.bin/gatsby serve",
-    "start": "./node_modules/.bin/gatsby develop"
+    "fmt": "npx prettier --write \"{src,static}/**/*.{js,md}\"",
+    "lint": "npx eslint src",
+    "serve": "npx gatsby serve",
+    "start": "npx gatsby develop"
   },
   "author": "Jeffrey Xiao <jeffrey.xiao1998@gmail.com>",
   "license": "(MIT OR Apache-2.0)"

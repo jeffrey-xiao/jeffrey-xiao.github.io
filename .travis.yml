@@ -1,0 +1,16 @@
+language: node_js
+node_js: "10"
+
+install:
+  - npm install
+
+script:
+  - npx prettier --list-different "{src,static}/**/*.{js,md}"
+  - npx eslint src
+  - npx gatsby build
+
+after_success:
+  - |
+    git clone https://github.com/davisp/ghp-import.git &&
+    ./ghp-import/ghp_import.py -n -p -f -m "Personal site upload" -b master -r https://"$GH_TOKEN"@github.com/jeffrey-xiao.github.io.git dist &&
+    echo "Uploaded personal site"

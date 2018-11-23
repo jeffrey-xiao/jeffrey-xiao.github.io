@@ -8,7 +8,7 @@ import StyledLink from './styledLink';
 
 const RecentLinksList = styled.ul`
   margin: 0 auto;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   list-style-type: none;
   text-align: left;
 
@@ -31,9 +31,7 @@ const RecentList = (props) => {
   props.posts.forEach((post) => {
     recentLinks.push(
       <li key={post.node.frontmatter.path}>
-        <StyledLink to={post.node.frontmatter.path}>
-          {post.node.frontmatter.title}
-        </StyledLink>
+        <StyledLink to={post.node.frontmatter.path}>{post.node.frontmatter.title}</StyledLink>
       </li>,
     );
   });
@@ -41,9 +39,7 @@ const RecentList = (props) => {
   return (
     <Section style={{ textAlign: 'center' }}>
       <SectionHeader>Recent Posts</SectionHeader>
-      <RecentLinksList>
-        {recentLinks}
-      </RecentLinksList>
+      <RecentLinksList>{recentLinks}</RecentLinksList>
     </Section>
   );
 };

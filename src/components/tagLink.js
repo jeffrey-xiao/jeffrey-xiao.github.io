@@ -2,14 +2,13 @@ import styled from 'styled-components';
 
 import colors from '../utils/colors';
 
-
 export default styled.span`
   a {
     font-size: 12px;
     letter-spacing: 1.5px;
     text-decoration: none;
     color: ${colors.accent1()};
-    font-family: "Josefin Sans", sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
   }
 
   &:hover {

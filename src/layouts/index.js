@@ -39,7 +39,7 @@ const LayoutWrapper = styled.div`
   max-width: 1000px;
 `;
 
-const Layout = props => (
+const Layout = (props) => (
   <LayoutWrapper>
     <Helmet>
       <title>Jeffrey Xiao</title>

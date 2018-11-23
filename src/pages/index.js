@@ -1,7 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
-
 const HomePage = () => (
   <Helmet>
     <title>Jeffrey Xiao</title>

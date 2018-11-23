@@ -4,15 +4,15 @@ date_created: 2016-01-25 00:00:00
 author: Jeffrey Xiao
 path: /blog/uoft-hacks
 tags:
- - competition
- - hackathon
- - programming
- - webgl
- - music
- - physics
+  - competition
+  - hackathon
+  - programming
+  - webgl
+  - music
+  - physics
 ---
 
-![Playing Rocket League During Downtime](images/hack-uoft.jpg "Playing Rocket League During Downtime")
+![Playing Rocket League During Downtime](images/hack-uoft.jpg 'Playing Rocket League During Downtime')
 
 ## Introduction
 
@@ -38,7 +38,7 @@ Logically, there would also be shoulder, knee, and elbow joints that could suffi
 basic human movement and dancing. A rotation on a joint would "propagated" to all the children
 joints. It would look something like this:
 
-![Tree Diagram of Body](images/body.png "Tree Diagram of Body")
+![Tree Diagram of Body](images/body.png 'Tree Diagram of Body')
 
 If the right hip joint was targeted (green), the rotation would also propagate to the right upper
 leg, right knee, and right lower leg (blue). So after we implemented the tree structure of the body,
@@ -81,7 +81,7 @@ The size of each movement also scaled with the amplitude of the music. Here is t
 shoulder movements:
 
 ```javascript
-function shoulder1 (amt) {
+function shoulder1(amt) {
   if (Math.random() < PROB) {
     vel[RSHOULDER].x -= amt * 2;
     vel[RSHOULDER].y += (Math.random() - 0.5) * amt;
@@ -92,13 +92,13 @@ function shoulder1 (amt) {
   }
 }
 
-function shoulder2 (amt) {
+function shoulder2(amt) {
   if (Math.random() < PROB) {
-    vel[RSHOULDER].z += (Math.random())/6 + amt / 2;
+    vel[RSHOULDER].z += Math.random() / 6 + amt / 2;
   }
 
   if (Math.random() < PROB) {
-    vel[LSHOULDER].z -= (Math.random())/6 + amt / 2;
+    vel[LSHOULDER].z -= Math.random() / 6 + amt / 2;
   }
 }
 ```

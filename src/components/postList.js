@@ -8,7 +8,6 @@ import TagLink from './tagLink';
 import UnbrokenStyledLink from './unbrokenStyledLink';
 import colors from '../utils/colors';
 
-
 const PostTitle = styled.h2`
   margin-top: 5px;
   margin-bottom: 5px;
@@ -30,7 +29,7 @@ const PostTagLinks = styled.div`
 
 const PostDescription = styled.div`
   color: ${colors.base2()};
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   margin-bottom: 5px;
 `;
 
@@ -68,8 +67,16 @@ class PostCard extends React.Component {
       );
     });
 
-    const dateOptions = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
-    const formattedDate = new Date().toLocaleDateString('en-US', dateOptions);
+    const dateOptions = {
+      weekday: 'short',
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+    };
+    const formattedDate = new Date(this.props.date_created).toLocaleDateString(
+      'en-US',
+      dateOptions,
+    );
 
     return (
       <Section>
@@ -104,7 +111,11 @@ const PostList = (props) => {
   const tag = props.tagFilter;
 
   props.posts.forEach((post) => {
-    const { node: { frontmatter: { tags } } } = post;
+    const {
+      node: {
+        frontmatter: { tags },
+      },
+    } = post;
 
     if (props.tagFilter === '' || tags.indexOf(tag) !== -1) {
       posts.push(
@@ -120,10 +131,7 @@ const PostList = (props) => {
     }
   });
 
-
-  return (
-    <div>{posts}</div>
-  );
+  return <div>{posts}</div>;
 };
 
 PostList.propTypes = {

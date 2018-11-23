@@ -6,7 +6,6 @@ import { graphql } from 'gatsby';
 import ProjectCard from '../components/projectCard';
 import colors from '../utils/colors';
 
-
 const ProjectsBody = styled.div`
   span.emphasis {
     color: ${colors.accent1()};
@@ -61,13 +60,15 @@ class ProjectsPage extends React.Component {
     });
 
     return (
-      <ProjectsBody ref={(node) => { this.node = node; }}>
+      <ProjectsBody
+        ref={(node) => {
+          this.node = node;
+        }}
+      >
         <Helmet>
           <title>Projects - Jeffrey Xiao</title>
         </Helmet>
-        <ProjectCards>
-          {projectCards}
-        </ProjectCards>
+        <ProjectCards>{projectCards}</ProjectCards>
       </ProjectsBody>
     );
   }

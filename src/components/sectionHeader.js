@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 import colors from '../utils/colors';
 
-
 export default styled.h2`
   display: table;
   margin: 0px auto 10px auto;

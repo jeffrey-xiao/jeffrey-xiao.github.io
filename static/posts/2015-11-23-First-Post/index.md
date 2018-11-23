@@ -4,7 +4,7 @@ date_created: 2015-11-23 00:00:00
 author: Jeffrey Xiao
 path: /blog/first-blog-post
 tags:
- - misc
+  - misc
 ---
 
 ## Welcome!

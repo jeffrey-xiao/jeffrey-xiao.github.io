@@ -4,14 +4,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import colors from '../utils/colors';
 
-
 const FooterDiv = styled.div`
   padding-bottom: 30px;
   width: 100%;
   text-align: center !important;
-  position: ${props => (props.isHomepage ? 'fixed' : 'relative')};
-  transform: ${props => (props.isHomepage ? 'translateX(-50%)' : 'none')};
-  left: ${props => (props.isHomepage ? '50%' : '0')};
+  position: ${(props) => (props.isHomepage ? 'fixed' : 'relative')};
+  transform: ${(props) => (props.isHomepage ? 'translateX(-50%)' : 'none')};
+  left: ${(props) => (props.isHomepage ? '50%' : '0')};
   bottom: 0;
 `;
 
@@ -27,13 +26,13 @@ const FooterIcon = styled(FontAwesomeIcon)`
   }
 `;
 
-const FooterLink = props => (
+const FooterLink = (props) => (
   <a href={props.url} style={{ margin: '0 15px' }}>
     <FooterIcon icon={props.icon} />
   </a>
 );
 
-const Footer = props => (
+const Footer = (props) => (
   <FooterDiv isHomepage={props.activePage === '/'}>
     <FooterLink url="https://github.com/jeffrey-xiao" icon={['fab', 'github']} />
     <FooterLink url="https://www.linkedin.com/in/jeffreyxiao" icon={['fab', 'linkedin']} />

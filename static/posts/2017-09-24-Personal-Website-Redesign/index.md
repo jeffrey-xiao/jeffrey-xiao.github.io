@@ -4,18 +4,18 @@ date_created: 2017-09-24 00:00:00
 author: Jeffrey Xiao
 path: /blog/personal-website-redesign
 tags:
- - web development
- - programming
+  - web development
+  - programming
 ---
 
-![Old Personal Website With Angular 1](images/angular-site.png "Old Personal Website With Angular 1")
+![Old Personal Website With Angular 1](images/angular-site.png 'Old Personal Website With Angular 1')
 
 ## Introduction
 
 The first version of my personal website was created late 2015 when Angular 1 was one of the most
 popular frontend frameworks to use and React was an up-and-comer in the JavaScript land. After three
 years of updating content with a homegrown Angular 1 site, I decided to pick up something new and
-*reactive*.
+_reactive_.
 
 ## Gatsby
 

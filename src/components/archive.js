@@ -47,24 +47,24 @@ const NestedLabel = styled.span`
 
 const NestedLabelWrapper = styled.div`
   cursor: pointer;
-  padding-top: ${props => (props.filterType === 'month' ? '10px' : '5px')};
+  padding-top: ${(props) => (props.filterType === 'month' ? '10px' : '5px')};
   opacity: 1 !important;
   height: auto !important;
   display: block;
   position: relative;
-  font-family: "Josefin Sans", sans-serif;
-  z-index: ${props => (props.filterType === 'month' ? 3 : 1)} !important;
+  font-family: 'Josefin Sans', sans-serif;
+  z-index: ${(props) => (props.filterType === 'month' ? 3 : 1)} !important;
   color: ${colors.base1()};
 `;
 
 const NestedLinkWrapper = styled.div`
-  padding-left: ${props => (props.filterValue ? 15 : 0)}px;
+  padding-left: ${(props) => (props.filterValue ? 15 : 0)}px;
   overflow: hidden;
-  min-height: ${props => (props.filterType === 'month' ? 30 : 0)}px;
+  min-height: ${(props) => (props.filterType === 'month' ? 30 : 0)}px;
   & > div {
-    opacity: ${props => (props.active ? 1 : 0)};
-    height: ${props => (props.active ? 'auto' : 0)};
-    z-index: ${props => (props.active ? 'auto' : -1)};
+    opacity: ${(props) => (props.active ? 1 : 0)};
+    height: ${(props) => (props.active ? 'auto' : 0)};
+    z-index: ${(props) => (props.active ? 'auto' : -1)};
   }
 `;
 
@@ -72,11 +72,11 @@ class NestedLink extends React.Component {
   constructor(props) {
     super(props);
     this.toggleActive = this.toggleActive.bind(this);
-    this.state = { active: (!this.props.filterValue) && this.props.active };
+    this.state = { active: !this.props.filterValue && this.props.active };
   }
 
   toggleActive() {
-    this.setState(prevState => ({ active: !prevState.active }));
+    this.setState((prevState) => ({ active: !prevState.active }));
   }
 
   render() {
@@ -90,7 +90,9 @@ class NestedLink extends React.Component {
           filterValue={this.props.filterValue}
         >
           <NestedIcon icon={this.state.active ? 'minus' : 'plus'} />
-          <NestedLabel>{this.props.filterValue} ({this.props.posts.length})</NestedLabel>
+          <NestedLabel>
+            {this.props.filterValue} ({this.props.posts.length})
+          </NestedLabel>
         </NestedLabelWrapper>,
       );
     }
@@ -101,7 +103,8 @@ class NestedLink extends React.Component {
         const postDate = new Date(post.node.frontmatter.date_created);
 
         // filterType should be '', 'year', or 'month'
-        const filterTarget = this.props.filterType === 'year' ? postDate.getFullYear() : postDate.getMonth();
+        const isYear = this.props.filterType === 'year';
+        const filterTarget = isYear ? postDate.getFullYear() : postDate.getMonth();
 
         if (!buckets.has(filterTarget)) {
           buckets.set(filterTarget, []);
@@ -160,7 +163,7 @@ NestedLink.defaultProps = {
   posts: [],
 };
 
-const Archive = props => (
+const Archive = (props) => (
   <Section style={{ textAlign: 'center' }}>
     <SectionHeader>Archive</SectionHeader>
     <NestedLink

@@ -4,8 +4,8 @@ date_created: 2015-12-07 00:00:00
 author: Jeffrey Xiao
 path: /blog/knuths-optimization
 tags:
- - dynamic programming
- - programming
+  - dynamic programming
+  - programming
 ---
 
 ## Introduction

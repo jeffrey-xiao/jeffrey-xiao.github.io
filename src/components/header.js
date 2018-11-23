@@ -5,12 +5,11 @@ import { Link } from 'gatsby';
 
 import colors from '../utils/colors';
 
-
 const Navbar = styled.div`
   padding-bottom: 25px;
   text-align: center !important;
   transition: all 0.4s;
-  font-family: "Josefin Sans", sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
   margin-bottom: 30px;
 `;
 
@@ -22,14 +21,14 @@ const NavbarLinkStyled = styled(({ active, children, ...props }) => (
   padding: 25px 10px;
   letter-spacing: 2px;
   transition: all 0.4s;
-  color: ${props => (props.active ? colors.base1() : colors.base4())};
-  border-bottom: 1px solid ${props => (props.active ? colors.base1() : colors.base4())};
+  color: ${(props) => (props.active ? colors.base1() : colors.base4())};
+  border-bottom: 1px solid ${(props) => (props.active ? colors.base1() : colors.base4())};
 
   @media only screen and (max-width: 32em) {
     letter-spacing: 2px;
     font-size: 14px;
     padding: 25px 5px;
-  };
+  }
 `;
 
 class NavbarLink extends React.Component {
@@ -50,9 +49,8 @@ class NavbarLink extends React.Component {
   }
 
   toggleHover() {
-    this.setState(prevState => ({ hover: !prevState.hover }));
+    this.setState((prevState) => ({ hover: !prevState.hover }));
   }
-
 
   render() {
     let target;
@@ -89,37 +87,37 @@ NavbarLink.defaultProps = {
 const HeaderParent = styled.div`
   transition: all 0.4s;
   position: relative;
-  transform: translateY(${props => (props.isHomepage ? '50vh' : 0)});
+  transform: translateY(${(props) => (props.isHomepage ? '50vh' : 0)});
   margin: 0 -20px;
 `;
 
 const HeaderWrapper = styled.div`
   transition: all 0.4s;
   text-align: center !important;
-  transform: translateY(${props => (props.isHomepage ? '-50%' : 0)});
+  transform: translateY(${(props) => (props.isHomepage ? '-50%' : 0)});
 `;
 
 const HeaderBio = styled.div`
-  height: ${props => (props.isHomepage ? 'auto' : 0)};
-  margin: ${props => (props.isHomepage ? '25px 0' : 0)};
+  height: ${(props) => (props.isHomepage ? 'auto' : 0)};
+  margin: ${(props) => (props.isHomepage ? '25px 0' : 0)};
   overflow: hidden;
   max-width: 400px;
   display: inline-block;
   font-size: 20px;
   line-height: 25px;
-  font-family: "Josefin Sans", sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
   text-align: center !important;
   color: ${colors.base1()};
 `;
 
 const HeaderTitle = styled.div`
   text-align: center !important;
-  padding-top: ${props => (props.isHomepage ? '0' : '25px')};
+  padding-top: ${(props) => (props.isHomepage ? '0' : '25px')};
   font-size: 60px;
   color: ${colors.base1()};
   margin: 0px;
   font-weight: normal;
-  font-family: "Josefin Slab", sans-serif;
+  font-family: 'Josefin Slab', sans-serif;
 `;
 
 const Header = (props) => {
@@ -129,9 +127,9 @@ const Header = (props) => {
       <HeaderWrapper isHomepage={isHomepage}>
         <HeaderTitle isHomepage={isHomepage}>jeffreyxiao</HeaderTitle>
         <HeaderBio isHomepage={isHomepage}>
-          Hi! I&#39;m a student at the University of Waterloo studying software engineering.
-          I have an interest in large scale distributed algorithms and infrastructure for data
-          analytics. I also enjoy working with low level systems.
+          Hi! I&#39;m a student at the University of Waterloo studying software engineering. I have
+          an interest in large scale distributed algorithms and infrastructure for data analytics. I
+          also enjoy working with low level systems.
         </HeaderBio>
         <Navbar>
           <NavbarLink activePage={props.activePage} currentPage="home" />
