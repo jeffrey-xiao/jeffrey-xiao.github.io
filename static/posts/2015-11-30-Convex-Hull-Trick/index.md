@@ -38,10 +38,10 @@ batch are processed, the machine outputs the results of all the jobs in that bat
 of a job $j$ is the time when the batch containing $j$ finishes.
 
 A setup time $S$ is needed to set up the machine for each batch. For each job $i$, we know its cost
-factor $F_i$ and the time $T_i$ required to process it. If a batch contains the jobs $x, x+1, ...,
-x+k$, and starts at time $t$, then the output time of every job in that batch is $t + S + (T_x +
-T_{x+1} + ... + T_{x+k})$. Note that the machine outputs the results of all jobs in a batch at the
-same time. If the output time of job $i$ is $O_i$, its cost is $O_i * F_i$.
+factor $F_i$ and the time $T_i$ required to process it. If a batch contains the jobs
+$x, x+1, ..., x+k$, and starts at time $t$, then the output time of every job in that batch is
+$t + S + (T_x + T_{x+1} + ... + T_{x+k})$. Note that the machine outputs the results of all jobs in
+a batch at the same time. If the output time of job $i$ is $O_i$, its cost is $O_i * F_i$.
 
 The total cost of a partition is the sum of the costs of the all jobs. Find the minimum possible
 total cost.

@@ -79,9 +79,9 @@ Visualize the triangle as a right-angled triangle. For example, the input would 
 ```
 
 We can then do a line sweep and calculate the area of the trapezoids to figure out the minimum data
-needed. The height of the current column will be $\text{max}(\text{curr height}, \text{prev height -
-dist})$. The area between the current column and previous column will be the sum of the triangle and
-square.
+needed. The height of the current column will be
+$\text{max}(\text{curr height}, \text{prev height - dist})$. The area between the current column and
+previous column will be the sum of the triangle and square.
 
 Time complexity: $O(M\ log \ M)$
 

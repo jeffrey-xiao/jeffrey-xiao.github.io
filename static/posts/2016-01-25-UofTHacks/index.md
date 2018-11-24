@@ -70,15 +70,15 @@ movements.
 ## Music
 
 While that was happening, Richard and Chris figured out SoundCloud integration with its
-[API](https://developers.soundcloud.com/docs/api/guide) and FFTs with the [Web Audio
-API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API). I quickly put together a
-waveform visualization of the SoundCloud music using [chart.js](http://www.chartjs.org/) and the
-snapshot amplitudes of frequencies from the FFT in order to debug the movements of our model. The
-model was initialized with random movements, so it was very jerky at first. Nevertheless, it will
-"reacted" to the bass of the music. Instead of random movements, we decided to incorporate some
-common movements for each joint and string them together in order to create seamless dance moves.
-The size of each movement also scaled with the amplitude of the music. Here is the code for two
-shoulder movements:
+[API](https://developers.soundcloud.com/docs/api/guide) and FFTs with the
+[Web Audio API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API). I quickly put
+together a waveform visualization of the SoundCloud music using [chart.js](http://www.chartjs.org/)
+and the snapshot amplitudes of frequencies from the FFT in order to debug the movements of our
+model. The model was initialized with random movements, so it was very jerky at first. Nevertheless,
+it will "reacted" to the bass of the music. Instead of random movements, we decided to incorporate
+some common movements for each joint and string them together in order to create seamless dance
+moves. The size of each movement also scaled with the amplitude of the music. Here is the code for
+two shoulder movements:
 
 ```javascript
 function shoulder1(amt) {

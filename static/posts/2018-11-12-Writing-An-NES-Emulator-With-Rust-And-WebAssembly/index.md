@@ -36,8 +36,8 @@ or using a queue of tasks that each take one cycle.
 ## Cartridge and NROM
 
 To actually get started on testing, it is necessary to implement Mapper 0 (NROM) and logic for
-parsing cartridges. Overall, mapper 0 and handling iNES cartridges were straightforward, and I
-did not have much trouble in this step. After I had the same logs as Nintendulator for `nestest`, I
+parsing cartridges. Overall, mapper 0 and handling iNES cartridges were straightforward, and I did
+not have much trouble in this step. After I had the same logs as Nintendulator for `nestest`, I
 moved on to the next component.
 
 ## PPU
@@ -128,16 +128,14 @@ previous side projects, I felt that I made steady progress every time I worked o
 PPU, there were countless times when I felt that I've hit a wall and could not progress. You could
 have a mostly working implementation with a couple small bugs that make the game unrecognizable.
 
-![Donkey Kong Rendering Attempt](images/donkey-kong-rendering-attempt.png 'My first attempt at
-rendering the title screen of Donkey Kong in grayscale.')
+![Donkey Kong Rendering Attempt](images/donkey-kong-rendering-attempt.png 'My first attempt at rendering the title screen of Donkey Kong in grayscale.')
 
 Many of these bugs are subtle and could require hours of debugging and digging into. The majority of
 my time spent on the PPU was tracing the rendering pipeline to squash bugs. In particular, I spent
 an embarrassing amount of time fixing an issue with my PPU when I started to test with Super Mario
 Bros.
 
-![Super Mario Bros Rendering Bug](images/super-mario-bros-rendering-bug.png 'Super Mario Bros
-Rendering Bug')
+![Super Mario Bros Rendering Bug](images/super-mario-bros-rendering-bug.png 'Super Mario Bros Rendering Bug')
 
 As you can see, the very last line of the status bar is shifted to the left. I first compared the
 CPU logs between my emulator and [Nintendulator](https://www.qmtpro.com/~nes/nintendulator/) to see
@@ -169,8 +167,8 @@ scanline too early!
 
 These were the steps I had to take to resolve just _one_ bug from the countless that I encountered.
 Making an emulator definitely requires an exorbitant amount of patience to slowly pick apart the
-system and debug these kind of issues. But, I believe that going through this ordeal is how you
-best learn about a low level system like the NES.
+system and debug these kind of issues. But, I believe that going through this ordeal is how you best
+learn about a low level system like the NES.
 
 ### 2. Write Automated Tests
 
@@ -257,8 +255,8 @@ assist in verifying if your CPU implementation is correct. In fact, one of the b
 your CPU is to do a line-by-line comparison with the execution log of Nintendulator. A caveat for
 the disassembler is that if you are printing out the relevant operand of the opcode, you must be
 careful not to affect the state of any component. Reads to some memory locations can actually change
-the state of a component. For example, reading `PPUSTATUS` will clear the flag that indicates if a
-v blank has started. Every memory read function should have a complementary memory peek function to
+the state of a component. For example, reading `PPUSTATUS` will clear the flag that indicates if a v
+blank has started. Every memory read function should have a complementary memory peek function to
 avoid any mutations in state.
 
 For the PPU, implementing debug views for the palette, nametables, and pattern tables was extremely
@@ -266,8 +264,7 @@ useful for me. I was able to fix issues related to mirroring and scrolling by ex
 of the nametables, and figure out if I was doing CHR ROM banking correctly by checking if the
 expected sprite and background data showed up in the pattern tables.
 
-![Super Mario Bros Debug Views](images/super-mario-bros-debug-views.png 'Super Mario Bros
-Debug Views')
+![Super Mario Bros Debug Views](images/super-mario-bros-debug-views.png 'Super Mario Bros Debug Views')
 
 TODO: better image.
 
@@ -277,7 +274,7 @@ it great warm up for actually implementing the PPU rendering pipeline.
 
 ## Final Thoughts
 
-Writing my own NES emulator from scratch was a very rewarding process that did have some
-frustrating moments. I think it is a great system to learn and dig into because of all widely
-available documentation. It is also really amazing to see how developers were able to overcome
-limitations in hardware and still produce pretty amazing games.
+Writing my own NES emulator from scratch was a very rewarding process that did have some frustrating
+moments. I think it is a great system to learn and dig into because of all widely available
+documentation. It is also really amazing to see how developers were able to overcome limitations in
+hardware and still produce pretty amazing games.

@@ -56,8 +56,8 @@ without repeating facts and getting the entire picture?**
 I came up with a great idea of creating a bipartite graph using the paragraphs and keywords as
 nodes. Maximal matching will then determine the minimum number of paragraphs that could cover all
 the content. Of course, this process might yield irrelevant results so we only used the most
-frequent keywords. After implementing [Kuhn's
-algorithm](https://github.com/jeffrey-xiao/Competitive-Programming/blob/master/src/codebook/graph/network/MaxBipartiteMatchingKuhn.java)
+frequent keywords. After implementing
+[Kuhn's algorithm](https://github.com/jeffrey-xiao/Competitive-Programming/blob/master/src/codebook/graph/network/MaxBipartiteMatchingKuhn.java)
 (it was a surprise that I still knew how it worked!), we tested our program and it yielded pretty
 nice results.
 
@@ -93,9 +93,9 @@ _<center>The list of imports we had at the beginning of our Python script.</cent
 ## Data Visualization and Images
 
 The great thing about Indico is that it also gave us entities, political sentiment, and positivity.
-We used the entities, [Wolfram Alpha API](http://products.wolframalpha.com/developers/), and [Google
-Places API](https://developers.google.com/places/) to obtain some location information about the
-paragraphs. We used the next few hours to create pretty data visualizations with the political
+We used the entities, [Wolfram Alpha API](http://products.wolframalpha.com/developers/), and
+[Google Places API](https://developers.google.com/places/) to obtain some location information about
+the paragraphs. We used the next few hours to create pretty data visualizations with the political
 sentiments, and positivity measure. We spent the next eight hours in the hackathon working on the
 user interface, incorporating all the information, and finalizing our algorithm to select the best
 paragraphs.
