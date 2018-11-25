@@ -264,9 +264,7 @@ useful for me. I was able to fix issues related to mirroring and scrolling by ex
 of the nametables, and figure out if I was doing CHR ROM banking correctly by checking if the
 expected sprite and background data showed up in the pattern tables.
 
-![Super Mario Bros Debug Views](images/super-mario-bros-debug-views.png 'Super Mario Bros Debug Views')
-
-TODO: better image.
+![Castlevania Debug Views](images/castlevania-debug-views.png 'Castlevania Debug Views')
 
 Implementing these debug views also requires a solid understand of how the pattern tables,
 nametables, object attribute memory (OAM), attribute tables, and palettes work together, which makes
