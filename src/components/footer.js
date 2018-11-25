@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -32,6 +33,11 @@ const FooterLink = (props) => (
   </a>
 );
 
+FooterLink.propTypes = {
+  url: PropTypes.string.isRequired,
+  icon: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.string), PropTypes.string]).isRequired,
+};
+
 const Footer = (props) => (
   <FooterDiv isHomepage={props.activePage === '/'}>
     <FooterLink url="https://github.com/jeffrey-xiao" icon={['fab', 'github']} />
@@ -40,5 +46,9 @@ const Footer = (props) => (
     <FooterLink url="mailto:jeffrey.xiao1998@gmail.com" icon="envelope" />
   </FooterDiv>
 );
+
+Footer.propTypes = {
+  activePage: PropTypes.string.isRequired,
+};
 
 export default Footer;

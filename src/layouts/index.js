@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 import { Helmet } from 'react-helmet';
@@ -56,5 +57,12 @@ const Layout = (props) => (
     <Footer activePage={props.location.pathname} />
   </LayoutWrapper>
 );
+
+Layout.propTypes = {
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired,
+  }).isRequired,
+  children: PropTypes.element.isRequired,
+};
 
 export default Layout;

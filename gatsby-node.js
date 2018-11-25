@@ -6,7 +6,7 @@ function paginate(createPage, posts, pathPrefix, template, allPosts) {
   const numOfPosts = posts.length;
   const numOfPages = Math.ceil(posts.length / PAGE_SIZE);
 
-  for (let i = 0; i < numOfPages; i++) {
+  for (let i = 0; i < numOfPages; i += 1) {
     createPage({
       path: `${pathPrefix}/${i + 1}`,
       component: template,
@@ -44,7 +44,7 @@ function createPostPages(createPage, posts) {
   const postTemplate = path.resolve('src/templates/post.js');
   const numOfPosts = posts.length;
 
-  for (let i = 0; i < numOfPosts; i++) {
+  for (let i = 0; i < numOfPosts; i += 1) {
     createPage({
       path: posts[i].node.frontmatter.path,
       component: postTemplate,
@@ -93,9 +93,7 @@ exports.createPages = ({ actions, graphql }) => {
 
   return graphql(`
     {
-      allMarkdownRemark (
-        sort: { fields: [frontmatter___date_created], order: DESC }
-      ) {
+      allMarkdownRemark(sort: { fields: [frontmatter___date_created], order: DESC }) {
         edges {
           node {
             html
@@ -113,5 +111,5 @@ exports.createPages = ({ actions, graphql }) => {
         }
       }
     }
-  `).then(result => generateContent(createPage, result));
+  `).then((result) => generateContent(createPage, result));
 };

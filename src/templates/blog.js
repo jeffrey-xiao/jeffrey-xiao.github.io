@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 import { Helmet } from 'react-helmet';
@@ -89,14 +90,14 @@ class BlogPage extends React.Component {
           numOfPages={context.numOfPages}
         />
         <BlogLeftColumn>
-          <PostList posts={context.posts} />
+          <PostList posts={context.posts} tagFilter="" />
         </BlogLeftColumn>
         <BlogRightColumn>
           <TagList posts={context.allPosts} />
           {context.pathPrefix.match(/^\/blog\/tags\//) && (
             <RecentList posts={context.allPosts.slice(0, Math.min(numOfPosts, 5))} />
           )}
-          <Archive posts={context.allPosts} />
+          <Archive posts={context.allPosts} activePost="" />
         </BlogRightColumn>
         <Clear />
         <Pagination
@@ -108,5 +109,15 @@ class BlogPage extends React.Component {
     );
   }
 }
+
+BlogPage.propTypes = {
+  pageContext: PropTypes.shape({
+    page: PropTypes.number.isRequired,
+    pathPrefix: PropTypes.string.isRequired,
+    numOfPages: PropTypes.number.isRequired,
+    posts: PropTypes.arrayOf(PropTypes.object).isRequired,
+    allPosts: PropTypes.arrayOf(PropTypes.object).isRequired,
+  }).isRequired,
+};
 
 export default BlogPage;

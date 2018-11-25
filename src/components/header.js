@@ -75,13 +75,8 @@ class NavbarLink extends React.Component {
 }
 
 NavbarLink.propTypes = {
-  activePage: PropTypes.string,
-  currentPage: PropTypes.string,
-};
-
-NavbarLink.defaultProps = {
-  activePage: '',
-  currentPage: '',
+  activePage: PropTypes.string.isRequired,
+  currentPage: PropTypes.string.isRequired,
 };
 
 const HeaderParent = styled.div`
@@ -143,11 +138,7 @@ const Header = (props) => {
 };
 
 Header.propTypes = {
-  activePage: PropTypes.string,
-};
-
-Header.defaultProps = {
-  activePage: 'home',
+  activePage: PropTypes.string.isRequired,
 };
 
 export default Header;

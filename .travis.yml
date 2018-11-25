@@ -5,8 +5,8 @@ install:
   - npm install
 
 script:
-  - npx prettier --list-different "{src,static}/**/*.{js,json,md,scss}"
-  - npx eslint src
+  - npx prettier --list-different "{src,static}/**/*.{js,json,md,scss}" *.js
+  - npx eslint src *.js
   - npx gatsby build
 
 after_success:

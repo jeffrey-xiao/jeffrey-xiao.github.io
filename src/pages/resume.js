@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -124,6 +125,14 @@ const ResumeSection = (props) => {
   );
 };
 
+ResumeSection.propTypes = {
+  description: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+  leftHeader: PropTypes.string.isRequired,
+  rightHeader: PropTypes.string.isRequired,
+  leftSubheader: PropTypes.string.isRequired,
+  rightSubheader: PropTypes.string.isRequired,
+};
+
 const EducationSection = (props) => {
   const descriptionPoints = getPoints(props.description);
 
@@ -144,6 +153,13 @@ const EducationSection = (props) => {
       <Description>{descriptionPoints}</Description>
     </div>
   );
+};
+
+EducationSection.propTypes = {
+  description: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+  entity: PropTypes.string.isRequired,
+  subEntity: PropTypes.string.isRequired,
+  locationTime: PropTypes.string.isRequired,
 };
 
 const getExperienceSectionComponent = (entry, key) => (
@@ -248,6 +264,17 @@ const AwardsSection = (props) => {
   return <div>{awards}</div>;
 };
 
+AwardsSection.propTypes = {
+  awards: PropTypes.arrayOf(
+    PropTypes.shape({
+      node: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        date: PropTypes.number.isRequired,
+      }).isRequired,
+    }).isRequired,
+  ).isRequired,
+};
+
 const SectionHeader = styled.h1`
   margin-top: 30px;
   margin-bottom: 8px;
@@ -345,6 +372,32 @@ class ResumePage extends React.Component {
     );
   }
 }
+
+ResumePage.propTypes = {
+  data: PropTypes.shape({
+    allAwardEntriesJson: PropTypes.shape({
+      edges: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
+    }).isRequired,
+    allCertificationEntriesJson: PropTypes.shape({
+      edges: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
+    }).isRequired,
+    allInterestEntriesJson: PropTypes.shape({
+      edges: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
+    }).isRequired,
+    allEducationEntriesJson: PropTypes.shape({
+      edges: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
+    }).isRequired,
+    allExperienceEntriesJson: PropTypes.shape({
+      edges: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
+    }).isRequired,
+    allProjectEntriesJson: PropTypes.shape({
+      edges: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
+    }).isRequired,
+    allSkillEntriesJson: PropTypes.shape({
+      edges: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
+    }).isRequired,
+  }).isRequired,
+};
 
 export default ResumePage;
 export const pageQuery = graphql`

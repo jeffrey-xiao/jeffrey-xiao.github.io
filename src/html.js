@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import favicon from '../static/favicon.ico';
 
@@ -16,5 +17,11 @@ const HTML = (props) => (
     </body>
   </html>
 );
+
+HTML.propTypes = {
+  headComponents: PropTypes.element.isRequired,
+  postBodyComponents: PropTypes.element.isRequired,
+  body: PropTypes.string.isRequired,
+};
 
 export default HTML;

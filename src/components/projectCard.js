@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
@@ -64,5 +65,12 @@ const ProjectCard = (props) => (
     <ProjectDescription dangerouslySetInnerHTML={{ __html: props.description }} />
   </ProjectWrapper>
 );
+
+ProjectCard.propTypes = {
+  url: PropTypes.string.isRequired,
+  src: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+};
 
 export default ProjectCard;

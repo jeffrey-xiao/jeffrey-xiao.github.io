@@ -45,11 +45,7 @@ const RecentList = (props) => {
 };
 
 RecentList.propTypes = {
-  posts: PropTypes.arrayOf(PropTypes.object),
-};
-
-RecentList.defaultProps = {
-  posts: [],
+  posts: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default RecentList;

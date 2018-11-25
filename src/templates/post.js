@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import ReactDisqusComments from 'react-disqus-comments';
 import styled from 'styled-components';
@@ -153,6 +154,16 @@ const SideContents = (props) => {
   return <SideContentsDiv>{headings}</SideContentsDiv>;
 };
 
+SideContents.propTypes = {
+  headings: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.string.isRequired,
+      depth: PropTypes.number.isRequired,
+    }),
+  ).isRequired,
+  path: PropTypes.string.isRequired,
+};
+
 class PostTemplate extends React.Component {
   componentDidMount() {
     this.node.style.opacity = 0;
@@ -228,5 +239,31 @@ class PostTemplate extends React.Component {
     );
   }
 }
+
+const postType = PropTypes.shape({
+  node: PropTypes.shape({
+    html: PropTypes.string,
+    headings: PropTypes.arrayOf(
+      PropTypes.shape({
+        value: PropTypes.string.isRequired,
+        depth: PropTypes.number.isRequired,
+      }),
+    ).isRequired,
+    frontmatter: PropTypes.shape({
+      date_created: PropTypes.string.isRequired,
+      path: PropTypes.string.isRequired,
+      tags: PropTypes.arrayOf(PropTypes.string).isRequired,
+      title: PropTypes.string.isRequired,
+    }).isRequired,
+  }).isRequired,
+});
+
+PostTemplate.propTypes = {
+  pageContext: PropTypes.shape({
+    post: postType.isRequired,
+    nextPost: postType,
+    prevPost: postType,
+  }).isRequired,
+};
 
 export default PostTemplate;

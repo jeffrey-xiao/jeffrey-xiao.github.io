@@ -91,19 +91,11 @@ class PostCard extends React.Component {
 }
 
 PostCard.propTypes = {
-  date_created: PropTypes.string,
-  html: PropTypes.string,
-  link: PropTypes.string,
-  tags: PropTypes.arrayOf(PropTypes.string),
-  title: PropTypes.string,
-};
-
-PostCard.defaultProps = {
-  date_created: '',
-  html: '',
-  link: '',
-  tags: [],
-  title: '',
+  date_created: PropTypes.string.isRequired,
+  html: PropTypes.string.isRequired,
+  link: PropTypes.string.isRequired,
+  tags: PropTypes.arrayOf(PropTypes.string).isRequired,
+  title: PropTypes.string.isRequired,
 };
 
 const PostList = (props) => {
@@ -135,13 +127,8 @@ const PostList = (props) => {
 };
 
 PostList.propTypes = {
-  posts: PropTypes.arrayOf(PropTypes.object),
-  tagFilter: PropTypes.string,
-};
-
-PostList.defaultProps = {
-  posts: [],
-  tagFilter: '',
+  posts: PropTypes.arrayOf(PropTypes.object).isRequired,
+  tagFilter: PropTypes.string.isRequired,
 };
 
 export default PostList;

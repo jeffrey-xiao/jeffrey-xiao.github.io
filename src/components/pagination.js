@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -94,5 +95,11 @@ const Pagination = (props) => (
     <Clear />
   </PaginationDiv>
 );
+
+Pagination.propTypes = {
+  pathPrefix: PropTypes.string.isRequired,
+  page: PropTypes.number.isRequired,
+  numOfPages: PropTypes.number.isRequired,
+};
 
 export default Pagination;

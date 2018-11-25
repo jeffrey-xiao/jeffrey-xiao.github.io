@@ -150,17 +150,10 @@ class NestedLink extends React.Component {
 }
 
 NestedLink.propTypes = {
-  active: PropTypes.bool,
-  filterType: PropTypes.string,
-  filterValue: PropTypes.string,
-  posts: PropTypes.arrayOf(PropTypes.object),
-};
-
-NestedLink.defaultProps = {
-  active: false,
-  filterType: '',
-  filterValue: '',
-  posts: [],
+  active: PropTypes.bool.isRequired,
+  filterType: PropTypes.string.isRequired,
+  filterValue: PropTypes.string.isRequired,
+  posts: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 const Archive = (props) => (
@@ -177,13 +170,8 @@ const Archive = (props) => (
 );
 
 Archive.propTypes = {
-  activePost: PropTypes.string,
-  posts: PropTypes.arrayOf(PropTypes.object),
-};
-
-Archive.defaultProps = {
-  activePost: '',
-  posts: [],
+  activePost: PropTypes.string.isRequired,
+  posts: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default Archive;

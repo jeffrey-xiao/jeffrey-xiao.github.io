@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 import { Helmet } from 'react-helmet';
@@ -73,6 +74,23 @@ class ProjectsPage extends React.Component {
     );
   }
 }
+
+ProjectsPage.propTypes = {
+  data: PropTypes.shape({
+    allProjectsJson: PropTypes.shape({
+      edges: PropTypes.arrayOf(
+        PropTypes.shape({
+          node: PropTypes.shape({
+            url: PropTypes.string.isRequired,
+            description: PropTypes.string.isRequired,
+            title: PropTypes.string.isRequired,
+            src: PropTypes.string.isRequired,
+          }).isRequired,
+        }).isRequired,
+      ).isRequired,
+    }).isRequired,
+  }).isRequired,
+};
 
 export default ProjectsPage;
 export const pageQuery = graphql`

@@ -58,11 +58,7 @@ const TagList = (props) => {
 };
 
 TagList.propTypes = {
-  posts: PropTypes.arrayOf(PropTypes.object),
-};
-
-TagList.defaultProps = {
-  posts: [],
+  posts: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default TagList;
