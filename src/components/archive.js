@@ -90,9 +90,7 @@ class NestedLink extends React.Component {
           filterValue={this.props.filterValue}
         >
           <NestedIcon icon={this.state.active ? 'minus' : 'plus'} />
-          <NestedLabel>
-            {this.props.filterValue} ({this.props.posts.length})
-          </NestedLabel>
+          <NestedLabel>{`${this.props.filterValue} (${this.props.posts.length})`}</NestedLabel>
         </NestedLabelWrapper>,
       );
     }

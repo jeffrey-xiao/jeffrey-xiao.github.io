@@ -102,8 +102,9 @@ const Description = styled.ul`
   }
 `;
 
-const getPoints = (points) =>
+const getPoints = (points) => {
   points.map((point) => <li key={point} dangerouslySetInnerHTML={{ __html: point }} />);
+};
 
 const ResumeSection = (props) => {
   const descriptionPoints = getPoints(props.description);
@@ -204,27 +205,32 @@ const LinksSection = () => (
   <div>
     <div>
       <ResumeLink href="mailto:jeffrey.xiao@uwaterloo.ca">
-        <FontAwesomeIcon icon="envelope" /> jeffrey.xiao@waterloo.ca
+        <FontAwesomeIcon icon="envelope" />
+        jeffrey.xiao@waterloo.ca
       </ResumeLink>
     </div>
     <div>
       <ResumeLink href="https://www.github.com/jeffrey-xiao">
-        <FontAwesomeIcon icon={['fab', 'github']} /> github.com/jeffrey-xiao
+        <FontAwesomeIcon icon={['fab', 'github']} />
+        github.com/jeffrey-xiao
       </ResumeLink>
     </div>
     <div>
       <ResumeLink href="https://www.linkedin.com/in/jeffreyxiao">
-        <FontAwesomeIcon icon={['fab', 'linkedin']} /> linkedin.com/in/jeffrey-xiao
+        <FontAwesomeIcon icon={['fab', 'linkedin']} />
+        linkedin.com/in/jeffrey-xiao
       </ResumeLink>
     </div>
     <div>
       <ResumeLink href="https://devpost.com/jeffreyxiao">
-        <FontAwesomeIcon icon="link" /> devpost.com/jeffreyxiao
+        <FontAwesomeIcon icon="link" />
+        devpost.com/jeffreyxiao
       </ResumeLink>
     </div>
     <div>
       <ResumeLink href="https://cdn.jsdelivr.net/gh/jeffrey-xiao/resume@44d2fa668e1dc88e711ca2225af05986fd89a998/resume.pdf">
-        <FontAwesomeIcon icon="file-pdf" /> PDF Version of Resume
+        <FontAwesomeIcon icon="file-pdf" />
+        PDF Version of Resume
       </ResumeLink>
     </div>
   </div>

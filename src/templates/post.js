@@ -127,11 +127,11 @@ const SideContentsLink = styled(({ depth, children, ...props }) => (
 const SideContents = (props) => {
   const headings = [];
   const headingLinkMap = new Map();
-  const getHeadingLink = (heading) =>
-    heading
-      .replace(/[^0-9a-zA-Z_ ]/g, '')
-      .replace(/ /g, '-')
-      .toLowerCase();
+  // prettier-ignore
+  const getHeadingLink = (heading) => heading
+    .replace(/[^0-9a-zA-Z_ ]/g, '')
+    .replace(/ /g, '-')
+    .toLowerCase();
 
   props.headings.forEach((heading) => {
     let headingLink = getHeadingLink(heading.value);
@@ -209,7 +209,7 @@ class PostTemplate extends React.Component {
         }}
       >
         <Helmet>
-          <title>{post.frontmatter.title} | Jeffrey Xiao</title>
+          <title>{`${post.frontmatter.title} | Jeffrey Xiao`}</title>
         </Helmet>
         <PostTitle>{post.frontmatter.title}</PostTitle>
         <PostSubtitle>{formattedDate}</PostSubtitle>

@@ -80,9 +80,7 @@ class BlogPage extends React.Component {
           <title>Blog - Jeffrey Xiao</title>
         </Helmet>
         {context.pathPrefix.match(/^\/blog\/tags\//) && (
-          <TagListTitle>
-            Posts tagged with &lsquo;{getTagName(context.pathPrefix)}&rsquo;
-          </TagListTitle>
+          <TagListTitle>{`Posts tagged with “${getTagName(context.pathPrefix)}”`}</TagListTitle>
         )}
         <Pagination
           page={context.page}
