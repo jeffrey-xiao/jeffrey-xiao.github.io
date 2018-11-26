@@ -273,6 +273,6 @@ it great warm up for actually implementing the PPU rendering pipeline.
 ## Final Thoughts
 
 Writing my own NES emulator from scratch was a very rewarding process that did have some frustrating
-moments. I think it is a great system to learn and dig into because of all widely available
+moments. I think it is a great system to learn and dig into because of all the widely available
 documentation. It is also really amazing to see how developers were able to overcome limitations in
 hardware and still produce pretty amazing games.

@@ -102,9 +102,9 @@ const Description = styled.ul`
   }
 `;
 
-const getPoints = (points) => {
-  points.map((point) => <li key={point} dangerouslySetInnerHTML={{ __html: point }} />);
-};
+// prettier-ignore
+const getPoints = (points) => points
+  .map((point) => <li key={point} dangerouslySetInnerHTML={{ __html: point }} />);
 
 const ResumeSection = (props) => {
   const descriptionPoints = getPoints(props.description);
