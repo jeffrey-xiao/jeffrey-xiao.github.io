@@ -62,7 +62,7 @@ class PostCard extends React.Component {
     this.props.tags.forEach((tag) => {
       tagLinks.push(
         <TagLink key={tag}>
-          <Link to={`/blog/tags/${tag.replace(/ /g, '-')}`}>{tag}</Link>
+          <Link to={`/blog/tags/${tag.toLowerCase().replace(/ /g, '-')}`}>{tag}</Link>
         </TagLink>,
       );
     });

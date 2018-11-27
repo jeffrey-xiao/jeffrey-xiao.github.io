@@ -4,8 +4,8 @@ date_created: 2016-02-16 00:00:00
 author: Jeffrey Xiao
 path: /blog/machine-learning-notes
 tags:
-  - programming
-  - machine learning
+  - Programming
+  - Machine Learning
 ---
 
 ## Introduction

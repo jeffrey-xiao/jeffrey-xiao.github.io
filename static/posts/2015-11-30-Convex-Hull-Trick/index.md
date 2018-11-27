@@ -4,8 +4,8 @@ date_created: 2015-11-30 00:00:00
 author: Jeffrey Xiao
 path: /blog/convex-hull-trick
 tags:
-  - dynamic programming
-  - programming
+  - Dynamic Programming
+  - Programming
 ---
 
 ## Introduction

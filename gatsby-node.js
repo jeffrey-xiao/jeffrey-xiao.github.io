@@ -71,7 +71,13 @@ function createTagPages(createPage, posts) {
   });
 
   Object.keys(tags).forEach((tag) => {
-    paginate(createPage, tags[tag], `/blog/tags/${tag.replace(/ /g, '-')}`, tagTemplate, posts);
+    paginate(
+      createPage,
+      tags[tag],
+      `/blog/tags/${tag.toLowerCase().replace(/ /g, '-')}`,
+      tagTemplate,
+      posts,
+    );
   });
 }
 

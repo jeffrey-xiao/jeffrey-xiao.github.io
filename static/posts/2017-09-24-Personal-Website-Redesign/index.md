@@ -4,8 +4,8 @@ date_created: 2017-09-24 00:00:00
 author: Jeffrey Xiao
 path: /blog/personal-website-redesign
 tags:
-  - web development
-  - programming
+  - Web Development
+  - Programming
 ---
 
 ![Old Personal Website With Angular 1](images/angular-site.png 'Old Personal Website With Angular 1')

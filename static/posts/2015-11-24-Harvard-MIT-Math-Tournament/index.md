@@ -4,8 +4,8 @@ date_created: 2015-11-24 00:00:00
 author: Jeffrey Xiao
 path: /blog/harvard-mit-math-tournament
 tags:
-  - competition
-  - math
+  - Competition
+  - Math
 ---
 
 ![Team Photo in Front of MIT](images/HMMT.png 'Team Photo in Front of MIT')

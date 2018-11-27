@@ -4,12 +4,12 @@ date_created: 2016-01-25 00:00:00
 author: Jeffrey Xiao
 path: /blog/uoft-hacks
 tags:
-  - competition
-  - hackathon
-  - programming
-  - webgl
-  - music
-  - physics
+  - Competition
+  - Hackathon
+  - Programming
+  - WebGL
+  - Music
+  - Physics
 ---
 
 ![Playing Rocket League During Downtime](images/hack-uoft.jpg 'Playing Rocket League During Downtime')

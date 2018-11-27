@@ -4,8 +4,8 @@ date_created: 2015-12-14 00:00:00
 author: Jeffrey Xiao
 path: /blog/divide-and-conquer-optimization
 tags:
-  - dynamic programming
-  - programming
+  - Dynamic Programming
+  - Programming
 ---
 
 ## Introduction

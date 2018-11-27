@@ -42,7 +42,7 @@ const TagList = (props) => {
 
   Array.from(tagMap.entries()).forEach(([key, value]) => {
     tagLinks.push(
-      <TagLink key={key} to={`/blog/tags/${key}`.replace(/ /g, '-')}>
+      <TagLink key={key} to={`/blog/tags/${key.toLowerCase().replace(/ /g, '-')}`}>
         {`${key} (${value})`}
       </TagLink>,
     );

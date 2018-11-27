@@ -4,8 +4,8 @@ date_created: 2016-02-17 00:00:00
 author: Jeffrey Xiao
 path: /blog/ccc-2016-analysis
 tags:
-  - programming
-  - competition
+  - Programming
+  - Competition
 ---
 
 ## Introduction

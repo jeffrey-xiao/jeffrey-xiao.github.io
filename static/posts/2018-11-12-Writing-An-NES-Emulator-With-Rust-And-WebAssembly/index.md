@@ -4,10 +4,10 @@ date_created: 2018-11-12 00:00:00
 author: Jeffrey Xiao
 path: /blog/writing-an-nes-emulator-with-rust-and-webassembly
 tags:
-  - emulation
-  - programming
-  - rust
-  - webassembly
+  - Emulation
+  - Programming
+  - Rust
+  - WebAssembly
 ---
 
 ## Introduction

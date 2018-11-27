@@ -197,7 +197,7 @@ class PostTemplate extends React.Component {
     post.frontmatter.tags.forEach((tagName) => {
       tags.push(
         <TagLink key={tagName}>
-          <Link to={`/blog/tags/${tagName.replace(/ /g, '-')}`}>{tagName}</Link>
+          <Link to={`/blog/tags/${tagName.toLowerCase().replace(/ /g, '-')}`}>{tagName}</Link>
         </TagLink>,
       );
     });

@@ -4,10 +4,10 @@ date_created: 2015-11-29 00:00:00
 author: Jeffrey Xiao
 path: /blog/hack-western
 tags:
-  - competition
-  - hackathon
-  - programming
-  - machine learning
+  - Competition
+  - Hackathon
+  - Programming
+  - Machine learning
 ---
 
 ![Hack Western Team](images/hack-western.jpg 'Hack Western Team')
