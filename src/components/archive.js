@@ -149,7 +149,7 @@ class NestedLink extends React.Component {
 
 NestedLink.propTypes = {
   active: PropTypes.bool.isRequired,
-  filterType: PropTypes.string.isRequired,
+  filterType: PropTypes.oneOf(['year', 'month', '']).isRequired,
   filterValue: PropTypes.string.isRequired,
   posts: PropTypes.arrayOf(PropTypes.object).isRequired,
 };

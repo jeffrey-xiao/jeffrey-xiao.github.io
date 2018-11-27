@@ -14,14 +14,21 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/static/posts`,
-        name: 'blog-posts',
+        name: 'posts',
       },
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/static/data`,
+        path: `${__dirname}/static/projects`,
         name: 'projects',
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/static/resume`,
+        name: 'resume',
       },
     },
     'gatsby-transformer-json',
