@@ -94,13 +94,14 @@ const HeaderWrapper = styled.div`
 
 const HeaderBio = styled.div`
   height: ${(props) => (props.isHomepage ? 'auto' : 0)};
-  margin: ${(props) => (props.isHomepage ? '25px 0' : 0)};
+  margin-bottom: ${(props) => (props.isHomepage ? '25px' : 0)};
   overflow: hidden;
-  max-width: 400px;
+  max-width: 415px;
   display: inline-block;
+  line-height: 30px;
   font-size: 20px;
-  line-height: 25px;
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: lighter;
   text-align: center !important;
   color: ${colors.base1()};
 `;

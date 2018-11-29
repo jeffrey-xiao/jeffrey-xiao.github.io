@@ -250,7 +250,6 @@ const AwardTitle = styled.p`
   display: inline-block;
   width: calc(100% - 60px);
   font-family: 'Open Sans', sans-serif;
-  font-weight: 100;
   margin: 4px 0;
   color: ${colors.base1()};
 `;

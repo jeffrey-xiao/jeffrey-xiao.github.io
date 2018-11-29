@@ -19,44 +19,5 @@
       "Applied gaze tracking to enable full control of headset via eye movement.",
       "Used Bing and IoT technology to control home appliances and learn about surroundings in an intuitive way."
     ]
-  },
-  {
-    "entity": "Emergicare",
-    "subEntity": "<a href='https://devpost.com/software/emergicare-hsup49'>Devpost Project</a>",
-    "category": "Hack the North",
-    "tags": "Node, React, Android",
-    "description": [
-      "Android background service that sends optimized GPS and network locations by text to a specified number every time 911 is called.",
-      "The operator dashboard supports routing of emergency vehicles simulated by the Waterloo bus system.",
-      "Built with Android, Twilio, Node, React, and Firebase.",
-      "<a href='https://codx.ca/open-data-opens-eyes-at-hack-the-north/'>Related blog post</a>."
-    ]
-  },
-  {
-    "entity": "React Chess",
-    "subEntity": "<a href='https://github.com/jeffrey-xiao/React-Chess'>GitHub Repo</a>",
-    "category": "Personal Project",
-    "tags": "Node, React",
-    "description": [
-      "Multiplayer chess written in React and Socket. Supports different modes (madhouse, bughouse, normal), a timer, a chatroom, and a history of moves."
-    ]
-  },
-  {
-    "entity": "In The Loop",
-    "subEntity": "<a href='https://github.com/jeffrey-xiao/in-the-loop'>GitHub Repo</a>",
-    "category": "Hack Western",
-    "tags": "AngularJS, Python",
-    "description": [
-      "AngularJS application and Python backend that aggregates current news information based on trending Twitter keywords in live time."
-    ]
-  },
-  {
-    "entity": "Resistora",
-    "subEntity": "<a href='https://devpost.com/software/resistora'>GitHub Repo</a>",
-    "category": "Tech Retreat",
-    "tags": "Android",
-    "description": [
-      "Android application that determines the resistance of various resistors using the camera and a custom image analysis algorithm."
-    ]
   }
 ]
