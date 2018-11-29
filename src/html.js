@@ -19,8 +19,8 @@ const HTML = (props) => (
 );
 
 HTML.propTypes = {
-  headComponents: PropTypes.element.isRequired,
-  postBodyComponents: PropTypes.element.isRequired,
+  headComponents: PropTypes.arrayOf(PropTypes.element.isRequired).isRequired,
+  postBodyComponents: PropTypes.arrayOf(PropTypes.element.isRequired).isRequired,
   body: PropTypes.string.isRequired,
 };
 
