@@ -17,7 +17,6 @@ const NavbarLinkStyled = styled(({ active, children, ...props }) => (
   <Link {...props}>{children}</Link>
 ))`
   text-decoration: none;
-  padding-bottom: 25px;
   padding: 25px 10px;
   letter-spacing: 2px;
   transition: all 0.4s;
@@ -94,7 +93,7 @@ const HeaderWrapper = styled.div`
 
 const HeaderBio = styled.div`
   height: ${(props) => (props.isHomepage ? 'auto' : 0)};
-  margin-bottom: ${(props) => (props.isHomepage ? '25px' : 0)};
+  margin: ${(props) => (props.isHomepage ? '10px 0 25px 0' : 0)};
   overflow: hidden;
   max-width: 415px;
   display: inline-block;

@@ -69,10 +69,6 @@ const LeftHeaderSpan = styled(BaseSpan)`
 const LeftSubheaderSpan = styled(BaseSpan)`
   float: left;
   color: ${colors.accent2()} !important;
-
-  a {
-    color: ${colors.accent2()} !important;
-  }
 `;
 
 const RightHeaderSpan = styled(BaseSpan)`

@@ -11,7 +11,7 @@ const ProjectWrapper = styled.div`
   }
   border: 0.1px solid ${colors.shade1()};
   border-radius: 7px;
-  box-shadow: inset inset 0 0 0 1px ${colors.shade1()}; 0 5px 15px -5px rgba(0;0;0;.1);
+  box-shadow: inset 0 0 0 1px ${colors.shade1()}, 0 5px 15px -5px rgba(0, 0, 0, 0.1);
   padding: 20px;
 `;
 
@@ -50,9 +50,6 @@ const ProjectTitle = styled.h1`
 const ProjectDescription = styled.p`
   margin-top: 7px;
   text-align: center;
-  .emphasis {
-    transition: 0.5s all;
-  }
   color: ${colors.base2()};
 `;
 
