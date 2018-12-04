@@ -78,13 +78,7 @@ function createTagPages(createPage, posts) {
 
   Object.keys(tags).forEach((tag) => {
     const tagSlug = tag.toLowerCase().replace(/ /g, '-');
-    paginate(
-      createPage,
-      `/blog/tags/${tagSlug}`,
-      [tag],
-      tagTemplate,
-      tags[tag].length,
-    );
+    paginate(createPage, `/blog/tags/${tagSlug}`, [tag], tagTemplate, tags[tag].length);
   });
 }
 

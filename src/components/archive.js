@@ -157,12 +157,7 @@ NestedLink.propTypes = {
 const Archive = (props) => (
   <Section style={{ textAlign: 'center' }}>
     <SectionHeader>Archive</SectionHeader>
-    <NestedLink
-      active
-      posts={props.posts}
-      filterType="year"
-      filterValue=""
-    />
+    <NestedLink active posts={props.posts} filterType="year" filterValue="" />
   </Section>
 );
 

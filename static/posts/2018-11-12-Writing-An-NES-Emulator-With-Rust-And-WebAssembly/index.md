@@ -77,12 +77,12 @@ I had to gather a couple of observations before I fully understood how to produc
    would record the output of the APU every 1.78 mHz / 44.1 kHz = ~40 cycles. Additionally, every
    frame you would have a buffer of 44.1 kHz / 60 Hz = 735 samples since the NES ran at 60 frames
    per second.
-3. After the analog audio signals of the channel outputs were combined, it went through a first
-   order high-pass filter at 90 Hz, another first order high-pass filter at 440 Hz, and finally a
-   first order low-pass filter at 14 kHz. A high-pass filter attenuates all frequencies lower than
-   the specified frequency, while a low-pass filter attenuates frequencies higher than the specified
-   frequency. These first order filters can be realized using a simple RC circuit and their
-   algorithmic implementations can be found on their respective
+3. After the analog audio signals of the channel outputs were combined, the combined signal goes
+   through a first order high-pass filter at 90 Hz, another first order high-pass filter at 440 Hz,
+   and finally a first order low-pass filter at 14 kHz. A high-pass filter attenuates all
+   frequencies lower than the specified frequency, while a low-pass filter attenuates frequencies
+   higher than the specified frequency. These first order filters can be realized using a simple RC
+   circuit and their algorithmic implementations can be found on their respective
    [Wikipedia](https://en.wikipedia.org/wiki/High-pass_filter)
    [pages](https://en.wikipedia.org/wiki/Low-pass_filter). I assume these filters are needed to
    reduce [aliasing](https://en.wikipedia.org/wiki/Aliasing).

@@ -72,14 +72,12 @@ class BlogPage extends React.Component {
       pageContext,
       data: {
         pagePosts: { edges: pagePosts },
-        recentPosts: { edges: recentPosts },
-        allTagLists: { edges: tagLists },
         allPosts: { edges: posts },
       },
     } = this.props;
     const tagCount = new Map();
-    tagLists.forEach((tagList) => {
-      tagList.node.frontmatter.tags.forEach((tag) => {
+    posts.forEach((post) => {
+      post.node.frontmatter.tags.forEach((tag) => {
         if (!tagCount.has(tag)) {
           tagCount.set(tag, 0);
         }
@@ -110,7 +108,7 @@ class BlogPage extends React.Component {
         <BlogRightColumn>
           <TagList tagCount={tagCount} />
           {pageContext.pathPrefix.match(/^\/blog\/tags\//) && (
-            <RecentList posts={recentPosts} />
+            <RecentList posts={posts.slice(0, Math.min(5, posts.length))} />
           )}
           <Archive posts={posts} />
         </BlogRightColumn>
@@ -132,16 +130,20 @@ BlogPage.propTypes = {
     limit: PropTypes.number.isRequired,
     pathPrefix: PropTypes.string.isRequired,
   }).isRequired,
+  data: PropTypes.shape({
+    pagePosts: PropTypes.object.isRequired,
+    allPosts: PropTypes.object.isRequired,
+  }).isRequired,
 };
 
 export default BlogPage;
 export const pageQuery = graphql`
   query($skip: Int!, $limit: Int!, $tags: [String]!) {
     pagePosts: allMarkdownRemark(
-      sort: { fields: [frontmatter___date_created], order: DESC },
-      limit: $limit,
-      skip: $skip,
-      filter: { frontmatter: { tags: { in: $tags } } },
+      sort: { fields: [frontmatter___date_created], order: DESC }
+      limit: $limit
+      skip: $skip
+      filter: { frontmatter: { tags: { in: $tags } } }
     ) {
       edges {
         node {
@@ -149,32 +151,11 @@ export const pageQuery = graphql`
         }
       }
     }
-    recentPosts: allMarkdownRemark(
-      sort: { fields: [frontmatter___date_created], order: DESC },
-      limit: 5,
-    ) {
-      edges {
-        node {
-          frontmatter {
-            path
-            title
-          }
-        }
-      }
-    }
-    allTagLists: allMarkdownRemark {
-      edges {
-        node {
-          frontmatter {
-            tags
-          }
-        }
-      }
-    }
     allPosts: allMarkdownRemark(sort: { fields: [frontmatter___date_created], order: DESC }) {
       edges {
         node {
           frontmatter {
+            tags
             path
             title
             date_created
