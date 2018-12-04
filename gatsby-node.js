@@ -49,9 +49,9 @@ function createPostPages(createPage, posts) {
       path: posts[i].node.frontmatter.path,
       component: postTemplate,
       context: {
-        post: posts[i],
-        nextPost: i > 0 ? posts[i - 1] : null,
-        prevPost: i < numOfPosts - 1 ? posts[i + 1] : null,
+        prevPostPath: i < numOfPosts - 1 ? posts[i + 1].node.frontmatter.path : '',
+        currPostPath: posts[i].node.frontmatter.path,
+        nextPostPath: i > 0 ? posts[i - 1].node.frontmatter.path : '',
       },
     });
   }

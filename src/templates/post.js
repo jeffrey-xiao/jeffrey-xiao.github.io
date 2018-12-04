@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDisqusComments from 'react-disqus-comments';
 import styled from 'styled-components';
 import { Helmet } from 'react-helmet';
-import { Link } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import 'prismjs/themes/prism-solarizedlight.css';
 import 'katex/dist/katex.min.css';
 
@@ -175,11 +175,7 @@ class PostTemplate extends React.Component {
 
   render() {
     const {
-      pageContext: {
-        post: { node: post },
-        prevPost,
-        nextPost,
-      },
+      data: { prevPost, currPost, nextPost },
     } = this.props;
     const tags = [];
 
@@ -189,12 +185,12 @@ class PostTemplate extends React.Component {
       month: 'long',
       day: 'numeric',
     };
-    const formattedDate = new Date(post.frontmatter.date_created).toLocaleDateString(
+    const formattedDate = new Date(currPost.frontmatter.date_created).toLocaleDateString(
       'en-US',
       dateOptions,
     );
 
-    post.frontmatter.tags.forEach((tagName) => {
+    currPost.frontmatter.tags.forEach((tagName) => {
       tags.push(
         <TagLink key={tagName}>
           <Link to={`/blog/tags/${tagName.toLowerCase().replace(/ /g, '-')}`}>{tagName}</Link>
@@ -209,29 +205,29 @@ class PostTemplate extends React.Component {
         }}
       >
         <Helmet>
-          <title>{`${post.frontmatter.title} | Jeffrey Xiao`}</title>
+          <title>{`${currPost.frontmatter.title} | Jeffrey Xiao`}</title>
         </Helmet>
-        <PostTitle>{post.frontmatter.title}</PostTitle>
+        <PostTitle>{currPost.frontmatter.title}</PostTitle>
         <PostSubtitle>{formattedDate}</PostSubtitle>
         {tags}
-        <div id="post-content" dangerouslySetInnerHTML={{ __html: post.html }} />
-        <SideContents headings={post.headings} path={post.frontmatter.path} />
+        <div id="post-content" dangerouslySetInnerHTML={{ __html: currPost.html }} />
+        <SideContents headings={currPost.headings} path={currPost.frontmatter.path} />
         <ReactDisqusComments
           shortname="jeffreyxiao"
-          identifier={post.frontmatter.title.toLowerCase().replace(/ /g, '-')}
-          title="post.frontmatter.title"
-          url={`https://jeffreyxiao.me/blog${post.frontmatter.path}`}
+          identifier={currPost.frontmatter.title.toLowerCase().replace(/ /g, '-')}
+          title="currPost.frontmatter.title"
+          url={`https://jeffreyxiao.me/blog${currPost.frontmatter.path}`}
         />
         {prevPost && (
           <PrevPostLink>
-            <StyledLink to={prevPost.node.frontmatter.path}>Previous Post</StyledLink>
-            <div style={{ marginTop: '5px' }}>{prevPost.node.frontmatter.title}</div>
+            <StyledLink to={prevPost.frontmatter.path}>Previous Post</StyledLink>
+            <div style={{ marginTop: '5px' }}>{prevPost.frontmatter.title}</div>
           </PrevPostLink>
         )}
         {nextPost && (
           <NextPostLink>
-            <StyledLink to={nextPost.node.frontmatter.path}>Next Post</StyledLink>
-            <div style={{ marginTop: '5px' }}>{nextPost.node.frontmatter.title}</div>
+            <StyledLink to={nextPost.frontmatter.path}>Next Post</StyledLink>
+            <div style={{ marginTop: '5px' }}>{nextPost.frontmatter.title}</div>
           </NextPostLink>
         )}
         <Clear />
@@ -241,29 +237,59 @@ class PostTemplate extends React.Component {
 }
 
 const postType = PropTypes.shape({
-  node: PropTypes.shape({
-    html: PropTypes.string,
-    headings: PropTypes.arrayOf(
-      PropTypes.shape({
-        value: PropTypes.string.isRequired,
-        depth: PropTypes.number.isRequired,
-      }),
-    ).isRequired,
-    frontmatter: PropTypes.shape({
-      date_created: PropTypes.string.isRequired,
-      path: PropTypes.string.isRequired,
-      tags: PropTypes.arrayOf(PropTypes.string).isRequired,
-      title: PropTypes.string.isRequired,
-    }).isRequired,
+  html: PropTypes.string,
+  headings: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.string.isRequired,
+      depth: PropTypes.number.isRequired,
+    }),
+  ).isRequired,
+  frontmatter: PropTypes.shape({
+    date_created: PropTypes.string.isRequired,
+    path: PropTypes.string.isRequired,
+    tags: PropTypes.arrayOf(PropTypes.string).isRequired,
+    title: PropTypes.string.isRequired,
   }).isRequired,
 });
 
 PostTemplate.propTypes = {
   pageContext: PropTypes.shape({
-    post: postType.isRequired,
-    nextPost: postType,
+    prevPostPath: PropTypes.string.isRequired,
+    currPostPath: PropTypes.string.isRequired,
+    nextPostPath: PropTypes.string.isRequired,
+  }).isRequired,
+  data: PropTypes.shape({
     prevPost: postType,
+    currPost: postType.isRequired,
+    nextPost: postType,
   }).isRequired,
 };
 
 export default PostTemplate;
+export const pageQuery = graphql`
+  query($prevPostPath: String!, $currPostPath: String!, $nextPostPath: String!) {
+    prevPost: markdownRemark(frontmatter: { path: { eq: $prevPostPath } }) {
+      ...postFields
+    }
+    currPost: markdownRemark(frontmatter: { path: { eq: $currPostPath } }) {
+      ...postFields
+    }
+    nextPost: markdownRemark(frontmatter: { path: { eq: $nextPostPath } }) {
+      ...postFields
+    }
+  }
+
+  fragment postFields on MarkdownRemark {
+    html
+    headings {
+      value
+      depth
+    }
+    frontmatter {
+      date_created
+      path
+      tags
+      title
+    }
+  }
+`;
