@@ -29,18 +29,9 @@ const TagLink = styled(UnbrokenStyledLink)`
 
 const TagList = (props) => {
   const tagLinks = [];
-  const tagMap = new Map();
+  const { tagCount } = props;
 
-  props.posts.forEach((post) => {
-    post.node.frontmatter.tags.forEach((tag) => {
-      if (!tagMap.has(tag)) {
-        tagMap.set(tag, 0);
-      }
-      tagMap.set(tag, tagMap.get(tag) + 1);
-    });
-  });
-
-  Array.from(tagMap.entries()).forEach(([key, value]) => {
+  Array.from(tagCount.entries()).forEach(([key, value]) => {
     tagLinks.push(
       <TagLink key={key} to={`/blog/tags/${key.toLowerCase().replace(/ /g, '-')}`}>
         {`${key} (${value})`}
@@ -58,7 +49,7 @@ const TagList = (props) => {
 };
 
 TagList.propTypes = {
-  posts: PropTypes.arrayOf(PropTypes.object).isRequired,
+  tagCount: PropTypes.instanceOf(Map).isRequired,
 };
 
 export default TagList;

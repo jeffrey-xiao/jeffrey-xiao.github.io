@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 import { Helmet } from 'react-helmet';
+import { graphql } from 'gatsby';
 
 import Archive from '../components/archive';
 import Clear from '../components/clear';
@@ -67,8 +68,24 @@ class BlogPage extends React.Component {
   }
 
   render() {
-    const context = this.props.pageContext;
-    const numOfPosts = context.allPosts.length;
+    const {
+      pageContext,
+      data: {
+        pagePosts: { edges: pagePosts },
+        recentPosts: { edges: recentPosts },
+        allTagLists: { edges: tagLists },
+        allPosts: { edges: posts },
+      },
+    } = this.props;
+    const tagCount = new Map();
+    tagLists.forEach((tagList) => {
+      tagList.node.frontmatter.tags.forEach((tag) => {
+        if (!tagCount.has(tag)) {
+          tagCount.set(tag, 0);
+        }
+        tagCount.set(tag, tagCount.get(tag) + 1);
+      });
+    });
 
     return (
       <BlogBody
@@ -79,29 +96,29 @@ class BlogPage extends React.Component {
         <Helmet>
           <title>Blog - Jeffrey Xiao</title>
         </Helmet>
-        {context.pathPrefix.match(/^\/blog\/tags\//) && (
-          <TagListTitle>{`Posts tagged with “${getTagName(context.pathPrefix)}”`}</TagListTitle>
+        {pageContext.pathPrefix.match(/^\/blog\/tags\//) && (
+          <TagListTitle>{`Posts tagged with “${getTagName(pageContext.pathPrefix)}”`}</TagListTitle>
         )}
         <Pagination
-          page={context.page}
-          pathPrefix={context.pathPrefix}
-          numOfPages={context.numOfPages}
+          page={pageContext.page}
+          numOfPages={pageContext.numOfPages}
+          pathPrefix={pageContext.pathPrefix}
         />
         <BlogLeftColumn>
-          <PostList posts={context.posts} tagFilter="" />
+          <PostList posts={pagePosts} tagFilter="" />
         </BlogLeftColumn>
         <BlogRightColumn>
-          <TagList posts={context.allPosts} />
-          {context.pathPrefix.match(/^\/blog\/tags\//) && (
-            <RecentList posts={context.allPosts.slice(0, Math.min(numOfPosts, 5))} />
+          <TagList tagCount={tagCount} />
+          {pageContext.pathPrefix.match(/^\/blog\/tags\//) && (
+            <RecentList posts={recentPosts} />
           )}
-          <Archive posts={context.allPosts} activePost="" />
+          <Archive posts={posts} />
         </BlogRightColumn>
         <Clear />
         <Pagination
-          page={context.page}
-          pathPrefix={context.pathPrefix}
-          numOfPages={context.numOfPages}
+          page={pageContext.page}
+          pathPrefix={pageContext.pathPrefix}
+          numOfPages={pageContext.numOfPages}
         />
       </BlogBody>
     );
@@ -111,11 +128,59 @@ class BlogPage extends React.Component {
 BlogPage.propTypes = {
   pageContext: PropTypes.shape({
     page: PropTypes.number.isRequired,
+    skip: PropTypes.number.isRequired,
+    limit: PropTypes.number.isRequired,
     pathPrefix: PropTypes.string.isRequired,
-    numOfPages: PropTypes.number.isRequired,
-    posts: PropTypes.arrayOf(PropTypes.object).isRequired,
-    allPosts: PropTypes.arrayOf(PropTypes.object).isRequired,
   }).isRequired,
 };
 
 export default BlogPage;
+export const pageQuery = graphql`
+  query($skip: Int!, $limit: Int!, $tags: [String]!) {
+    pagePosts: allMarkdownRemark(
+      sort: { fields: [frontmatter___date_created], order: DESC },
+      limit: $limit,
+      skip: $skip,
+      filter: { frontmatter: { tags: { in: $tags } } },
+    ) {
+      edges {
+        node {
+          ...postFields
+        }
+      }
+    }
+    recentPosts: allMarkdownRemark(
+      sort: { fields: [frontmatter___date_created], order: DESC },
+      limit: 5,
+    ) {
+      edges {
+        node {
+          frontmatter {
+            path
+            title
+          }
+        }
+      }
+    }
+    allTagLists: allMarkdownRemark {
+      edges {
+        node {
+          frontmatter {
+            tags
+          }
+        }
+      }
+    }
+    allPosts: allMarkdownRemark(sort: { fields: [frontmatter___date_created], order: DESC }) {
+      edges {
+        node {
+          frontmatter {
+            path
+            title
+            date_created
+          }
+        }
+      }
+    }
+  }
+`;

@@ -254,9 +254,9 @@ const postType = PropTypes.shape({
 
 PostTemplate.propTypes = {
   pageContext: PropTypes.shape({
-    prevPostPath: PropTypes.string.isRequired,
+    prevPostPath: PropTypes.string,
     currPostPath: PropTypes.string.isRequired,
-    nextPostPath: PropTypes.string.isRequired,
+    nextPostPath: PropTypes.string,
   }).isRequired,
   data: PropTypes.shape({
     prevPost: postType,
@@ -267,7 +267,7 @@ PostTemplate.propTypes = {
 
 export default PostTemplate;
 export const pageQuery = graphql`
-  query($prevPostPath: String!, $currPostPath: String!, $nextPostPath: String!) {
+  query($prevPostPath: String, $currPostPath: String!, $nextPostPath: String) {
     prevPost: markdownRemark(frontmatter: { path: { eq: $prevPostPath } }) {
       ...postFields
     }

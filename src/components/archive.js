@@ -159,7 +159,6 @@ const Archive = (props) => (
     <SectionHeader>Archive</SectionHeader>
     <NestedLink
       active
-      activePost={props.activePost}
       posts={props.posts}
       filterType="year"
       filterValue=""
@@ -168,7 +167,6 @@ const Archive = (props) => (
 );
 
 Archive.propTypes = {
-  activePost: PropTypes.string.isRequired,
   posts: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 

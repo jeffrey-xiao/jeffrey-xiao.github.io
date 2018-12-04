@@ -2,9 +2,8 @@ const path = require('path');
 
 const PAGE_SIZE = 5;
 
-function paginate(createPage, posts, pathPrefix, template, allPosts) {
-  const numOfPosts = posts.length;
-  const numOfPages = Math.ceil(posts.length / PAGE_SIZE);
+function paginate(createPage, pathPrefix, tags, template, numOfPosts) {
+  const numOfPages = Math.ceil(numOfPosts / PAGE_SIZE);
 
   for (let i = 0; i < numOfPages; i += 1) {
     createPage({
@@ -12,32 +11,39 @@ function paginate(createPage, posts, pathPrefix, template, allPosts) {
       component: template,
       context: {
         page: i + 1,
-        pathPrefix,
         numOfPages,
-        posts: posts.slice(i * PAGE_SIZE, (i + 1) * PAGE_SIZE),
-        allPosts,
+        skip: i * PAGE_SIZE,
+        limit: PAGE_SIZE,
+        pathPrefix,
+        tags,
       },
     });
   }
-
   createPage({
     path: pathPrefix,
     component: template,
     context: {
       page: 1,
-      pathPrefix,
       numOfPages,
-      numOfPosts,
-      posts: posts.slice(0, PAGE_SIZE),
-      allPosts,
+      skip: 0,
+      limit: PAGE_SIZE,
+      pathPrefix,
+      tags,
     },
   });
 }
 
 function createBlogPages(createPage, posts) {
   const blogTemplate = path.resolve('src/templates/blog.js');
+  const tags = new Set();
 
-  paginate(createPage, posts, '/blog', blogTemplate, posts);
+  posts.forEach((post) => {
+    post.node.frontmatter.tags.forEach((tag) => {
+      tags.add(tag);
+    });
+  });
+
+  paginate(createPage, '/blog', Array.from(tags), blogTemplate, posts.length);
 }
 
 function createPostPages(createPage, posts) {
@@ -49,9 +55,9 @@ function createPostPages(createPage, posts) {
       path: posts[i].node.frontmatter.path,
       component: postTemplate,
       context: {
-        prevPostPath: i < numOfPosts - 1 ? posts[i + 1].node.frontmatter.path : '',
+        prevPostPath: i < numOfPosts - 1 ? posts[i + 1].node.frontmatter.path : null,
         currPostPath: posts[i].node.frontmatter.path,
-        nextPostPath: i > 0 ? posts[i - 1].node.frontmatter.path : '',
+        nextPostPath: i > 0 ? posts[i - 1].node.frontmatter.path : null,
       },
     });
   }
@@ -71,12 +77,13 @@ function createTagPages(createPage, posts) {
   });
 
   Object.keys(tags).forEach((tag) => {
+    const tagSlug = tag.toLowerCase().replace(/ /g, '-');
     paginate(
       createPage,
-      tags[tag],
-      `/blog/tags/${tag.toLowerCase().replace(/ /g, '-')}`,
+      `/blog/tags/${tagSlug}`,
+      [tag],
       tagTemplate,
-      posts,
+      tags[tag].length,
     );
   });
 }
