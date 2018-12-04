@@ -101,7 +101,7 @@ const NextPostLink = styled(PostLink)`
   }
 `;
 
-const SideContentsDiv = styled.div`
+const SideContentsDiv = styled.span`
   padding: 25px 0 10px 10px;
   margin: 35px 0 0 25px;
   border-left: 3px solid ${colors.accent1()};
@@ -115,13 +115,15 @@ const SideContentsDiv = styled.div`
   }
 `;
 
+const SideContentsLinkWrapper = styled.div`
+  margin-bottom: 20px;
+`;
+
 const SideContentsLink = styled(({ depth, children, ...props }) => (
   <StyledLink {...props}>{children}</StyledLink>
 ))`
   margin-left: ${(props) => props.depth * 15}px;
-  display: inline-block;
   font-family: 'Josefin Sans', sans-serif;
-  margin-bottom: 15px;
 `;
 
 const SideContents = (props) => {
@@ -143,11 +145,11 @@ const SideContents = (props) => {
     }
 
     headings.push(
-      <div key={headingLink}>
+      <SideContentsLinkWrapper key={headingLink}>
         <SideContentsLink to={`${props.path}#${headingLink}`} depth={heading.depth - 2}>
           {heading.value}
         </SideContentsLink>
-      </div>,
+      </SideContentsLinkWrapper>,
     );
   });
 

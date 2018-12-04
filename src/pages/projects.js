@@ -10,6 +10,7 @@ import colors from '../utils/colors';
 const ProjectsBody = styled.div`
   span.emphasis {
     color: ${colors.accent1()};
+    transition: all 0.5s;
   }
   margin-bottom: 40px;
 `;

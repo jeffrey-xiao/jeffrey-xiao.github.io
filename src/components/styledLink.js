@@ -11,7 +11,6 @@ export default styled(Link)`
   }
   padding-right: 2px;
   transition: all 0.5s;
-  display: inline-block;
   font-family: 'Josefin Sans', sans-serif;
   font-size: 17px;
 `;

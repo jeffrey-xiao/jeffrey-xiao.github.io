@@ -9,9 +9,6 @@ import Clear from '../components/clear';
 import colors from '../utils/colors';
 
 const ResumeBody = styled.div`
-  span.emphasis {
-    color: ${colors.accent1()};
-  }
   a {
     color: ${colors.accent1()};
     transition: all 0.5s;
