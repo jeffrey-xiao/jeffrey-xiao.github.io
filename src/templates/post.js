@@ -122,9 +122,6 @@ const SideContentsLinkWrapper = styled(({ depth, children, ...props }) => (
   margin-bottom: 20px;
 `;
 
-const SideContentsLink = styled(StyledLink)`
-`;
-
 const SideContents = (props) => {
   const headings = [];
   const headingLinkMap = new Map();
@@ -145,9 +142,7 @@ const SideContents = (props) => {
 
     headings.push(
       <SideContentsLinkWrapper key={headingLink} depth={heading.depth - 2}>
-        <SideContentsLink to={`${props.path}#${headingLink}`}>
-          {heading.value}
-        </SideContentsLink>
+        <StyledLink to={`${props.path}#${headingLink}`}>{heading.value}</StyledLink>
       </SideContentsLinkWrapper>,
     );
   });
