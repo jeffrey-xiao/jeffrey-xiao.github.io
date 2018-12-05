@@ -115,15 +115,14 @@ const SideContentsDiv = styled.span`
   }
 `;
 
-const SideContentsLinkWrapper = styled.div`
+const SideContentsLinkWrapper = styled(({ depth, children, ...props }) => (
+  <div {...props}>{children}</div>
+))`
+  margin-left: ${(props) => props.depth * 15}px;
   margin-bottom: 20px;
 `;
 
-const SideContentsLink = styled(({ depth, children, ...props }) => (
-  <StyledLink {...props}>{children}</StyledLink>
-))`
-  margin-left: ${(props) => props.depth * 15}px;
-  font-family: 'Josefin Sans', sans-serif;
+const SideContentsLink = styled(StyledLink)`
 `;
 
 const SideContents = (props) => {
@@ -145,8 +144,8 @@ const SideContents = (props) => {
     }
 
     headings.push(
-      <SideContentsLinkWrapper key={headingLink}>
-        <SideContentsLink to={`${props.path}#${headingLink}`} depth={heading.depth - 2}>
+      <SideContentsLinkWrapper key={headingLink} depth={heading.depth - 2}>
+        <SideContentsLink to={`${props.path}#${headingLink}`}>
           {heading.value}
         </SideContentsLink>
       </SideContentsLinkWrapper>,

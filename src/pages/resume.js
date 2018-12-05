@@ -6,6 +6,7 @@ import { Helmet } from 'react-helmet';
 import { graphql } from 'gatsby';
 
 import Clear from '../components/clear';
+import StyledLink from '../components/styledLink';
 import colors from '../utils/colors';
 
 const ResumeBody = styled.div`
@@ -93,6 +94,11 @@ const Description = styled.ul`
     position: absolute;
     margin-left: -18px;
   }
+`;
+
+const LinkIcon = styled(FontAwesomeIcon)`
+  padding-right: 5px;
+  width: 20px !important;
 `;
 
 // prettier-ignore
@@ -188,43 +194,37 @@ const getEducationSectionComponent = (entry, key) => (
   />
 );
 
-const ResumeLink = styled.a`
-  text-decoration: none;
-  font-style: italic;
-  font-family: 'Open Sans', sans-serif;
-`;
-
 const LinksSection = () => (
   <div>
     <div>
-      <ResumeLink href="mailto:jeffrey.xiao@uwaterloo.ca">
-        <FontAwesomeIcon icon="envelope" />
+      <StyledLink href="mailto:jeffrey.xiao@uwaterloo.ca">
+        <LinkIcon icon="envelope" />
         jeffrey.xiao@waterloo.ca
-      </ResumeLink>
+      </StyledLink>
     </div>
     <div>
-      <ResumeLink href="https://www.github.com/jeffrey-xiao">
-        <FontAwesomeIcon icon={['fab', 'github']} />
+      <StyledLink href="https://www.github.com/jeffrey-xiao">
+        <LinkIcon icon={['fab', 'github']} />
         github.com/jeffrey-xiao
-      </ResumeLink>
+      </StyledLink>
     </div>
     <div>
-      <ResumeLink href="https://www.linkedin.com/in/jeffreyxiao">
-        <FontAwesomeIcon icon={['fab', 'linkedin']} />
-        linkedin.com/in/jeffrey-xiao
-      </ResumeLink>
+      <StyledLink href="https://www.linkedin.com/in/jeffreyxiao">
+        <LinkIcon icon={['fab', 'linkedin']} />
+        linkedin.com/in/jeffreyxiao
+      </StyledLink>
     </div>
     <div>
-      <ResumeLink href="https://devpost.com/jeffreyxiao">
-        <FontAwesomeIcon icon="link" />
+      <StyledLink href="https://devpost.com/jeffreyxiao">
+        <LinkIcon icon="link" />
         devpost.com/jeffreyxiao
-      </ResumeLink>
+      </StyledLink>
     </div>
     <div>
-      <ResumeLink href="https://cdn.jsdelivr.net/gh/jeffrey-xiao/resume@44d2fa668e1dc88e711ca2225af05986fd89a998/resume.pdf">
-        <FontAwesomeIcon icon="file-pdf" />
+      <StyledLink href="https://cdn.jsdelivr.net/gh/jeffrey-xiao/resume@44d2fa668e1dc88e711ca2225af05986fd89a998/resume.pdf">
+        <LinkIcon icon="file-pdf" />
         PDF Version of Resume
-      </ResumeLink>
+      </StyledLink>
     </div>
   </div>
 );
