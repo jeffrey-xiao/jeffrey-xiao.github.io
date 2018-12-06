@@ -64,7 +64,8 @@ $$
 dp[i] = \min_{j > i}\{dp[j] + (S + sumT[i] - sumT[j]) * sumF[i]\}
 $$
 
-Assume that job $j$ is better than job $k$ when determining the best option for job $i$ where $j >
+Assume that job $j$ is better than job $k$ when determining the best option for job $i$ where
+$j >
 k$. Then:
 
 $$
