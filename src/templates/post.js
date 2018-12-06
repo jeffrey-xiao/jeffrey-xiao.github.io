@@ -61,7 +61,7 @@ const PostBody = styled.div`
 
   margin: 0 auto 60px auto;
   position: relative;
-  max-width: 650px;
+  max-width: 675px;
 `;
 
 const PostTitle = styled.h1`
@@ -212,7 +212,7 @@ class PostTemplate extends React.Component {
           shortname="jeffreyxiao"
           identifier={currPost.frontmatter.title.toLowerCase().replace(/ /g, '-')}
           title={currPost.frontmatter.title}
-          url={`https://jeffreyxiao.me/blog${currPost.frontmatter.path}`}
+          url={`https://jeffreyxiao.me/${currPost.frontmatter.path}`}
         />
         {prevPost && (
           <PrevPostLink>
