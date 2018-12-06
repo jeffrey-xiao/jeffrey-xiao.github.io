@@ -15,7 +15,9 @@ tags:
 Over the past month, I tried my hand at emulating the Nintendo Entertainment System and I wanted to
 share my personal experience creating `neso-rs` and some advice to those wanting to make their own.
 My final goal was to compile the project to WebAssembly so that the emulator can be run on the web,
-so I will also share my thoughts on the WebAssembly ecosystem. Links to the source code:
+so I will also share my thoughts on the WebAssembly ecosystem.
+
+Links to the source code:
 
 - [Web frontend](https://github.com/jeffrey-xiao/neso-web)
 - [SDL2 frontend](https://github.com/jeffrey-xiao/neso-gui)
@@ -26,7 +28,7 @@ so I will also share my thoughts on the WebAssembly ecosystem. Links to the sour
 Implementing the CPU is definitely the first task to complete when building an NES emulator from
 scratch. The CPU is a MOS 6502 CPU with the BCD mode stripped off. For me, the CPU was the easiest,
 but least interesting component of the NES. The MOS 6502 is well documented and even a transistor
-level emulator even exists, so it was fairly easy to implement the addressing modes, and
+level emulator even exists, so it was fairly easy to implement the addressing modes, and the
 instructions. I mainly used [Obelisk's 6502 Reference](http://www.obelisk.me.uk/6502/reference.html)
 for most of my implementation. There are some quirks to the CPU (timing when indexing crosses a page
 boundary, `JMP` bug), but these are also all well documented. I did not make a subcycle accurate
@@ -35,7 +37,7 @@ or using a queue of tasks that each take one cycle.
 
 ## Cartridge and NROM
 
-To actually get started on testing, it is necessary to implement Mapper 0 (NROM) and logic for
+To actually get started on testing, it was necessary to implement Mapper 0 (NROM) and logic for
 parsing cartridges. Overall, mapper 0 and handling iNES cartridges were straightforward, and I did
 not have much trouble in this step. After I had the same logs as Nintendulator for `nestest`, I
 moved on to the next component.
@@ -57,10 +59,10 @@ working PPU:
 ## Mappers
 
 After the PPU, I decided to put off learning about the APU to instead implement more mappers. With
-the exception of MMC2 and MMC5, the most complicated logic for popular mappers is PRG ROM or CHR ROM
-banking, and generating interrupts, which are not too bad to implement. I have not gotten around to
-implementing MMC2 because I didn't have a great way of snooping PPU reads, and MMC5 because of its
-complexity.
+the exception of MMC2 and MMC5, the most complicated logic components for popular mappers are
+PRG/CHR ROM banking and generating interrupts, which are not too bad to implement. I have not gotten
+around to implementing MMC2 because I didn't have a great way of snooping PPU reads, and MMC5
+because of its complexity.
 
 ## APU
 
@@ -155,15 +157,16 @@ After a bit more debugging, I finally found the root cause of the issue. To full
 was happening, it is important to grasp _how_ Super Mario Bros was able to scroll the background,
 but keep the status bar in the same place. This effect is done through changing the scroll
 mid-frame. The status bar scanlines always started with a X scroll value of 0, while the background
-scanlines were affected by where Mario is. This can simply be done by writing to `PPUSCROLL` after
-the status bar scanlines were rendered. The way the game knew when the status bar scanlines were
-rendered was through the [sprite-0 hit](https://wiki.nesdev.com/w/index.php?title=Sprite-0_hit). The
-bottom of the coin was actually a sprite, and then when the last status bar scanline was rendered,
-it would cause a sprite-0 hit, signalling to the CPU that it was time to render the background. Now
-the reason why the last scanline of the status bar was shifted was because I was drawing the sprites
-one pixel too high! Duh? Obviously, right? By drawing the coin sprite one pixel too high, the
-sprite-0 hit was being triggered one scanline earlier, which caused the scroll value to change one
-scanline too early!
+scanlines were affected by the position of Mario. This can simply be done by writing to `PPUSCROLL`
+after the status bar scanlines were rendered. The way the game knew when the status bar scanlines
+were rendered was through the
+[sprite-0 hit](https://wiki.nesdev.com/w/index.php?title=Sprite-0_hit). The bottom of the coin was
+actually a sprite, and then when the last status bar scanline was rendered, it would cause a
+sprite-0 hit, signalling to the CPU that it was time to render the background. Now the reason why
+the last scanline of the status bar was shifted was because I was drawing the sprites one pixel too
+high! Duh? Obviously, right? By drawing the coin sprite one pixel too high, the sprite-0 hit was
+being triggered one scanline earlier, which caused the scroll value to change one scanline too
+early!
 
 These were the steps I had to take to resolve just _one_ bug from the countless that I encountered.
 Making an emulator definitely requires an exorbitant amount of patience to slowly pick apart the
@@ -244,7 +247,8 @@ More sophisticated automated tests can be written with actual games. If you poll
 input at the beginning of each frame, it is feasible to play through an actual game and record when
 certain buttons are pressed and released. By feeding this record of button presses and releases back
 into the emulator, you can deterministically replay games and see if the output at each frame has
-changed or not.
+changed or not. Similar logic can be seen in FCEUX's movie file format,
+[FM2](http://www.fceux.com/web/FM2.html).
 
 ### 3. Implement Debugging Infrastructure
 

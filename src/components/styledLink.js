@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { Link } from 'gatsby';
 
+import Link from './link';
 import colors from '../utils/colors';
 
 export default styled(Link)`

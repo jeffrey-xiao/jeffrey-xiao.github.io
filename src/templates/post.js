@@ -119,7 +119,7 @@ const SideContentsLinkWrapper = styled(({ depth, children, ...props }) => (
   <div {...props}>{children}</div>
 ))`
   margin-left: ${(props) => props.depth * 15}px;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 `;
 
 const SideContents = (props) => {
@@ -211,7 +211,7 @@ class PostTemplate extends React.Component {
         <ReactDisqusComments
           shortname="jeffreyxiao"
           identifier={currPost.frontmatter.title.toLowerCase().replace(/ /g, '-')}
-          title="currPost.frontmatter.title"
+          title={currPost.frontmatter.title}
           url={`https://jeffreyxiao.me/blog${currPost.frontmatter.path}`}
         />
         {prevPost && (

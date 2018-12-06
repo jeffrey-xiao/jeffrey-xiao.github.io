@@ -197,31 +197,31 @@ const getEducationSectionComponent = (entry, key) => (
 const LinksSection = () => (
   <div>
     <div>
-      <StyledLink href="mailto:jeffrey.xiao@uwaterloo.ca">
+      <StyledLink to="mailto:jeffrey.xiao@uwaterloo.ca">
         <LinkIcon icon="envelope" />
         jeffrey.xiao@waterloo.ca
       </StyledLink>
     </div>
     <div>
-      <StyledLink href="https://www.github.com/jeffrey-xiao">
+      <StyledLink to="https://www.github.com/jeffrey-xiao">
         <LinkIcon icon={['fab', 'github']} />
         github.com/jeffrey-xiao
       </StyledLink>
     </div>
     <div>
-      <StyledLink href="https://www.linkedin.com/in/jeffreyxiao">
+      <StyledLink to="https://www.linkedin.com/in/jeffreyxiao">
         <LinkIcon icon={['fab', 'linkedin']} />
         linkedin.com/in/jeffreyxiao
       </StyledLink>
     </div>
     <div>
-      <StyledLink href="https://devpost.com/jeffreyxiao">
+      <StyledLink to="https://devpost.com/jeffreyxiao">
         <LinkIcon icon="link" />
         devpost.com/jeffreyxiao
       </StyledLink>
     </div>
     <div>
-      <StyledLink href="https://cdn.jsdelivr.net/gh/jeffrey-xiao/resume@44d2fa668e1dc88e711ca2225af05986fd89a998/resume.pdf">
+      <StyledLink to="https://cdn.jsdelivr.net/gh/jeffrey-xiao/resume@efe4862b7016297f29a6b7c20484dc4ef1efd6d8/resume.pdf">
         <LinkIcon icon="file-pdf" />
         PDF Version of Resume
       </StyledLink>

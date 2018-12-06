@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'gatsby';
 
+import Link from './link';
 import Section from './section';
 import TagLink from './tagLink';
 import UnbrokenStyledLink from './unbrokenStyledLink';

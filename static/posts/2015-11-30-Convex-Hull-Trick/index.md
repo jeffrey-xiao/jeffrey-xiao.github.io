@@ -61,15 +61,16 @@ $$
 With these variables we can define our recurrence:
 
 $$
-dp[i] = \min_{j < i}\{dp[j] + (s + sumT[i] - sumT[j]) * sumF[i]\}
+dp[i] = \min_{j > i}\{dp[j] + (S + sumT[i] - sumT[j]) * sumF[i]\}
 $$
 
-Assume that job $j$ is better than job $k$ when determining the best option for job $i$. Then:
+Assume that job $j$ is better than job $k$ when determining the best option for job $i$ where $j >
+k$. Then:
 
 $$
 \begin{aligned}
-  dp[j] + (s + sumT[i] - sumT[j]) * sumF[i] &\geq dp[k] + (s + sumT[i] - sumT[k]) * sumF[i] \\
-  dp[j] - dp[k]                             &\geq (sumT[j] - sumT[k])*sumF[i]               \\
+  dp[j] + (S + sumT[i] - sumT[j]) * sumF[i] &< dp[k] + (S + sumT[i] - sumT[k]) * sumF[i] \\
+  dp[j] - dp[k]                             &< (sumT[j] - sumT[k])*sumF[i]               \\
   {dp[j] - dp[k]} \over {sumT[j] - sumT[k]} &\geq sumF[i]                                   \\
 \end{aligned}
 $$
