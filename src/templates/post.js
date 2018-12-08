@@ -103,7 +103,7 @@ const NextPostLink = styled(PostLink)`
 
 const SideContentsDiv = styled.span`
   padding: 25px 0 10px 10px;
-  margin: 35px 0 0 25px;
+  margin: 35px 0 0 10px;
   border-left: 3px solid ${colors.accent1()};
   position: absolute;
   left: 100%;
