@@ -107,3 +107,9 @@ int main() {
   return 0;
 }
 ```
+
+_This post is a part of a series of three posts on dynamic programming optimizations:_
+
+1. [Convex Hull Trick](/blog/convex-hull-trick)
+2. [Knuth's Optimization](/blog/knuths-optimization)
+3. [Divide and Conquer Optimization](/blog/divide-and-conquer-optimization)
