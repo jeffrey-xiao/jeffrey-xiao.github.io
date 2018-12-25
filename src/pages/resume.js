@@ -20,6 +20,9 @@ const ResumeBody = styled.div`
   p {
     color: ${colors.base2()};
   }
+  span.emphasis {
+    color: ${colors.accent1()};
+  }
   margin-bottom: 25px;
 `;
 
@@ -221,7 +224,7 @@ const LinksSection = () => (
       </StyledLink>
     </div>
     <div>
-      <StyledLink to="https://cdn.jsdelivr.net/gh/jeffrey-xiao/resume@efe4862b7016297f29a6b7c20484dc4ef1efd6d8/resume.pdf">
+      <StyledLink to="https://s3.amazonaws.com/jeffreyxiao-resume/resume.pdf">
         <LinkIcon icon="file-pdf" />
         PDF Version of Resume
       </StyledLink>
