@@ -96,6 +96,7 @@ const HeaderBio = styled.div`
   margin: ${(props) => (props.isHomepage ? '10px 0 25px 0' : 0)};
   overflow: hidden;
   max-width: 415px;
+  width: 95%;
   display: inline-block;
   line-height: 30px;
   font-size: 20px;
