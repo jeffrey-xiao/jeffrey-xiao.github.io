@@ -1,22 +1,26 @@
 [
   {
-    "title": "Proficient",
+    "title": "Languages",
     "elements": [
-      "Java",
-      "C",
-      "C++",
       "Rust",
+      "C++",
+      "Java",
+      "Scala",
       "Python",
       "JavaScript",
-      "ES6",
-      "React",
-      "Node",
-      "Git",
-      "Linux"
+      "HTML", "CSS",
+      "SQL",
+      "Bash"
     ]
   },
   {
-    "title": "Familiar",
-    "elements": ["C#", "Go", "Bash", "Scala"]
+    "title": "Technologies",
+    "elements": [
+      "React",
+      "Node",
+      "Git",
+      "Linux",
+      "AWS"
+    ]
   }
 ]

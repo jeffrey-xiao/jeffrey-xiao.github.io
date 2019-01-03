@@ -104,6 +104,12 @@ const LinkIcon = styled(FontAwesomeIcon)`
   width: 20px !important;
 `;
 
+const ResumeSectionWrapper = styled.div`
+  &:not(:last-child) {
+    margin-bottom: 15px;
+  }
+`;
+
 // prettier-ignore
 const getPoints = (points) => points
   .map((point) => <li key={point} dangerouslySetInnerHTML={{ __html: point }} />);
@@ -112,7 +118,7 @@ const ResumeSection = (props) => {
   const descriptionPoints = getPoints(props.description);
 
   return (
-    <div style={{ paddingBottom: '15px' }}>
+    <ResumeSectionWrapper>
       <div>
         <LeftHeaderSpan>{props.leftHeader}</LeftHeaderSpan>
         <RightHeaderSpan>{props.rightHeader}</RightHeaderSpan>
@@ -124,7 +130,7 @@ const ResumeSection = (props) => {
         <Clear />
       </div>
       <Description>{descriptionPoints}</Description>
-    </div>
+    </ResumeSectionWrapper>
   );
 };
 
@@ -140,7 +146,7 @@ const EducationSection = (props) => {
   const descriptionPoints = getPoints(props.description);
 
   return (
-    <div style={{ paddingBottom: '15px' }}>
+    <div>
       <div>
         <LeftHeaderSpan>{props.entity}</LeftHeaderSpan>
         <Clear />
@@ -350,9 +356,9 @@ class ResumePage extends React.Component {
         </Helmet>
         <ResumeLeftColumn>
           <SectionHeader>Experience</SectionHeader>
-          {experienceSections}
+          <div>{experienceSections}</div>
           <SectionHeader>Projects</SectionHeader>
-          {projectSections}
+          <div>{projectSections}</div>
         </ResumeLeftColumn>
         <ResumeRightColumn>
           <SectionHeader>Links</SectionHeader>
