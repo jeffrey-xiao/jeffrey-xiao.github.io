@@ -8,19 +8,14 @@
       "Scala",
       "Python",
       "JavaScript",
-      "HTML", "CSS",
+      "HTML",
+      "CSS",
       "SQL",
       "Bash"
     ]
   },
   {
     "title": "Technologies",
-    "elements": [
-      "React",
-      "Node",
-      "Git",
-      "Linux",
-      "AWS"
-    ]
+    "elements": ["React", "Node", "Git", "Linux", "AWS"]
   }
 ]
