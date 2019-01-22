@@ -6,6 +6,7 @@
       "C++",
       "Java",
       "Scala",
+      "Elixir",
       "Python",
       "JavaScript",
       "HTML",
@@ -16,6 +17,6 @@
   },
   {
     "title": "Technologies",
-    "elements": ["React", "Node", "Git", "Linux", "AWS"]
+    "elements": ["React", "Node", "Phoenix", "Git", "Linux", "AWS"]
   }
 ]
