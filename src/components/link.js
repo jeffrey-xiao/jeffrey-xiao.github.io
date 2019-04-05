@@ -11,6 +11,7 @@ const Link = ({ to, children, ...props }) => (
 
 Link.propTypes = {
   to: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
 };
 
 export default Link;
