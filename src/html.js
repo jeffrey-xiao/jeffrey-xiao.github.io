@@ -5,7 +5,7 @@ import favicon from '../static/favicon.ico';
 const HTML = (props) => (
   <html lang="en">
     <head>
-      <meta charset="utf-8" />
+      <meta charSet="utf-8" />
       <meta
         name="description"
         content="Hi, I'm a student at the Unversity of Waterloo studying software engineering"
