@@ -126,6 +126,7 @@ class BlogPage extends React.Component {
 BlogPage.propTypes = {
   pageContext: PropTypes.shape({
     page: PropTypes.number.isRequired,
+    numOfPages: PropTypes.number.isRequired,
     skip: PropTypes.number.isRequired,
     limit: PropTypes.number.isRequired,
     pathPrefix: PropTypes.string.isRequired,
