@@ -14,6 +14,7 @@ import {
   faPlus,
 } from '@fortawesome/free-solid-svg-icons';
 import '@fortawesome/fontawesome-svg-core/styles.css';
+import 'prismjs/plugins/line-numbers/prism-line-numbers.css';
 
 import './index.scss';
 import Footer from '../components/footer';

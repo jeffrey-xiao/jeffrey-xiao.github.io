@@ -39,7 +39,7 @@ const PostBody = styled.div`
       margin: 32px 0 8px 0;
     }
 
-    a {
+    a :not(.anchor) {
       color: ${colors.accent1()};
       transition: all 0.5s;
       &:hover {
