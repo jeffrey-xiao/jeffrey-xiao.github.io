@@ -40,10 +40,10 @@ FooterLink.propTypes = {
 
 const Footer = (props) => (
   <FooterDiv isHomepage={props.activePage === '/'}>
-    <FooterLink url="https://github.com/jeffrey-xiao" icon={['fab', 'github']} />
-    <FooterLink url="https://www.linkedin.com/in/jeffreyxiao" icon={['fab', 'linkedin']} />
-    <FooterLink url="https://www.facebook.com/jeffrey.xiao1998" icon={['fab', 'facebook']} />
-    <FooterLink url="mailto:jeffrey.xiao1998@gmail.com" icon="envelope" />
+    <FooterLink url='https://github.com/jeffrey-xiao' icon={['fab', 'github']} />
+    <FooterLink url='https://www.linkedin.com/in/jeffreyxiao' icon={['fab', 'linkedin']} />
+    <FooterLink url='https://www.facebook.com/jeffrey.xiao1998' icon={['fab', 'facebook']} />
+    <FooterLink url='mailto:jeffrey.xiao1998@gmail.com' icon='envelope' />
   </FooterDiv>
 );
 

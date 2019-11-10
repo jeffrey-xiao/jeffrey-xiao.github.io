@@ -206,10 +206,10 @@ class PostTemplate extends React.Component {
         <PostTitle>{currPost.frontmatter.title}</PostTitle>
         <PostSubtitle>{formattedDate}</PostSubtitle>
         {tags}
-        <div id="post-content" dangerouslySetInnerHTML={{ __html: currPost.html }} />
+        <div id='post-content' dangerouslySetInnerHTML={{ __html: currPost.html }} />
         <SideContents headings={currPost.headings} path={currPost.frontmatter.path} />
         <ReactDisqusComments
-          shortname="jeffreyxiao"
+          shortname='jeffreyxiao'
           identifier={currPost.frontmatter.title.toLowerCase().replace(/ /g, '-')}
           title={currPost.frontmatter.title}
           url={`https://jeffreyxiao.me/${currPost.frontmatter.path}`}

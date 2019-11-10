@@ -72,11 +72,11 @@ const Pagination = (props) => (
   <PaginationDiv>
     <NewerPostsLink to={`${props.pathPrefix}/${props.page - 1}`} active={props.page !== 1}>
       <LargeLinkLabel>
-        <FontAwesomeIcon icon="angle-left" />
+        <FontAwesomeIcon icon='angle-left' />
         &nbsp;Newer Posts
       </LargeLinkLabel>
       <SmallLinkLabel>
-        <FontAwesomeIcon icon="angle-left" />
+        <FontAwesomeIcon icon='angle-left' />
         &nbsp;Newer
       </SmallLinkLabel>
     </NewerPostsLink>
@@ -86,11 +86,11 @@ const Pagination = (props) => (
     >
       <LargeLinkLabel>
         Older Posts&nbsp;
-        <FontAwesomeIcon icon="angle-right" />
+        <FontAwesomeIcon icon='angle-right' />
       </LargeLinkLabel>
       <SmallLinkLabel>
         Older&nbsp;
-        <FontAwesomeIcon icon="angle-right" />
+        <FontAwesomeIcon icon='angle-right' />
       </SmallLinkLabel>
     </OlderPostsLink>
     <PaginationLabel>{`${props.page}/${props.numOfPages}`}</PaginationLabel>

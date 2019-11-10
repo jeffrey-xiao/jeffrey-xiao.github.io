@@ -46,7 +46,7 @@ const Layout = (props) => (
     <Helmet>
       <title>Jeffrey Xiao</title>
       <meta
-        name="description"
+        name='description'
         content={`
           Jeffrey Xiao. I&#39;m a student at the University of Waterloo with an interest in
           distributed systems and scalable infrastructure design.

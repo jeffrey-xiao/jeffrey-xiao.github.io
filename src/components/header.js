@@ -128,10 +128,10 @@ const Header = (props) => {
           also enjoy working with low level systems.
         </HeaderBio>
         <Navbar>
-          <NavbarLink activePage={props.activePage} currentPage="home" />
-          <NavbarLink activePage={props.activePage} currentPage="resume" />
-          <NavbarLink activePage={props.activePage} currentPage="projects" />
-          <NavbarLink activePage={props.activePage} currentPage="blog" />
+          <NavbarLink activePage={props.activePage} currentPage='home' />
+          <NavbarLink activePage={props.activePage} currentPage='resume' />
+          <NavbarLink activePage={props.activePage} currentPage='projects' />
+          <NavbarLink activePage={props.activePage} currentPage='blog' />
         </Navbar>
       </HeaderWrapper>
     </HeaderParent>

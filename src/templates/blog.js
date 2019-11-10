@@ -103,7 +103,7 @@ class BlogPage extends React.Component {
           pathPrefix={pageContext.pathPrefix}
         />
         <BlogLeftColumn>
-          <PostList posts={pagePosts} tagFilter="" />
+          <PostList posts={pagePosts} tagFilter='' />
         </BlogLeftColumn>
         <BlogRightColumn>
           <TagList tagCount={tagCount} />

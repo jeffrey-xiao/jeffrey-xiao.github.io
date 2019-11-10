@@ -206,32 +206,32 @@ const getEducationSectionComponent = (entry, key) => (
 const LinksSection = () => (
   <div>
     <div>
-      <StyledLink to="mailto:jeffrey.xiao@uwaterloo.ca">
-        <LinkIcon icon="envelope" />
+      <StyledLink to='mailto:jeffrey.xiao@uwaterloo.ca'>
+        <LinkIcon icon='envelope' />
         jeffrey.xiao@waterloo.ca
       </StyledLink>
     </div>
     <div>
-      <StyledLink to="https://www.github.com/jeffrey-xiao">
+      <StyledLink to='https://www.github.com/jeffrey-xiao'>
         <LinkIcon icon={['fab', 'github']} />
         github.com/jeffrey-xiao
       </StyledLink>
     </div>
     <div>
-      <StyledLink to="https://www.linkedin.com/in/jeffreyxiao">
+      <StyledLink to='https://www.linkedin.com/in/jeffreyxiao'>
         <LinkIcon icon={['fab', 'linkedin']} />
         linkedin.com/in/jeffreyxiao
       </StyledLink>
     </div>
     <div>
-      <StyledLink to="https://devpost.com/jeffreyxiao">
-        <LinkIcon icon="link" />
+      <StyledLink to='https://devpost.com/jeffreyxiao'>
+        <LinkIcon icon='link' />
         devpost.com/jeffreyxiao
       </StyledLink>
     </div>
     <div>
-      <StyledLink to="https://s3.amazonaws.com/jeffreyxiao-resume/resume.pdf">
-        <LinkIcon icon="file-pdf" />
+      <StyledLink to='https://s3.amazonaws.com/jeffreyxiao-resume/resume.pdf'>
+        <LinkIcon icon='file-pdf' />
         PDF Version of Resume
       </StyledLink>
     </div>
