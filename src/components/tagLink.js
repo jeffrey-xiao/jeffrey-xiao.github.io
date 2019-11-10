@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-import colors from '../utils/colors';
+import colors from "../utils/colors";
 
 export default styled.span`
   a {
@@ -8,7 +8,7 @@ export default styled.span`
     letter-spacing: 1.5px;
     text-decoration: none;
     color: ${colors.accent1()};
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: "Josefin Sans", sans-serif;
     font-weight: bold;
   }
 

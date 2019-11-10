@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-import colors from '../utils/colors';
+import colors from "../utils/colors";
 
 export default styled.div`
   margin: 0 10px 50px 10px;

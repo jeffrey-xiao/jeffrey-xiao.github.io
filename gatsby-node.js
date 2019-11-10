@@ -1,4 +1,4 @@
-const path = require('path');
+const path = require("path");
 
 const PAGE_SIZE = 5;
 
@@ -34,7 +34,7 @@ function paginate(createPage, pathPrefix, tags, template, numOfPosts) {
 }
 
 function createBlogPages(createPage, posts) {
-  const blogTemplate = path.resolve('src/templates/blog.js');
+  const blogTemplate = path.resolve("src/templates/blog.js");
   const tags = new Set();
 
   posts.forEach((post) => {
@@ -43,11 +43,11 @@ function createBlogPages(createPage, posts) {
     });
   });
 
-  paginate(createPage, '/blog', Array.from(tags), blogTemplate, posts.length);
+  paginate(createPage, "/blog", Array.from(tags), blogTemplate, posts.length);
 }
 
 function createPostPages(createPage, posts) {
-  const postTemplate = path.resolve('src/templates/post.js');
+  const postTemplate = path.resolve("src/templates/post.js");
   const numOfPosts = posts.length;
 
   for (let i = 0; i < numOfPosts; i += 1) {
@@ -64,7 +64,7 @@ function createPostPages(createPage, posts) {
 }
 
 function createTagPages(createPage, posts) {
-  const tagTemplate = path.resolve('src/templates/blog.js');
+  const tagTemplate = path.resolve("src/templates/blog.js");
   const tags = {};
 
   posts.forEach((post) => {
@@ -77,7 +77,7 @@ function createTagPages(createPage, posts) {
   });
 
   Object.keys(tags).forEach((tag) => {
-    const tagSlug = tag.toLowerCase().replace(/ /g, '-');
+    const tagSlug = tag.toLowerCase().replace(/ /g, "-");
     paginate(createPage, `/blog/tags/${tagSlug}`, [tag], tagTemplate, tags[tag].length);
   });
 }

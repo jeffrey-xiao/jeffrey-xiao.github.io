@@ -8,7 +8,7 @@ tags:
   - Math
 ---
 
-![Team Photo in Front of MIT](images/HMMT.png 'Team Photo in Front of MIT')
+![Team Photo in Front of MIT](images/HMMT.png "Team Photo in Front of MIT")
 
 ## Introduction
 

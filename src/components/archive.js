@@ -1,26 +1,26 @@
-import PropTypes from 'prop-types';
-import React from 'react';
-import styled from 'styled-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import PropTypes from "prop-types";
+import React from "react";
+import styled from "styled-components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import Section from './section';
-import SectionHeader from './sectionHeader';
-import StyledLink from './styledLink';
-import colors from '../utils/colors';
+import Section from "./section";
+import SectionHeader from "./sectionHeader";
+import StyledLink from "./styledLink";
+import colors from "../utils/colors";
 
 const months = [
-  'January',
-  'February',
-  'March',
-  'April',
-  'May',
-  'June',
-  'July',
-  'August',
-  'September',
-  'October',
-  'November',
-  'December',
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
 ];
 
 const ArchiveLinkWrapper = styled.div`
@@ -47,24 +47,24 @@ const NestedLabel = styled.span`
 
 const NestedLabelWrapper = styled.div`
   cursor: pointer;
-  padding-top: ${(props) => (props.filterType === 'month' ? '10px' : '5px')};
+  padding-top: ${(props) => (props.filterType === "month" ? "10px" : "5px")};
   opacity: 1 !important;
   height: auto !important;
   display: block;
   position: relative;
-  font-family: 'Josefin Sans', sans-serif;
-  z-index: ${(props) => (props.filterType === 'month' ? 3 : 1)} !important;
+  font-family: "Josefin Sans", sans-serif;
+  z-index: ${(props) => (props.filterType === "month" ? 3 : 1)} !important;
   color: ${colors.base1()};
 `;
 
 const NestedLinkWrapper = styled.div`
   padding-left: ${(props) => (props.filterValue ? 15 : 0)}px;
   overflow: hidden;
-  min-height: ${(props) => (props.filterType === 'month' ? 30 : 0)}px;
+  min-height: ${(props) => (props.filterType === "month" ? 30 : 0)}px;
   & > div {
     opacity: ${(props) => (props.active ? 1 : 0)};
-    height: ${(props) => (props.active ? 'auto' : 0)};
-    z-index: ${(props) => (props.active ? 'auto' : -1)};
+    height: ${(props) => (props.active ? "auto" : 0)};
+    z-index: ${(props) => (props.active ? "auto" : -1)};
   }
 `;
 
@@ -89,7 +89,7 @@ class NestedLink extends React.Component {
           onClick={this.toggleActive}
           filterValue={this.props.filterValue}
         >
-          <NestedIcon icon={this.state.active ? 'minus' : 'plus'} />
+          <NestedIcon icon={this.state.active ? "minus" : "plus"} />
           <NestedLabel>{`${this.props.filterValue} (${this.props.posts.length})`}</NestedLabel>
         </NestedLabelWrapper>,
       );
@@ -101,7 +101,7 @@ class NestedLink extends React.Component {
         const postDate = new Date(post.node.frontmatter.date_created);
 
         // filterType should be '', 'year', or 'month'
-        const isYear = this.props.filterType === 'year';
+        const isYear = this.props.filterType === "year";
         const filterTarget = isYear ? postDate.getFullYear() : postDate.getMonth();
 
         if (!buckets.has(filterTarget)) {
@@ -116,8 +116,8 @@ class NestedLink extends React.Component {
             key={key}
             active={this.state.active}
             posts={value}
-            filterType={this.props.filterType === 'year' ? 'month' : ''}
-            filterValue={this.props.filterType === 'year' ? String(key) : months[key]}
+            filterType={this.props.filterType === "year" ? "month" : ""}
+            filterValue={this.props.filterType === "year" ? String(key) : months[key]}
           />,
         );
       });
@@ -149,15 +149,15 @@ class NestedLink extends React.Component {
 
 NestedLink.propTypes = {
   active: PropTypes.bool.isRequired,
-  filterType: PropTypes.oneOf(['year', 'month', '']).isRequired,
+  filterType: PropTypes.oneOf(["year", "month", ""]).isRequired,
   filterValue: PropTypes.string.isRequired,
   posts: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 const Archive = (props) => (
-  <Section style={{ textAlign: 'center' }}>
+  <Section style={{ textAlign: "center" }}>
     <SectionHeader>Archive</SectionHeader>
-    <NestedLink active posts={props.posts} filterType='year' filterValue='' />
+    <NestedLink active posts={props.posts} filterType="year" filterValue="" />
   </Section>
 );
 

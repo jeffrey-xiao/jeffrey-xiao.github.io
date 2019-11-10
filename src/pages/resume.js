@@ -1,13 +1,13 @@
-import PropTypes from 'prop-types';
-import React from 'react';
-import styled from 'styled-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Helmet } from 'react-helmet';
-import { graphql } from 'gatsby';
+import PropTypes from "prop-types";
+import React from "react";
+import styled from "styled-components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Helmet } from "react-helmet";
+import { graphql } from "gatsby";
 
-import Clear from '../components/clear';
-import StyledLink from '../components/styledLink';
-import colors from '../utils/colors';
+import Clear from "../components/clear";
+import StyledLink from "../components/styledLink";
+import colors from "../utils/colors";
 
 const ResumeBody = styled.div`
   a {
@@ -53,7 +53,7 @@ const ResumeRightColumn = styled.div`
 `;
 
 const BaseSpan = styled.span`
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   display: inline-block;
   margin-bottom: 4px;
   @media only screen and (max-width: 32em) {
@@ -88,12 +88,12 @@ const LeftSubsubheaderSpan = styled(RightHeaderSpan)`
 
 const Description = styled.ul`
   margin: 4px 0 0 -14px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   list-style-type: none;
   color: ${colors.base2()};
 
   li:before {
-    content: '–';
+    content: "–";
     position: absolute;
     margin-left: -18px;
   }
@@ -206,32 +206,32 @@ const getEducationSectionComponent = (entry, key) => (
 const LinksSection = () => (
   <div>
     <div>
-      <StyledLink to='mailto:jeffrey.xiao@uwaterloo.ca'>
-        <LinkIcon icon='envelope' />
+      <StyledLink to="mailto:jeffrey.xiao@uwaterloo.ca">
+        <LinkIcon icon="envelope" />
         jeffrey.xiao@waterloo.ca
       </StyledLink>
     </div>
     <div>
-      <StyledLink to='https://www.github.com/jeffrey-xiao'>
-        <LinkIcon icon={['fab', 'github']} />
+      <StyledLink to="https://www.github.com/jeffrey-xiao">
+        <LinkIcon icon={["fab", "github"]} />
         github.com/jeffrey-xiao
       </StyledLink>
     </div>
     <div>
-      <StyledLink to='https://www.linkedin.com/in/jeffreyxiao'>
-        <LinkIcon icon={['fab', 'linkedin']} />
+      <StyledLink to="https://www.linkedin.com/in/jeffreyxiao">
+        <LinkIcon icon={["fab", "linkedin"]} />
         linkedin.com/in/jeffreyxiao
       </StyledLink>
     </div>
     <div>
-      <StyledLink to='https://devpost.com/jeffreyxiao'>
-        <LinkIcon icon='link' />
+      <StyledLink to="https://devpost.com/jeffreyxiao">
+        <LinkIcon icon="link" />
         devpost.com/jeffreyxiao
       </StyledLink>
     </div>
     <div>
-      <StyledLink to='https://s3.amazonaws.com/jeffreyxiao-resume/resume.pdf'>
-        <LinkIcon icon='file-pdf' />
+      <StyledLink to="https://s3.amazonaws.com/jeffreyxiao-resume/resume.pdf">
+        <LinkIcon icon="file-pdf" />
         PDF Version of Resume
       </StyledLink>
     </div>
@@ -243,7 +243,7 @@ const AwardDate = styled.p`
   width: 40px;
   vertical-align: top;
   padding-right: 20px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   margin: 4px 0;
   color: ${colors.base1()};
 `;
@@ -251,7 +251,7 @@ const AwardDate = styled.p`
 const AwardTitle = styled.p`
   display: inline-block;
   width: calc(100% - 60px);
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   margin: 4px 0;
   color: ${colors.base1()};
 `;
@@ -302,7 +302,7 @@ class ResumePage extends React.Component {
   componentDidMount() {
     this.node.style.opacity = 0;
     window.requestAnimationFrame(() => {
-      this.node.style.transition = 'opacity 1000ms ease-out';
+      this.node.style.transition = "opacity 1000ms ease-out";
       this.node.style.opacity = 1;
     });
   }
@@ -338,8 +338,8 @@ class ResumePage extends React.Component {
         <div key={entry.node.title}>
           <SectionSubheader>{entry.node.title}</SectionSubheader>
           <p
-            style={{ marginTop: '0' }}
-            dangerouslySetInnerHTML={{ __html: entry.node.elements.join(', ') }}
+            style={{ marginTop: "0" }}
+            dangerouslySetInnerHTML={{ __html: entry.node.elements.join(", ") }}
           />
         </div>,
       );

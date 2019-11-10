@@ -1,11 +1,11 @@
-import PropTypes from 'prop-types';
-import React from 'react';
-import styled from 'styled-components';
-import { Helmet } from 'react-helmet';
-import { graphql } from 'gatsby';
+import PropTypes from "prop-types";
+import React from "react";
+import styled from "styled-components";
+import { Helmet } from "react-helmet";
+import { graphql } from "gatsby";
 
-import ProjectCard from '../components/projectCard';
-import colors from '../utils/colors';
+import ProjectCard from "../components/projectCard";
+import colors from "../utils/colors";
 
 const ProjectsBody = styled.div`
   span.emphasis {
@@ -40,7 +40,7 @@ class ProjectsPage extends React.Component {
   componentDidMount() {
     this.node.style.opacity = 0;
     window.requestAnimationFrame(() => {
-      this.node.style.transition = 'opacity 1000ms ease-out';
+      this.node.style.transition = "opacity 1000ms ease-out";
       this.node.style.opacity = 1;
     });
   }

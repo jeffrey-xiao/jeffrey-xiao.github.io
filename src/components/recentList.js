@@ -1,19 +1,19 @@
-import PropTypes from 'prop-types';
-import React from 'react';
-import styled from 'styled-components';
+import PropTypes from "prop-types";
+import React from "react";
+import styled from "styled-components";
 
-import Section from './section';
-import SectionHeader from './sectionHeader';
-import StyledLink from './styledLink';
+import Section from "./section";
+import SectionHeader from "./sectionHeader";
+import StyledLink from "./styledLink";
 
 const RecentLinksList = styled.ul`
   margin: 0 auto;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   list-style-type: none;
   text-align: left;
 
   li:before {
-    content: '–';
+    content: "–";
     position: absolute;
     margin-left: -18px;
   }
@@ -37,7 +37,7 @@ const RecentList = (props) => {
   });
 
   return (
-    <Section style={{ textAlign: 'center' }}>
+    <Section style={{ textAlign: "center" }}>
       <SectionHeader>Recent Posts</SectionHeader>
       <RecentLinksList>{recentLinks}</RecentLinksList>
     </Section>

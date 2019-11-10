@@ -1,8 +1,8 @@
-import PropTypes from 'prop-types';
-import React from 'react';
-import styled from 'styled-components';
+import PropTypes from "prop-types";
+import React from "react";
+import styled from "styled-components";
 
-import colors from '../utils/colors';
+import colors from "../utils/colors";
 
 const ProjectWrapper = styled.div`
   box-sizing: border-box;
@@ -41,7 +41,7 @@ const ProjectImageLink = styled.a`
 const ProjectTitle = styled.h1`
   text-transform: uppercase;
   text-align: center;
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: "Josefin Sans", sans-serif;
   font-size: 20px;
   margin: 5px;
   color: ${colors.base1()};

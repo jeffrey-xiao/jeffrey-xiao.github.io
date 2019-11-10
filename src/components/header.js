@@ -1,15 +1,15 @@
-import PropTypes from 'prop-types';
-import React from 'react';
-import styled from 'styled-components';
+import PropTypes from "prop-types";
+import React from "react";
+import styled from "styled-components";
 
-import Link from './link';
-import colors from '../utils/colors';
+import Link from "./link";
+import colors from "../utils/colors";
 
 const Navbar = styled.div`
   padding-bottom: 25px;
   text-align: center !important;
   transition: all 0.4s;
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: "Josefin Sans", sans-serif;
   margin-bottom: 30px;
 `;
 
@@ -41,10 +41,10 @@ class NavbarLink extends React.Component {
 
   getSanitizedActivePage() {
     const ret = this.props.activePage.substr(1);
-    if (ret === '') {
-      return 'home';
+    if (ret === "") {
+      return "home";
     }
-    return ret.split('/')[0];
+    return ret.split("/")[0];
   }
 
   toggleHover() {
@@ -54,8 +54,8 @@ class NavbarLink extends React.Component {
   render() {
     let target;
 
-    if (this.props.currentPage === 'home') {
-      target = '/';
+    if (this.props.currentPage === "home") {
+      target = "/";
     } else {
       target = `/${this.props.currentPage}`;
     }
@@ -81,26 +81,26 @@ NavbarLink.propTypes = {
 const HeaderParent = styled.div`
   transition: all 0.4s;
   position: relative;
-  transform: translateY(${(props) => (props.isHomepage ? '50vh' : 0)});
+  transform: translateY(${(props) => (props.isHomepage ? "50vh" : 0)});
   margin: 0 -20px;
 `;
 
 const HeaderWrapper = styled.div`
   transition: all 0.4s;
   text-align: center !important;
-  transform: translateY(${(props) => (props.isHomepage ? '-50%' : 0)});
+  transform: translateY(${(props) => (props.isHomepage ? "-50%" : 0)});
 `;
 
 const HeaderBio = styled.div`
-  height: ${(props) => (props.isHomepage ? 'auto' : 0)};
-  margin: ${(props) => (props.isHomepage ? '10px 0 25px 0' : 0)};
+  height: ${(props) => (props.isHomepage ? "auto" : 0)};
+  margin: ${(props) => (props.isHomepage ? "10px 0 25px 0" : 0)};
   overflow: hidden;
   max-width: 415px;
   width: 95%;
   display: inline-block;
   line-height: 30px;
   font-size: 20px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-weight: lighter;
   text-align: center !important;
   color: ${colors.base1()};
@@ -108,16 +108,16 @@ const HeaderBio = styled.div`
 
 const HeaderTitle = styled.div`
   text-align: center !important;
-  padding-top: ${(props) => (props.isHomepage ? '0' : '25px')};
+  padding-top: ${(props) => (props.isHomepage ? "0" : "25px")};
   font-size: 60px;
   color: ${colors.base1()};
   margin: 0px;
   font-weight: normal;
-  font-family: 'Josefin Slab', sans-serif;
+  font-family: "Josefin Slab", sans-serif;
 `;
 
 const Header = (props) => {
-  const isHomepage = props.activePage === '/';
+  const isHomepage = props.activePage === "/";
   return (
     <HeaderParent isHomepage={isHomepage}>
       <HeaderWrapper isHomepage={isHomepage}>
@@ -128,10 +128,10 @@ const Header = (props) => {
           also enjoy working with low level systems.
         </HeaderBio>
         <Navbar>
-          <NavbarLink activePage={props.activePage} currentPage='home' />
-          <NavbarLink activePage={props.activePage} currentPage='resume' />
-          <NavbarLink activePage={props.activePage} currentPage='projects' />
-          <NavbarLink activePage={props.activePage} currentPage='blog' />
+          <NavbarLink activePage={props.activePage} currentPage="home" />
+          <NavbarLink activePage={props.activePage} currentPage="resume" />
+          <NavbarLink activePage={props.activePage} currentPage="projects" />
+          <NavbarLink activePage={props.activePage} currentPage="blog" />
         </Navbar>
       </HeaderWrapper>
     </HeaderParent>

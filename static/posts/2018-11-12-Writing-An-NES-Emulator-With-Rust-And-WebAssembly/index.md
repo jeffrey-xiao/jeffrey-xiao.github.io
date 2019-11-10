@@ -130,14 +130,14 @@ previous side projects, I felt that I made steady progress every time I worked o
 PPU, there were countless times when I felt that I've hit a wall and could not progress. You could
 have a mostly working implementation with a couple small bugs that make the game unrecognizable.
 
-![Donkey Kong Rendering Attempt](images/donkey-kong-rendering-attempt.png 'My first attempt at rendering the title screen of Donkey Kong in grayscale.')
+![Donkey Kong Rendering Attempt](images/donkey-kong-rendering-attempt.png "My first attempt at rendering the title screen of Donkey Kong in grayscale.")
 
 Many of these bugs are subtle and could require hours of debugging and digging into. The majority of
 my time spent on the PPU was tracing the rendering pipeline to squash bugs. In particular, I spent
 an embarrassing amount of time fixing an issue with my PPU when I started to test with Super Mario
 Bros.
 
-![Super Mario Bros Rendering Bug](images/super-mario-bros-rendering-bug.png 'Super Mario Bros Rendering Bug')
+![Super Mario Bros Rendering Bug](images/super-mario-bros-rendering-bug.png "Super Mario Bros Rendering Bug")
 
 As you can see, the very last line of the status bar is shifted to the left. I first compared the
 CPU logs between my emulator and [Nintendulator](https://www.qmtpro.com/~nes/nintendulator/) to see
@@ -268,7 +268,7 @@ useful for me. I was able to fix issues related to mirroring and scrolling by ex
 of the nametables, and figure out if I was doing CHR ROM banking correctly by checking if the
 expected sprite and background data showed up in the pattern tables.
 
-![Castlevania Debug Views](images/castlevania-debug-views.png 'Castlevania Debug Views')
+![Castlevania Debug Views](images/castlevania-debug-views.png "Castlevania Debug Views")
 
 Implementing these debug views also requires a solid understand of how the pattern tables,
 nametables, object attribute memory (OAM), attribute tables, and palettes work together, which makes

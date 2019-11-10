@@ -12,7 +12,7 @@ tags:
   - Physics
 ---
 
-![Playing Rocket League During Downtime](images/hack-uoft.jpg 'Playing Rocket League During Downtime')
+![Playing Rocket League During Downtime](images/hack-uoft.jpg "Playing Rocket League During Downtime")
 
 ## Introduction
 
@@ -38,7 +38,7 @@ Logically, there would also be shoulder, knee, and elbow joints that could suffi
 basic human movement and dancing. A rotation on a joint would "propagated" to all the children
 joints. It would look something like this:
 
-![Tree Diagram of Body](images/body.png 'Tree Diagram of Body')
+![Tree Diagram of Body](images/body.png "Tree Diagram of Body")
 
 If the right hip joint was targeted (green), the rotation would also propagate to the right upper
 leg, right knee, and right lower leg (blue). So after we implemented the tree structure of the body,

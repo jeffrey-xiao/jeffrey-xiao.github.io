@@ -8,7 +8,7 @@ tags:
   - Programming
 ---
 
-![Old Personal Website With Angular 1](images/angular-site.png 'Old Personal Website With Angular 1')
+![Old Personal Website With Angular 1](images/angular-site.png "Old Personal Website With Angular 1")
 
 ## Introduction
 

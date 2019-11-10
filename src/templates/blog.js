@@ -1,20 +1,20 @@
-import PropTypes from 'prop-types';
-import React from 'react';
-import styled from 'styled-components';
-import { Helmet } from 'react-helmet';
-import { graphql } from 'gatsby';
+import PropTypes from "prop-types";
+import React from "react";
+import styled from "styled-components";
+import { Helmet } from "react-helmet";
+import { graphql } from "gatsby";
 
-import Archive from '../components/archive';
-import Clear from '../components/clear';
-import Pagination from '../components/pagination';
-import PostList from '../components/postList';
-import RecentList from '../components/recentList';
-import TagList from '../components/tagList';
-import colors from '../utils/colors';
+import Archive from "../components/archive";
+import Clear from "../components/clear";
+import Pagination from "../components/pagination";
+import PostList from "../components/postList";
+import RecentList from "../components/recentList";
+import TagList from "../components/tagList";
+import colors from "../utils/colors";
 
 const getTagName = (pathPrefix) => {
-  const tokens = pathPrefix.split('/');
-  return tokens[tokens.length - 1].replace(/-/g, ' ');
+  const tokens = pathPrefix.split("/");
+  return tokens[tokens.length - 1].replace(/-/g, " ");
 };
 
 const BlogBody = styled.div`
@@ -62,7 +62,7 @@ class BlogPage extends React.Component {
   componentDidMount() {
     this.node.style.opacity = 0;
     window.requestAnimationFrame(() => {
-      this.node.style.transition = 'opacity 1000ms ease-out';
+      this.node.style.transition = "opacity 1000ms ease-out";
       this.node.style.opacity = 1;
     });
   }
@@ -103,7 +103,7 @@ class BlogPage extends React.Component {
           pathPrefix={pageContext.pathPrefix}
         />
         <BlogLeftColumn>
-          <PostList posts={pagePosts} tagFilter='' />
+          <PostList posts={pagePosts} tagFilter="" />
         </BlogLeftColumn>
         <BlogRightColumn>
           <TagList tagCount={tagCount} />

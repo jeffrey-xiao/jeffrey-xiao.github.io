@@ -10,8 +10,9 @@
   },
   "rules": {
     "arrow-parens": ["error", "always"],
-    "react/destructuring-assignment": 0,
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+    "quotes": ["error", "double"],
+    "react/destructuring-assignment": ["off"],
+    "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }]
   },
   "env": {
     "browser": true

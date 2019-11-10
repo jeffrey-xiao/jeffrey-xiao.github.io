@@ -1,12 +1,12 @@
-import PropTypes from 'prop-types';
-import React from 'react';
-import styled from 'styled-components';
+import PropTypes from "prop-types";
+import React from "react";
+import styled from "styled-components";
 
-import Link from './link';
-import Section from './section';
-import TagLink from './tagLink';
-import UnbrokenStyledLink from './unbrokenStyledLink';
-import colors from '../utils/colors';
+import Link from "./link";
+import Section from "./section";
+import TagLink from "./tagLink";
+import UnbrokenStyledLink from "./unbrokenStyledLink";
+import colors from "../utils/colors";
 
 const PostTitle = styled.h2`
   margin-top: 5px;
@@ -29,29 +29,29 @@ const PostTagLinks = styled.div`
 
 const PostDescription = styled.div`
   color: ${colors.base2()};
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   margin-bottom: 5px;
 `;
 
 class PostCard extends React.Component {
   constructor(props) {
     super(props);
-    this.description = '';
+    this.description = "";
   }
 
   componentDidMount() {
-    let description = '';
+    let description = "";
     if (document) {
-      const doc = document.createElement('html');
+      const doc = document.createElement("html");
       doc.innerHTML = this.props.html;
-      const paragraphs = doc.getElementsByTagName('p');
+      const paragraphs = doc.getElementsByTagName("p");
 
       for (let i = 0; description.length === 0 && i < paragraphs.length; i += 1) {
         const intro = paragraphs[i].textContent.trim();
-        const words = intro.split(' ');
-        description = words.slice(0, Math.min(words.length, 50)).join(' ');
+        const words = intro.split(" ");
+        description = words.slice(0, Math.min(words.length, 50)).join(" ");
       }
-      this.description = `${description.replace(/[^A-Za-z0-9]$/g, '')}…`;
+      this.description = `${description.replace(/[^A-Za-z0-9]$/g, "")}…`;
       this.forceUpdate();
     }
   }
@@ -62,19 +62,19 @@ class PostCard extends React.Component {
     this.props.tags.forEach((tag) => {
       tagLinks.push(
         <TagLink key={tag}>
-          <Link to={`/blog/tags/${tag.toLowerCase().replace(/ /g, '-')}`}>{tag}</Link>
+          <Link to={`/blog/tags/${tag.toLowerCase().replace(/ /g, "-")}`}>{tag}</Link>
         </TagLink>,
       );
     });
 
     const dateOptions = {
-      weekday: 'short',
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric',
+      weekday: "short",
+      year: "numeric",
+      month: "short",
+      day: "numeric",
     };
     const formattedDate = new Date(this.props.date_created).toLocaleDateString(
-      'en-US',
+      "en-US",
       dateOptions,
     );
 
@@ -109,7 +109,7 @@ const PostList = (props) => {
       },
     } = post;
 
-    if (props.tagFilter === '' || tags.indexOf(tag) !== -1) {
+    if (props.tagFilter === "" || tags.indexOf(tag) !== -1) {
       posts.push(
         <PostCard
           key={post.node.frontmatter.path}

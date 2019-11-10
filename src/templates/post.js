@@ -1,23 +1,23 @@
-import PropTypes from 'prop-types';
-import React from 'react';
-import ReactDisqusComments from 'react-disqus-comments';
-import styled from 'styled-components';
-import { Helmet } from 'react-helmet';
-import { graphql, Link } from 'gatsby';
-import 'prismjs/themes/prism-solarizedlight.css';
-import 'katex/dist/katex.min.css';
+import PropTypes from "prop-types";
+import React from "react";
+import ReactDisqusComments from "react-disqus-comments";
+import styled from "styled-components";
+import { Helmet } from "react-helmet";
+import { graphql, Link } from "gatsby";
+import "prismjs/themes/prism-solarizedlight.css";
+import "katex/dist/katex.min.css";
 
-import Clear from '../components/clear';
-import StyledLink from '../components/styledLink';
-import TagLink from '../components/tagLink';
-import colors from '../utils/colors';
+import Clear from "../components/clear";
+import StyledLink from "../components/styledLink";
+import TagLink from "../components/tagLink";
+import colors from "../utils/colors";
 
 const PostBody = styled.div`
   div#post-content {
-    font-family: 'Open Sans', sans-serif;
+    font-family: "Open Sans", sans-serif;
     pre,
     code {
-      font-family: 'Inconsolata', monospace;
+      font-family: "Inconsolata", monospace;
       line-height: 20px;
     }
 
@@ -53,7 +53,7 @@ const PostBody = styled.div`
 
     .gatsby-resp-image-figcaption {
       text-align: center;
-      font-family: 'Open Sans', sans-serif;
+      font-family: "Open Sans", sans-serif;
       color: ${colors.base2()};
       font-style: italic;
     }
@@ -82,7 +82,7 @@ const PostSubtitle = styled.h4`
 const PostLink = styled.div`
   width: 40%;
   text-transform: uppercase;
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: "Josefin Sans", sans-serif;
 `;
 
 const PrevPostLink = styled(PostLink)`
@@ -127,8 +127,8 @@ const SideContents = (props) => {
   const headingLinkMap = new Map();
   // prettier-ignore
   const getHeadingLink = (heading) => heading
-    .replace(/[^0-9a-zA-Z_ ]/g, '')
-    .replace(/ /g, '-')
+    .replace(/[^0-9a-zA-Z_ ]/g, "")
+    .replace(/ /g, "-")
     .toLowerCase();
 
   props.headings.forEach((heading) => {
@@ -164,7 +164,7 @@ class PostTemplate extends React.Component {
   componentDidMount() {
     this.node.style.opacity = 0;
     window.requestAnimationFrame(() => {
-      this.node.style.transition = 'opacity 1000ms ease-out';
+      this.node.style.transition = "opacity 1000ms ease-out";
       this.node.style.opacity = 1;
     });
   }
@@ -176,20 +176,20 @@ class PostTemplate extends React.Component {
     const tags = [];
 
     const dateOptions = {
-      weekday: 'long',
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
     };
     const formattedDate = new Date(currPost.frontmatter.date_created).toLocaleDateString(
-      'en-US',
+      "en-US",
       dateOptions,
     );
 
     currPost.frontmatter.tags.forEach((tagName) => {
       tags.push(
         <TagLink key={tagName}>
-          <Link to={`/blog/tags/${tagName.toLowerCase().replace(/ /g, '-')}`}>{tagName}</Link>
+          <Link to={`/blog/tags/${tagName.toLowerCase().replace(/ /g, "-")}`}>{tagName}</Link>
         </TagLink>,
       );
     });
@@ -206,24 +206,24 @@ class PostTemplate extends React.Component {
         <PostTitle>{currPost.frontmatter.title}</PostTitle>
         <PostSubtitle>{formattedDate}</PostSubtitle>
         {tags}
-        <div id='post-content' dangerouslySetInnerHTML={{ __html: currPost.html }} />
+        <div id="post-content" dangerouslySetInnerHTML={{ __html: currPost.html }} />
         <SideContents headings={currPost.headings} path={currPost.frontmatter.path} />
         <ReactDisqusComments
-          shortname='jeffreyxiao'
-          identifier={currPost.frontmatter.title.toLowerCase().replace(/ /g, '-')}
+          shortname="jeffreyxiao"
+          identifier={currPost.frontmatter.title.toLowerCase().replace(/ /g, "-")}
           title={currPost.frontmatter.title}
           url={`https://jeffreyxiao.me/${currPost.frontmatter.path}`}
         />
         {prevPost && (
           <PrevPostLink>
             <StyledLink to={prevPost.frontmatter.path}>Previous Post</StyledLink>
-            <div style={{ marginTop: '5px' }}>{prevPost.frontmatter.title}</div>
+            <div style={{ marginTop: "5px" }}>{prevPost.frontmatter.title}</div>
           </PrevPostLink>
         )}
         {nextPost && (
           <NextPostLink>
             <StyledLink to={nextPost.frontmatter.path}>Next Post</StyledLink>
-            <div style={{ marginTop: '5px' }}>{nextPost.frontmatter.title}</div>
+            <div style={{ marginTop: "5px" }}>{nextPost.frontmatter.title}</div>
           </NextPostLink>
         )}
         <Clear />

@@ -1,10 +1,10 @@
-import PropTypes from 'prop-types';
-import React from 'react';
-import styled from 'styled-components';
+import PropTypes from "prop-types";
+import React from "react";
+import styled from "styled-components";
 
-import Section from './section';
-import SectionHeader from './sectionHeader';
-import UnbrokenStyledLink from './unbrokenStyledLink';
+import Section from "./section";
+import SectionHeader from "./sectionHeader";
+import UnbrokenStyledLink from "./unbrokenStyledLink";
 
 const TagBody = styled.div`
   width: 60%;
@@ -33,7 +33,7 @@ const TagList = (props) => {
 
   Array.from(tagCount.entries()).forEach(([key, value]) => {
     tagLinks.push(
-      <TagLink key={key} to={`/blog/tags/${key.toLowerCase().replace(/ /g, '-')}`}>
+      <TagLink key={key} to={`/blog/tags/${key.toLowerCase().replace(/ /g, "-")}`}>
         {`${key} (${value})`}
       </TagLink>,
     );

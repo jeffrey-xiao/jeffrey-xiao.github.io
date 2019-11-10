@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:300|Josefin+Slab:400|Inconsolata:400|Open+Sans:300,400');
+@import url("https://fonts.googleapis.com/css?family=Josefin+Sans:300|Josefin+Slab:400|Inconsolata:400|Open+Sans:300,400");
 
 html,
 body,
@@ -20,13 +20,13 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: "Josefin Sans", sans-serif;
 }
 
 p {
   font-size: 16px;
   line-height: 22px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 .gatsby-highlight {
@@ -36,7 +36,7 @@ p {
   padding: 1em;
   overflow: auto;
 }
-.gatsby-highlight pre[class*='language-'].line-numbers {
+.gatsby-highlight pre[class*="language-"].line-numbers {
   padding: 0;
   padding-left: 2.8em;
   overflow: initial;

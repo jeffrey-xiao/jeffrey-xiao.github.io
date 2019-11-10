@@ -1,9 +1,9 @@
-import PropTypes from 'prop-types';
-import React from 'react';
-import styled from 'styled-components';
-import { Helmet } from 'react-helmet';
-import { config, library } from '@fortawesome/fontawesome-svg-core';
-import { faFacebook, faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import PropTypes from "prop-types";
+import React from "react";
+import styled from "styled-components";
+import { Helmet } from "react-helmet";
+import { config, library } from "@fortawesome/fontawesome-svg-core";
+import { faFacebook, faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import {
   faAngleLeft,
   faAngleRight,
@@ -12,13 +12,13 @@ import {
   faFilePdf,
   faMinus,
   faPlus,
-} from '@fortawesome/free-solid-svg-icons';
-import '@fortawesome/fontawesome-svg-core/styles.css';
-import 'prismjs/plugins/line-numbers/prism-line-numbers.css';
+} from "@fortawesome/free-solid-svg-icons";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+import "prismjs/plugins/line-numbers/prism-line-numbers.css";
 
-import './index.scss';
-import Footer from '../components/footer';
-import Header from '../components/header';
+import "./index.scss";
+import Footer from "../components/footer";
+import Header from "../components/header";
 
 library.add(
   faFacebook,
@@ -46,7 +46,7 @@ const Layout = (props) => (
     <Helmet>
       <title>Jeffrey Xiao</title>
       <meta
-        name='description'
+        name="description"
         content={`
           Jeffrey Xiao. I&#39;m a student at the University of Waterloo with an interest in
           distributed systems and scalable infrastructure design.

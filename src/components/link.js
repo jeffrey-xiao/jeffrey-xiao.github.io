@@ -1,6 +1,6 @@
-import PropTypes from 'prop-types';
-import React from 'react';
-import { Link as GatsbyLink } from 'gatsby';
+import PropTypes from "prop-types";
+import React from "react";
+import { Link as GatsbyLink } from "gatsby";
 
 // prettier-ignore
 const Link = ({ to, children, ...props }) => (

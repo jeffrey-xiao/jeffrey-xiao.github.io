@@ -10,7 +10,7 @@ tags:
   - Machine learning
 ---
 
-![Hack Western Team](images/hack-western.jpg 'Hack Western Team')
+![Hack Western Team](images/hack-western.jpg "Hack Western Team")
 
 ## Introduction
 
@@ -61,7 +61,7 @@ frequent keywords. After implementing
 (it was a surprise that I still knew how it worked!), we tested our program and it yielded pretty
 nice results.
 
-![Jim Kyte Entry](images/jim-kyte-entry.jpg 'Jim Kyte Entry')
+![Jim Kyte Entry](images/jim-kyte-entry.jpg "Jim Kyte Entry")
 
 **Whew!** A big portion of our backend was completed at this point. We checked the time and to our
 surprise, only 11 hours had passed -- we still had over two-thirds of the hackathon left. The
